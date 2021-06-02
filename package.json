@@ -8,8 +8,8 @@
   },
   "private": true,
   "engines": {
-    "node": "6.10.1",
-    "npm": "3.10.10"
+    "node": "16.0.0",
+    "npm": "7.10.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
