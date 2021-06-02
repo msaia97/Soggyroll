@@ -1,6 +1,4 @@
 class Api::UserController < ApplicationController
-    before_action :require_login, only: [:update, :destroy, :show]
-
     def create
         @user = User.new(user_params)
 
