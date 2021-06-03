@@ -6,12 +6,14 @@ class SessionForm extends React.Component{
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            email: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoUser = this.demoUser.bind(this);
         this.insertDemoUser= this.insertDemoUser.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.enterEmail = this.enterEmail.bind(this);
     }
 
     update(field){
@@ -45,6 +47,21 @@ class SessionForm extends React.Component{
         this.props.processForm(user);
     }
 
+    enterEmail(){
+        if(this.props.formType === 'signup'){
+            return(
+                <div className="email-input">
+                    <label>Email:
+                        <input type="text"
+                        value={this.state.email}
+                        onChange={this.update('email')}
+                         />
+                    </label>
+                </div>
+            )
+        }
+    }
+
     renderErrors(){
         return(
             <ul>
@@ -67,6 +84,8 @@ class SessionForm extends React.Component{
                     <div className="login-form">
                         <br />
                         {this.renderErrors()}
+                        <br />
+                        {this.enterEmail()}
                         <label>Username:
                             <input type="text"
                                 value={this.state.username}
