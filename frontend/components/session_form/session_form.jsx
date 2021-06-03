@@ -41,6 +41,7 @@ class SessionForm extends React.Component{
         )
         }
     }
+
     handleSubmit(e){
         e.preventDefault();
         const user = Object.assign({}, this.state);
@@ -60,7 +61,16 @@ class SessionForm extends React.Component{
                 </div>
             )
         }
-    }
+    }  
+
+    // disableButton(){
+    //     return(
+    //         <div>
+    //             <input type="text" value={this.props.formType} onChange={handleSubmit}/>
+    //             <button disabled={!this.props.formType}>{this.props.formType}</button> 
+    //         </div>
+    //     )
+    // }
 
     renderErrors(){
         return(
@@ -102,6 +112,7 @@ class SessionForm extends React.Component{
                             />
                         </label>
                         <br />
+                        {/* {this.disableButton} */}
                         <input className="session-submit"
                             type="submit" 
                             value={this.props.formType}
