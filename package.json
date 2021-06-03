@@ -16,6 +16,10 @@
     "postinstall": "webpack",
     "start": "webpack --watch --mode=development"
   },
+  "engines": {
+    "node": "16.0.0",
+    "npm": "7.10.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://https://github.com/msaia97/Soggyroll.git"
