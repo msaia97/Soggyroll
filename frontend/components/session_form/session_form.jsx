@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class SessionForm extends React.Component{
     constructor(props){
         super(props);
@@ -8,12 +9,22 @@ class SessionForm extends React.Component{
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demo = this.demo.bind(this);
     }
 
     update(field){
         return e => this.setState({
             [field]: e.currentTarget.value
         });
+    }
+
+   demo(e){
+      e.preventDefault()
+      const user = {
+        username: "CoryInDaHouse", 
+        password: "BaxterBaddie"
+      }
+      this.props.processForm(user).then(() => this.props.history.push('/'))
     }
 
     handleSubmit(e){
@@ -64,6 +75,9 @@ class SessionForm extends React.Component{
                             type="submit" 
                             value={this.props.formType}
                         />
+                        <br />
+                        <p>No account? Sign in as a demo user!</p>
+                        <button onClick={this.demo}>Demo User</button>
                     </div>
                 </form>
             </div>

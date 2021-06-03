@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
+
 const Homepage = ({ currentUser, logout }) => {
   const sessionLinks = () => (
     <nav className="login-signup">

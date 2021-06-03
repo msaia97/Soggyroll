@@ -10,8 +10,9 @@ const mSTP = ({ errors }) => ({
     navLink:  <Link to='/signup'>sign up instead</Link>
 });
 
-const mDTP = (dispatch) => ({
+const mDTP = (dispatch) => {
+    return{
     processForm: (user) => dispatch(login(user))
-})
+}};
 
 export default connect(mSTP, mDTP)(SessionForm);

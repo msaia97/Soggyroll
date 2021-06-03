@@ -9,11 +9,18 @@ import Homepage from './homepage/homepage';
 
 const App = () => (
     <div>
-        <Homepage />
+        <header>
+            <Link to="/" className="header-link">
+                <h1>Soggyroll</h1>
+            </Link>
+            <Homepage />
+        </header>
+        <br />
         <Switch>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
         </Switch>
+        
     </div>
 );
 
