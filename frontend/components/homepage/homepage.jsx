@@ -18,8 +18,6 @@ const Homepage = ({ currentUser, logout }) => {
     </hgroup>
    )};
 
-console.log(currentUser);
-
   return currentUser ? personalHomepage() : sessionLinks();
 };
 
