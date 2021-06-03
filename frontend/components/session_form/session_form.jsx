@@ -9,7 +9,9 @@ class SessionForm extends React.Component{
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.demo = this.demo.bind(this);
+        this.demoUser = this.demoUser.bind(this);
+        this.insertDemoUser= this.insertDemoUser.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     update(field){
@@ -18,15 +20,25 @@ class SessionForm extends React.Component{
         });
     }
 
-   demo(e){
+   demoUser(e){
       e.preventDefault()
-      const user = {
+      const demoUser = {
         username: "CoryInDaHouse", 
         password: "BaxterBaddie"
       }
-      this.props.processForm(user).then(() => this.props.history.push('/'))
+      this.props.processForm(demoUser).then(() => this.props.history.push('/'))
     }
 
+    insertDemoUser () {
+        if (this.props.formType === 'login') {
+        return (
+            <div className='demo-login'>
+            <h2>No Account? Try a demo!</h2>
+            <button onClick={this.demoUser}>demo</button>
+            </div>
+        )
+        }
+    }
     handleSubmit(e){
         e.preventDefault();
         const user = Object.assign({}, this.state);
@@ -52,9 +64,9 @@ class SessionForm extends React.Component{
                     Welcome to Soggyroll!
                     <br />
                     Please {this.props.formType} or {this.props.navLink}
-                    {this.renderErrors()}
                     <div className="login-form">
                         <br />
+                        {this.renderErrors()}
                         <label>Username:
                             <input type="text"
                                 value={this.state.username}
@@ -76,8 +88,7 @@ class SessionForm extends React.Component{
                             value={this.props.formType}
                         />
                         <br />
-                        <p>No account? Sign in as a demo user!</p>
-                        <button onClick={this.demo}>Demo User</button>
+                         {this.insertDemoUser()}
                     </div>
                 </form>
             </div>

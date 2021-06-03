@@ -11,12 +11,14 @@ const Homepage = ({ currentUser, logout }) => {
       <Link to="/signup">Sign up!</Link>
     </nav>
   );
-  const personalHomepage = () => (
-    <hgroup className="header-group">
+  const personalHomepage = () => {
+   return (<hgroup className="header-group">
       <h2 className="header-name">Hi, {currentUser.username}!</h2>
       <button className="header-button" onClick={logout}>Log Out</button>
     </hgroup>
-  );
+   )};
+
+console.log(currentUser);
 
   return currentUser ? personalHomepage() : sessionLinks();
 };

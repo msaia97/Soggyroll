@@ -5,7 +5,7 @@ import { Route, Redirect, Switch, Link, Hashrouter } from 'react-router-dom';
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import { AuthRoute } from '../util/route_util';
-import Homepage from './homepage/homepage';
+import Homepage from './homepage/homepage_container';
 
 const App = () => (
     <div>

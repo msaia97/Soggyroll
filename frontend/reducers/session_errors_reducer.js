@@ -6,12 +6,12 @@ import {
 export default (state = [], action) => {
     Object.freeze(state);
 
-    switch(action.type){
-        default:
-            return state;
-        case RECEIVE_SESSION_ERRORS:
-            return action.errors;
-        case RECEIVE_CURRENT_USER:
-            return [];
+    switch (action.type) {
+      case RECEIVE_SESSION_ERRORS:
+        return action.errors;
+      case RECEIVE_CURRENT_USER:
+        return [];
+      default:
+        return state;
     }
 };
