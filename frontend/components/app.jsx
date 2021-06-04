@@ -6,6 +6,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import { AuthRoute } from '../util/route_util';
 import Homepage from './homepage/homepage_container';
+import NotFoundPage from './not_found_page';
 
 const App = () => (
     <div>
@@ -13,12 +14,15 @@ const App = () => (
             <Link to="/" className="header-link">
                 <h1>Soggyroll</h1>
             </Link>
-            <Homepage />
+            {/* <Homepage /> */}
         </header>
         <br />
         <Switch>
+            <Route exact path = "/" component ={Homepage}/>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
+            <Route path="/404" component={NotFoundPage} />
+            <Redirect to="/404" />    
         </Switch>
         
     </div>
