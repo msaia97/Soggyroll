@@ -1,15 +1,15 @@
 class Api::ShowsController < ApplicationController
     def index
         @shows = Show.all
-        render :index
+        render 'api/shows/index'
     end
     
     def show
         @show = Show.find(params[:id])
         if @show
-            render :show
+            render 'api/shows/show'
         else 
-            render json: @show.errors.full_messages
+            render json: @show.errors.full_messages, status: 404
         end 
     end
 
