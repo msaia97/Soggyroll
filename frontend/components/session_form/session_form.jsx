@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+
 class SessionForm extends React.Component{
     constructor(props){
         super(props);
@@ -41,6 +42,11 @@ class SessionForm extends React.Component{
         )
         }
     }
+  
+    componentWillUnmount() {
+        this.props.removeErrors();
+    }
+
 
     handleSubmit(e){
         e.preventDefault();
@@ -71,6 +77,7 @@ class SessionForm extends React.Component{
                         {error}
                     </li>
                 ))}
+               
             </ul>
         );
     }
@@ -117,3 +124,4 @@ class SessionForm extends React.Component{
 }
 
 export default SessionForm;
+
