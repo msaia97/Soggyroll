@@ -10,6 +10,7 @@
 #  updated_at      :datetime         not null
 #  email           :string           not null
 #
+# would need an authorId column if we want to do comments 
 class User < ApplicationRecord
     validates :username, :password_digest, :session_token,:email, presence: true
     validates :username, :email, uniqueness: true
@@ -17,6 +18,8 @@ class User < ApplicationRecord
 
     attr_reader :password
     after_initialize :ensure_session_token
+
+    # associations with queue and maybe comments
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
