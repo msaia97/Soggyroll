@@ -1,4 +1,4 @@
-import { RECEIVE_SHOW, RECEIVE_ALL_SHOWS} from '../actions/show_actions';
+import { RECEIVE_SHOW, RECEIVE_ALL_SHOWS} from '../../actions/show_actions';
 
 const showReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -6,9 +6,11 @@ const showReducer = (state = {}, action) => {
 
     switch(action.type){
         case RECEIVE_SHOW:
-            return newState[action.shows.id] = action.shows
+            return Object.assign({}, state, {
+                [action.showId.id]: action.showId
+            })
         case RECEIVE_ALL_SHOWS:
-            return action.shows
+            return Object.assign({}, state, action.shows)
         default:
             return state;
     }

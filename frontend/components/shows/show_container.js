@@ -3,16 +3,17 @@ import { receiveShow, receiveAllShows } from '../../actions/show_actions';
 
 import Shows from './shows';
 
-const mSTP = (state, ownProps) => {
-    const {title} = ownProps
+const mSTP = (state) => {
+   console.log(state);
     return{ 
-        shows: title 
+        title: state.entities.shows.title,
+        description: state.entities.shows.description
     }
 }
 
 const mDTP = dispatch => {
     return{
-        receiveShow: show => dispatch(receiveShow(show)),
+        receiveShow: showId => dispatch(receiveShow(showId)),
         receiveAllShows: shows => dispatch(receiveAllShows(shows))
     };
 }

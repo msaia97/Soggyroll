@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 class SessionForm extends React.Component{
     constructor(props){
         super(props);
@@ -30,14 +28,19 @@ class SessionForm extends React.Component{
         password: "BaxterBaddie"
       }
       this.props.processForm(demoUser).then(() => this.props.history.push('/'))
-    }
+    }           
 
     insertDemoUser () {
-        if (this.props.formType === 'login') {
+        if (this.props.formType === 'Log in') {
         return (
             <div className='demo-login'>
-            <h2>No Account? Try a demo!</h2>
-            <button onClick={this.demoUser}>demo</button>
+                <h2>No Account? Try a demo!</h2>
+                <br />
+                <input className="demo-button"
+                     type="submit"
+                     value="Demo"
+                     onClick={this.demoUser}
+                />
             </div>
         )
         }
@@ -53,12 +56,13 @@ class SessionForm extends React.Component{
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
     }
+    
 
     enterEmail(){
-        if(this.props.formType === 'signup'){
+        if(this.props.formType === 'Sign up'){
             return(
                 <div className="email-input">
-                    <label>Email:
+                    <label>Email
                         <input type="text"
                         value={this.state.email}
                         onChange={this.update('email')}
@@ -86,35 +90,40 @@ class SessionForm extends React.Component{
         return(
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    Welcome to Soggyroll!
                     <br />
-                    Please {this.props.formType} or {this.props.navLink}
+                    <div className="login-signup-choice">
+                     {this.props.formType} or {this.props.navLink}
+                    </div>
                     <div className="login-form">
                         <br />
                         {this.renderErrors()}
                         <br />
                         {this.enterEmail()}
-                        <label>Username:
-                            <input type="text"
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                className="login-input"
-                            />
-                        </label>
                         <br />
-                        <label>Password:
-                            <input type="password"
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                                className="login-input"
-                            />
-                        </label>
+                        <div className="username-input">
+                            <label>Username
+                                <input type="text"
+                                    value={this.state.username}
+                                    onChange={this.update('username')}
+                                    className="login-input"
+                                />
+                            </label>
+                        </div>
+                        <br />
+                        <div className="password-input">
+                            <label>Password
+                                <input type="password"
+                                    value={this.state.password}
+                                    onChange={this.update('password')}
+                                    className="login-input"
+                                />
+                            </label>
+                        </div>
                         <br />
                         <input className="session-submit"
                             type="submit" 
                             value={this.props.formType}
                         />
-                        <br />
                          {this.insertDemoUser()}
                     </div>
                 </form>

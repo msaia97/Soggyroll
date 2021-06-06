@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 class Shows extends React.Component {
     constructor(props){
         super(props);
+        console.log(this.props)
         this.state = {
             title: '',
             decription: ''
         };
-        // this.handleClick() = this.handleClick.bind(this);
     }
 
     // not sure if this function will work but could make the 
@@ -25,22 +25,23 @@ class Shows extends React.Component {
 
     render(){
         return(
-            <div>
-                <li>{this.state.title}</li>
-                <li>{this.state.description}</li>
+            <div className="show-template" >
+                <li>Test</li>
+                <li>{this.props.title}</li>
+                <li>{this.props.description}</li>
             </div>
 
-            //could possibly look like this
+            // could possibly look like this
             // <div className="shows">
             //     <div className="show-img">
             //         <img src="" />
             //     </div>
             //     <div className="show-title">
             //         <a href="">{this.props.title}</a>
-            //                  or
-            //          <Link to="/shows/{this.props.id}" className="show-title-link">
-    //                      <b>{this.props.title}</b>
-    //                  </Link>
+            //                  or */}
+            //          {/* <Link to="/shows/{this.props.id}" className="show-title-link"> */}
+            //              <b>{this.props.title}</b>
+            //          {/* </Link>
             //     </div>
             // </div>
         )

@@ -7,6 +7,7 @@ import LoginFormContainer from './session_form/login_form_container';
 import { AuthRoute } from '../util/route_util';
 import Homepage from './homepage/homepage_container';
 import NotFoundPage from './not_found_page';
+import ShowLibrary from './shows/show_library';
 
 const App = () => (
     <div>
@@ -21,6 +22,7 @@ const App = () => (
             <Route exact path = "/" component ={Homepage}/>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
+            <Route exact path = "/shows" component ={ShowLibrary}/>
             <Route path="/404" component={NotFoundPage} />
             <Redirect to="/404" />    
         </Switch>

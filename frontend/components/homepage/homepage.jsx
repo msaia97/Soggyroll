@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ShowLibrary from '../shows/show_library_container';
 
 
 
@@ -12,10 +13,15 @@ const Homepage = ({ currentUser, logout }) => {
     </nav>
   );
   const personalHomepage = () => {
-   return (<hgroup className="header-group">
-      <h2 className="header-name">Hi, {currentUser.username}!</h2>
-      <button className="header-button" onClick={logout}>Log Out</button>
-    </hgroup>
+   return (
+     <div className="show-homepage">
+        <hgroup className="header-group">
+          <h2 className="header-name">Hi, {currentUser.username}!</h2>
+          <button className="header-button" onClick={logout}>Log Out</button>
+          
+        </hgroup>
+        <ShowLibrary />
+    </div>
    )};
 
   return currentUser ? personalHomepage() : sessionLinks();
