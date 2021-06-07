@@ -62,8 +62,13 @@
 .username-input{
     display:block;
     width:80px;
-    font-size: 20px;
-    // height
+    height: 30px;
+    // font-size: 20px;
+    // min-height: 200px;
+}
+.username-input input{
+    width: 200px;
+    height: 25px;
 }
 
 // email input textbox
@@ -71,6 +76,11 @@
      display:block;
      width:60px;
     //  font-size: 16px;
+}
+
+.email-input input{
+    width: 200px;
+    height: 25px;
 }
 
 // password input textbox
@@ -84,6 +94,11 @@
     // border: .1em solid #a5a2a2;
     // font-size: 1em;
     // line-height: 1.8;
+}
+
+.password-input input{
+    width: 200px;
+    height: 25px;
 }
 // demo login text
 .demo-login > h2{

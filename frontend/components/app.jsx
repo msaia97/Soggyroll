@@ -7,12 +7,12 @@ import LoginFormContainer from './session_form/login_form_container';
 import { AuthRoute } from '../util/route_util';
 import Homepage from './homepage/homepage_container';
 import NotFoundPage from './not_found_page';
-import ShowLibrary from './shows/show_library_container';
+import AnimeLibrary from './animes/anime_library_container';
 
 const App = () => (
     <div>
         <header>
-            <Link to="/shows" className="header-link">
+            <Link to="/" className="header-link">
                 <h1>Soggyroll</h1>
             </Link>
             {/* <Homepage /> */}
@@ -22,7 +22,7 @@ const App = () => (
             <Route exact path = "/" component ={Homepage}/>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <Route path = "/shows" component={ShowLibrary}/>
+            <Route path = "/animes" component={AnimeLibrary}/>
             <Route path="/404" component={NotFoundPage} />
             <Redirect to="/404" />    
         </Switch>

@@ -1,32 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { receiveShow } from '../../actions/show_actions';
+// import { receiveShow } from '../../actions/show_actions';
 
-class Shows extends React.Component {
+class Animes extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            show: {},//this.props.show,
+            anime: {},//this.props.show,
             title: '', //this.props.title,
             description: '' //this.props.description
         };
-        // this.componentDidMount = this.componentDidMount
-        // .bind(this);
     }
 
 
     componentDidMount(){
-        //  this.props.receiveShow(this.props.showId)
-        this.props.getShow(this.props.show.id);
+        this.props.getAnime(this.props.anime.id);
     }
 
 
     render(){
         return(
-            <div className="show-template" >
+            <div className="anime-template" >
                 <br />
-                <li>{this.props.show.title}</li>
-                <li>{this.props.show.description}</li>
+                <li>{this.props.anime.title}</li>
+                <li>{this.props.anime.description}</li>
                 <br />
             </div>
 
@@ -47,4 +44,4 @@ class Shows extends React.Component {
     }
 }
 
-export default Shows;
+export default Animes;

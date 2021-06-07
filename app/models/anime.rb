@@ -8,7 +8,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-class Show < ApplicationRecord
+class Anime < ApplicationRecord
     validates :title, presence: true, uniqueness: true
     validates :description, presence: true
 

@@ -10,7 +10,6 @@
 #  updated_at      :datetime         not null
 #  email           :string           not null
 #
-# would need an authorId column if we want to do comments 
 class User < ApplicationRecord
     validates :username, :password_digest, :session_token,:email, presence: true
     validates :username, :email, uniqueness: true

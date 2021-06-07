@@ -96,8 +96,6 @@ class SessionForm extends React.Component{
                     </div>
                     <div className="login-form">
                         <br />
-                        {this.renderErrors()}
-                        <br />
                         {this.enterEmail()}
                         <br />
                         <div className="username-input">
@@ -110,6 +108,7 @@ class SessionForm extends React.Component{
                             </label>
                         </div>
                         <br />
+                        
                         <div className="password-input">
                             <label>Password
                                 <input type="password"
@@ -125,6 +124,8 @@ class SessionForm extends React.Component{
                             value={this.props.formType}
                         />
                          {this.insertDemoUser()}
+                          <br />
+                        {this.renderErrors()}
                     </div>
                 </form>
             </div>
