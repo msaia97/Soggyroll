@@ -4,9 +4,8 @@ export const getShow = (showId) => {
     })
 };
 
-export const getShows = (shows) => {
+export const getShows = () => {
     return $.ajax({
-        url: '/api/shows',
-        data: {shows}
+        url: '/api/shows'
     })
 }

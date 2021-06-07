@@ -18,9 +18,9 @@ const Homepage = ({ currentUser, logout }) => {
         <hgroup className="header-group">
           <h2 className="header-name">Hi, {currentUser.username}!</h2>
           <button className="header-button" onClick={logout}>Log Out</button>
-          
         </hgroup>
-        <ShowLibrary />
+        <Link to="/shows">Show Library</Link>
+        {/* <ShowLibrary /> */}
     </div>
    )};
 

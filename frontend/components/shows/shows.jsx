@@ -1,39 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { receiveShow } from '../../actions/show_actions';
 
 class Shows extends React.Component {
     constructor(props){
         super(props);
-        console.log(this.props)
         this.state = {
-            title: '',
-            decription: ''
+            show: {},//this.props.show,
+            title: '', //this.props.title,
+            description: '' //this.props.description
         };
+        // this.componentDidMount = this.componentDidMount
+        // .bind(this);
     }
+
 
     componentDidMount(){
-        this.setState({title: this.props.title,
-        description: this.props.description});
+        //  this.props.receiveShow(this.props.showId)
+        this.props.getShow(this.props.show.id);
     }
 
-    // not sure if this function will work but could make the 
-    // titles link to the show's show page
-
-    // handleClick(e){
-    //     e.preventDefault();
-    //     return(
-    //         <Link to="/shows/{this.props.id}" className="show-title-link">
-    //             <b>{this.props.title}</b>
-    //         </Link>
-    //     )
-    // }
 
     render(){
         return(
             <div className="show-template" >
-                <li>Test</li>
-                <li>{this.props.title}</li>
-                <li>{this.props.description}</li>
+                <br />
+                <li>{this.props.show.title}</li>
+                <li>{this.props.show.description}</li>
+                <br />
             </div>
 
             // could possibly look like this

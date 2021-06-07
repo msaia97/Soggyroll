@@ -1,8 +1,11 @@
 // Title of soggyroll on page
 .header-link{
-    font-size: 25px;
+    font-size: 30px;
+    font-weight:600;
     display: flex;
     justify-content: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: orange;
 }
 //entire login session component
 .login-form-container{
@@ -58,8 +61,9 @@
 // username input textbox
 .username-input{
     display:block;
-    width:60px;
+    width:80px;
     font-size: 20px;
+    // height
 }
 
 // email input textbox
@@ -87,27 +91,33 @@
      font-size: 20px;
 }
 
-// labels for login
-// .username-input > label{
-//     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-//     font-size: 20px;
-// }
-// .password-input > label{
-//     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-//     font-size: 20px;
-// }
-// .email-input > label{
-//     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-//     font-size: 20px;
-// }
-
-// the choice that switches betwwn login or sign up
-// .login-signup-choice{
-//     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-//     font-size: 20px;
-// }
-
 .login-form-container{
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 20px;
+}
+
+.show-homepage{
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}
+
+// logout button
+.header-button{
+    box-sizing: border-box;
+    display: block;
+    // margin: 0 auto 1.5em auto;
+    width: 100px;
+    padding: 20px;
+    // width: 100%;
+    border: 0;
+    border-bottom: .125em solid;
+    border-radius: .5625em;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 15px;;
+    text-align: center;
+    background-color: #f78c25;
+    border-color: #b78142;
+    color: rgb(100%,100%,100%);
+    cursor: pointer;
 }

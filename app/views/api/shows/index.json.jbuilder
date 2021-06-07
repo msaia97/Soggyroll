@@ -1,3 +1,5 @@
 @shows.each do |show|
-    json.partial 'show',  show: @show
+    json.set! show.id do 
+        json.partial! 'show',  show: show
+    end
 end 
