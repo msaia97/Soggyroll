@@ -13,5 +13,6 @@ class Show < ApplicationRecord
     validates :description, presence: true
 
     # associations with queue and episodes
+    has_one_attached :cover_photo
 
 end

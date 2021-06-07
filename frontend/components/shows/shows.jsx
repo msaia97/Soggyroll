@@ -11,6 +11,11 @@ class Shows extends React.Component {
         };
     }
 
+    componentDidMount(){
+        this.setState({title: this.props.title,
+        description: this.props.description});
+    }
+
     // not sure if this function will work but could make the 
     // titles link to the show's show page
 

@@ -5,7 +5,9 @@ class ShowLibrary extends React.Component {
     constructor(props){
         super(props);
         console.log(this.props)
-        // this.state = 
+        this.state = {
+            shows: this.props.shows
+        }
     }
  
     render(){
