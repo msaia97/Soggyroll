@@ -16085,3 +16085,23 @@ Migrating to ChangeShowToAnime (20210607203533)
   ↳ /Users/masonsaia/.rbenv/versions/2.5.1/bin/annotate:23
   [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /Users/masonsaia/.rbenv/versions/2.5.1/bin/annotate:23
+  [1m[36mAnime Load (0.9ms)[0m  [1m[34mSELECT  "animes".* FROM "animes" ORDER BY "animes"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAnime Load (0.9ms)[0m  [1m[34mSELECT  "animes".* FROM "animes" ORDER BY "animes"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (3.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+[36m  S3 Storage (251.5ms) [0m[32mUploaded file to key: cjCVLC5PdrnmmnjaPNny8Ymt (checksum: WZ5GDVUNT5+7jxzpKM5FXw==)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveStorage::Blob Create (4.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "cjCVLC5PdrnmmnjaPNny8Ymt"], ["filename", "onePiecePic.jpeg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 32783], ["checksum", "WZ5GDVUNT5+7jxzpKM5FXw=="], ["created_at", "2021-06-07 22:06:42.854388"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveStorage::Attachment Create (19.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "cover_photo"], ["record_type", "Anime"], ["record_id", 1], ["blob_id", 1], ["created_at", "2021-06-07 22:06:42.902475"]]
+  [1m[36mAnime Update (0.7ms)[0m  [1m[33mUPDATE "animes" SET "updated_at" = $1 WHERE "animes"."id" = $2[0m  [["updated_at", "2021-06-07 22:06:42.926150"], ["id", 1]]
+  [1m[35m (9.9ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 1ad574a7-7984-4338-9de3-f9d3156d0a35) to Async(default) with arguments: #<GlobalID:0x00007fc31c8c5c30 @uri=#<URI::GID gid://soggyroll/ActiveStorage::Blob/1>>
+  [1m[36mActiveStorage::Blob Load (2.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1ad574a7-7984-4338-9de3-f9d3156d0a35] Performing ActiveStorage::AnalyzeJob (Job ID: 1ad574a7-7984-4338-9de3-f9d3156d0a35) from Async(default) with arguments: #<GlobalID:0x00007fc318611df8 @uri=#<URI::GID gid://soggyroll/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1ad574a7-7984-4338-9de3-f9d3156d0a35] [36m  S3 Storage (232.8ms) [0m[34mDownloaded file from key: cjCVLC5PdrnmmnjaPNny8Ymt[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1ad574a7-7984-4338-9de3-f9d3156d0a35] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1ad574a7-7984-4338-9de3-f9d3156d0a35]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1ad574a7-7984-4338-9de3-f9d3156d0a35]   [1m[36mActiveStorage::Blob Update (1.0ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1ad574a7-7984-4338-9de3-f9d3156d0a35]   [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1ad574a7-7984-4338-9de3-f9d3156d0a35] Performed ActiveStorage::AnalyzeJob (Job ID: 1ad574a7-7984-4338-9de3-f9d3156d0a35) from Async(default) in 439.74ms

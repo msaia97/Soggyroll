@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'open-uri'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -41,7 +42,7 @@ gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'web-console', '>=3.3.0'
+  # gem 'web-console', '>=3.3.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'better_errors'
   gem 'binding_of_caller'
