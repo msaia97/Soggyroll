@@ -25004,3 +25004,749 @@ Processing by Api::AnimesController#index as JSON
 Completed 200 OK in 253ms (Views: 227.9ms | ActiveRecord: 22.0ms)
 
 
+Started DELETE "/api/session" for ::1 at 2021-06-08 11:55:46 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "wUGVv_uVb0h_lYic8hZAig"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (3.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "CoryInDaHouse"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "whitehouse@myhouse.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Update (3.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "RMnxt_ABvTz3Y9-gZkZ9EQ"], ["updated_at", "2021-06-08 18:55:46.078948"], ["id", 1]]
+  ↳ app/models/user.rb:41
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:41
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (7.2ms)
+Completed 200 OK in 64ms (Views: 34.4ms | ActiveRecord: 15.7ms)
+
+
+Started POST "/api/session" for ::1 at 2021-06-08 11:55:48 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"CoryInDaHouse", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "CoryInDaHouse"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "CoryInDaHouse"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "whitehouse@myhouse.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "MqficfL_gZ6f2a8gmz9iBw"], ["updated_at", "2021-06-08 18:55:49.325120"], ["id", 1]]
+  ↳ app/models/user.rb:41
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:41
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (3.9ms)
+Completed 200 OK in 393ms (Views: 22.6ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/animes" for ::1 at 2021-06-08 11:55:49 -0700
+Processing by Api::AnimesController#index as JSON
+  Rendering api/animes/index.json.jbuilder
+  [1m[36mAnime Load (3.4ms)[0m  [1m[34mSELECT "animes".* FROM "animes"[0m
+  ↳ app/views/api/animes/index.json.jbuilder:1
+  Rendered api/animes/_anime.json.jbuilder (0.7ms)
+  [1m[36mActiveStorage::Attachment Load (33.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (46.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (32.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (6.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (2.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (1.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (7.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/index.json.jbuilder (384.0ms)
+Completed 200 OK in 456ms (Views: 315.1ms | ActiveRecord: 139.7ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-06-08 11:56:52 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "MqficfL_gZ6f2a8gmz9iBw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (7.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "CoryInDaHouse"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "whitehouse@myhouse.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "YEgzDeqFL7LXWjqoZtjoXw"], ["updated_at", "2021-06-08 18:56:52.947549"], ["id", 1]]
+  ↳ app/models/user.rb:41
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:41
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (4.6ms)
+Completed 200 OK in 62ms (Views: 33.5ms | ActiveRecord: 17.9ms)
+
+
+Started POST "/api/session" for ::1 at 2021-06-08 11:56:58 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"CoryInDaHouse", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "CoryInDaHouse"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "CoryInDaHouse"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "whitehouse@myhouse.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Update (2.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "DRnJnZ2XPejAHxZ7eD1mHQ"], ["updated_at", "2021-06-08 18:56:58.995165"], ["id", 1]]
+  ↳ app/models/user.rb:41
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:41
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/users/show.json.jbuilder (6.0ms)
+Completed 200 OK in 454ms (Views: 44.3ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/api/animes" for ::1 at 2021-06-08 11:56:59 -0700
+Processing by Api::AnimesController#index as JSON
+  Rendering api/animes/index.json.jbuilder
+  [1m[36mAnime Load (0.5ms)[0m  [1m[34mSELECT "animes".* FROM "animes"[0m
+  ↳ app/views/api/animes/index.json.jbuilder:1
+  Rendered api/animes/_anime.json.jbuilder (0.5ms)
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (2.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (9.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.3ms)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (11.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/index.json.jbuilder (151.9ms)
+Completed 200 OK in 176ms (Views: 140.0ms | ActiveRecord: 34.6ms)
+
+
+Started GET "/" for ::1 at 2021-06-08 11:58:34 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "DRnJnZ2XPejAHxZ7eD1mHQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 514ms (Views: 499.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/animes" for ::1 at 2021-06-08 11:58:36 -0700
+Processing by Api::AnimesController#index as JSON
+  Rendering api/animes/index.json.jbuilder
+  [1m[36mAnime Load (3.1ms)[0m  [1m[34mSELECT "animes".* FROM "animes"[0m
+  ↳ app/views/api/animes/index.json.jbuilder:1
+  Rendered api/animes/_anime.json.jbuilder (0.9ms)
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (3.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (2.5ms)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.3ms)
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (1.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/index.json.jbuilder (924.1ms)
+Completed 200 OK in 955ms (Views: 933.4ms | ActiveRecord: 20.5ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--de2216fa407995c3011e7fc0dbb0fd7c72324c8c/narutoPic.jpeg" for ::1 at 2021-06-08 11:58:37 -0700
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--de2216fa407995c3011e7fc0dbb0fd7c72324c8c", "filename"=>"narutoPic"}
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f1245164f17f70cf3a0361ff2161d9fd46c95bae/bleachPic.jpeg" for ::1 at 2021-06-08 11:58:37 -0700
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e63c266047cb98e20db2ab8720efcb2d02a8db0c/titanPic.jpeg" for ::1 at 2021-06-08 11:58:37 -0700
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f1245164f17f70cf3a0361ff2161d9fd46c95bae", "filename"=>"bleachPic"}
+Processing by ActiveStorage::BlobsController#show as JPEG
+  [1m[36mActiveStorage::Blob Load (11.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e63c266047cb98e20db2ab8720efcb2d02a8db0c", "filename"=>"titanPic"}
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[36m  S3 Storage (7.5ms) [0m[34mGenerated URL for file at key: ozbiKSqFo1CzeSPBSivQ3KsU (https://soggyroll-dev.s3.us-west-1.amazonaws.com/ozbiKSqFo1CzeSPBSivQ3KsU?response-content-disposition=inline%3B%20filename%3D%22narutoPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27narutoPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T185838Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=204d72f53bb9dae8ef640c76c55a601657aba2856cca1b69898a100d7449c729)[0m
+  [1m[36mActiveStorage::Blob Load (9.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/ozbiKSqFo1CzeSPBSivQ3KsU?response-content-disposition=inline%3B%20filename%3D%22narutoPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27narutoPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T185838Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=204d72f53bb9dae8ef640c76c55a601657aba2856cca1b69898a100d7449c729
+Completed 302 Found in 315ms (ActiveRecord: 11.0ms)
+
+
+[36m  S3 Storage (2.4ms) [0m[34mGenerated URL for file at key: BZX2r5xEdVmjQnWKmXhb1Ath (https://soggyroll-dev.s3.us-west-1.amazonaws.com/BZX2r5xEdVmjQnWKmXhb1Ath?response-content-disposition=inline%3B%20filename%3D%22bleachPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27bleachPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T185838Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=9bf91525e93198175d13a8d6be37f02d6384481db57c453028d220e6793dd543)[0m
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/BZX2r5xEdVmjQnWKmXhb1Ath?response-content-disposition=inline%3B%20filename%3D%22bleachPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27bleachPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T185838Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=9bf91525e93198175d13a8d6be37f02d6384481db57c453028d220e6793dd543
+[36m  S3 Storage (5.8ms) [0m[34mGenerated URL for file at key: csWZRxJNzTMe1FUwuQHGsx6D (https://soggyroll-dev.s3.us-west-1.amazonaws.com/csWZRxJNzTMe1FUwuQHGsx6D?response-content-disposition=inline%3B%20filename%3D%22titanPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27titanPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T185838Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=9d1680f08870616498c5cf24e8cbe35c17d23217a0dd48fb796322aee2aef958)[0m
+Completed 302 Found in 159ms (ActiveRecord: 1.0ms)
+
+
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/csWZRxJNzTMe1FUwuQHGsx6D?response-content-disposition=inline%3B%20filename%3D%22titanPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27titanPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T185838Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=9d1680f08870616498c5cf24e8cbe35c17d23217a0dd48fb796322aee2aef958
+Completed 302 Found in 798ms (ActiveRecord: 9.4ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-06-08 11:58:40 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "DRnJnZ2XPejAHxZ7eD1mHQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "CoryInDaHouse"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "whitehouse@myhouse.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "KoEC547BX7kxbFM9GKPPfQ"], ["updated_at", "2021-06-08 18:58:40.925335"], ["id", 1]]
+  ↳ app/models/user.rb:41
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:41
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (2.3ms)
+Completed 200 OK in 59ms (Views: 21.6ms | ActiveRecord: 8.1ms)
+
+
+Started POST "/api/session" for ::1 at 2021-06-08 11:58:43 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"CoryInDaHouse", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "CoryInDaHouse"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "CoryInDaHouse"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "whitehouse@myhouse.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Update (3.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "WHcueeg2Mr_ZnFas-CtgTg"], ["updated_at", "2021-06-08 18:58:43.763152"], ["id", 1]]
+  ↳ app/models/user.rb:41
+  [1m[35m (18.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:41
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/users/show.json.jbuilder (2.9ms)
+Completed 200 OK in 503ms (Views: 44.3ms | ActiveRecord: 27.9ms)
+
+
+Started GET "/api/animes" for ::1 at 2021-06-08 11:58:44 -0700
+Processing by Api::AnimesController#index as JSON
+  Rendering api/animes/index.json.jbuilder
+  [1m[36mAnime Load (0.7ms)[0m  [1m[34mSELECT "animes".* FROM "animes"[0m
+  ↳ app/views/api/animes/index.json.jbuilder:1
+  Rendered api/animes/_anime.json.jbuilder (0.6ms)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.3ms)
+  [1m[36mActiveStorage::Attachment Load (1.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (24.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (16.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.3ms)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.8ms)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (2.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/index.json.jbuilder (564.8ms)
+Completed 200 OK in 600ms (Views: 542.0ms | ActiveRecord: 54.5ms)
+
+
+Started GET "/" for ::1 at 2021-06-08 11:58:45 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "WHcueeg2Mr_ZnFas-CtgTg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered api/users/_user.json.jbuilder (2.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 110ms (Views: 100.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/animes" for ::1 at 2021-06-08 11:58:47 -0700
+Processing by Api::AnimesController#index as JSON
+  Rendering api/animes/index.json.jbuilder
+  [1m[36mAnime Load (0.8ms)[0m  [1m[34mSELECT "animes".* FROM "animes"[0m
+  ↳ app/views/api/animes/index.json.jbuilder:1
+  Rendered api/animes/_anime.json.jbuilder (0.5ms)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.7ms)
+  [1m[36mActiveStorage::Attachment Load (2.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (223.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (3.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (5.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.4ms)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (1.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (8.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.4ms)
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/index.json.jbuilder (526.0ms)
+Completed 200 OK in 557ms (Views: 300.2ms | ActiveRecord: 254.0ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-06-08 11:58:50 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "WHcueeg2Mr_ZnFas-CtgTg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "CoryInDaHouse"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "whitehouse@myhouse.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "h3ad30A_4JsHN_7FwgyLUw"], ["updated_at", "2021-06-08 18:58:50.684126"], ["id", 1]]
+  ↳ app/models/user.rb:41
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:41
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (1.2ms)
+  Rendered api/users/show.json.jbuilder (6.4ms)
+Completed 200 OK in 51ms (Views: 29.3ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/" for ::1 at 2021-06-08 12:03:54 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "WHcueeg2Mr_ZnFas-CtgTg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 374ms (Views: 362.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/session" for ::1 at 2021-06-08 12:03:59 -0700
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"CoryInDaHouse", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "CoryInDaHouse"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:24
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "CoryInDaHouse"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "whitehouse@myhouse.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "RjKm8dubDHt3P-VxDcllXQ"], ["updated_at", "2021-06-08 19:03:59.838699"], ["id", 1]]
+  ↳ app/models/user.rb:41
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:41
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (1.2ms)
+  Rendered api/users/show.json.jbuilder (20.2ms)
+Completed 200 OK in 511ms (Views: 38.7ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/api/animes" for ::1 at 2021-06-08 12:04:00 -0700
+Processing by Api::AnimesController#index as JSON
+  Rendering api/animes/index.json.jbuilder
+  [1m[36mAnime Load (1.0ms)[0m  [1m[34mSELECT "animes".* FROM "animes"[0m
+  ↳ app/views/api/animes/index.json.jbuilder:1
+  Rendered api/animes/_anime.json.jbuilder (1.8ms)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.7ms)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.3ms)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (1.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.3ms)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/index.json.jbuilder (351.1ms)
+Completed 200 OK in 380ms (Views: 366.7ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--54770744e3b933201ced86f4d5f94ed439553f64/onePiecePic.jpeg" for ::1 at 2021-06-08 12:04:00 -0700
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f1245164f17f70cf3a0361ff2161d9fd46c95bae/bleachPic.jpeg" for ::1 at 2021-06-08 12:04:00 -0700
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--de2216fa407995c3011e7fc0dbb0fd7c72324c8c/narutoPic.jpeg" for ::1 at 2021-06-08 12:04:00 -0700
+Processing by ActiveStorage::BlobsController#show as JPEG
+Processing by ActiveStorage::BlobsController#show as JPEG
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e63c266047cb98e20db2ab8720efcb2d02a8db0c/titanPic.jpeg" for ::1 at 2021-06-08 12:04:00 -0700
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f2a2db3652e3e09964d1fd5f2143cf679ab7dcdd/myHeroAcademiaPic.jpeg" for ::1 at 2021-06-08 12:04:00 -0700
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f1245164f17f70cf3a0361ff2161d9fd46c95bae", "filename"=>"bleachPic"}
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--54770744e3b933201ced86f4d5f94ed439553f64", "filename"=>"onePiecePic"}
+Processing by ActiveStorage::BlobsController#show as JPEG
+  [1m[36mActiveStorage::Blob Load (3.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (2.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (2.8ms) [0m[34mGenerated URL for file at key: uDCgwaF2xWJbsdEUNNJSbeFH (https://soggyroll-dev.s3.us-west-1.amazonaws.com/uDCgwaF2xWJbsdEUNNJSbeFH?response-content-disposition=inline%3B%20filename%3D%22onePiecePic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27onePiecePic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190400Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=79010f8c608395dc9e060cd5ef7f40c73bb6541c3174768c4dab0e2743a7f1ee)[0m
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/uDCgwaF2xWJbsdEUNNJSbeFH?response-content-disposition=inline%3B%20filename%3D%22onePiecePic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27onePiecePic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190400Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=79010f8c608395dc9e060cd5ef7f40c73bb6541c3174768c4dab0e2743a7f1ee
+Completed 302 Found in 133ms (ActiveRecord: 2.3ms)
+
+
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--de2216fa407995c3011e7fc0dbb0fd7c72324c8c", "filename"=>"narutoPic"}
+Processing by ActiveStorage::BlobsController#show as JPEG
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (3.0ms) [0m[34mGenerated URL for file at key: BZX2r5xEdVmjQnWKmXhb1Ath (https://soggyroll-dev.s3.us-west-1.amazonaws.com/BZX2r5xEdVmjQnWKmXhb1Ath?response-content-disposition=inline%3B%20filename%3D%22bleachPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27bleachPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=b835a235efeb3049c7a12cc93aa490a2c93cc4caa2514c525c1647ef724353df)[0m
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e63c266047cb98e20db2ab8720efcb2d02a8db0c", "filename"=>"titanPic"}
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f2a2db3652e3e09964d1fd5f2143cf679ab7dcdd", "filename"=>"myHeroAcademiaPic"}
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/BZX2r5xEdVmjQnWKmXhb1Ath?response-content-disposition=inline%3B%20filename%3D%22bleachPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27bleachPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=b835a235efeb3049c7a12cc93aa490a2c93cc4caa2514c525c1647ef724353df
+Completed 302 Found in 180ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a45462f87a96b9300dedb2f5beee70a22c5ea880/haikyuPic.jpeg" for ::1 at 2021-06-08 12:04:01 -0700
+  [1m[36mActiveStorage::Blob Load (2.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (1.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (2.1ms) [0m[34mGenerated URL for file at key: csWZRxJNzTMe1FUwuQHGsx6D (https://soggyroll-dev.s3.us-west-1.amazonaws.com/csWZRxJNzTMe1FUwuQHGsx6D?response-content-disposition=inline%3B%20filename%3D%22titanPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27titanPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=2c60a57cc60dd0243c556b726eb14326467f9c7a2d19a93098fa07ad7a9c6043)[0m
+[36m  S3 Storage (2.2ms) [0m[34mGenerated URL for file at key: ZvJsb2w88TSeR7Wyy5s3BeEF (https://soggyroll-dev.s3.us-west-1.amazonaws.com/ZvJsb2w88TSeR7Wyy5s3BeEF?response-content-disposition=inline%3B%20filename%3D%22myHeroAcademiaPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27myHeroAcademiaPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=18975d70de813088acd9b64b5cf54453be6716e3ca6fdbd5e8e1bd138e3f0050)[0m
+  [1m[36mActiveStorage::Blob Load (2.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--aaa4e4ccdbdf96878181d58778c1093eee2364fc/basiliskPic.jpeg" for ::1 at 2021-06-08 12:04:01 -0700
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/csWZRxJNzTMe1FUwuQHGsx6D?response-content-disposition=inline%3B%20filename%3D%22titanPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27titanPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=2c60a57cc60dd0243c556b726eb14326467f9c7a2d19a93098fa07ad7a9c6043
+Processing by ActiveStorage::BlobsController#show as JPEG
+Completed 302 Found in 95ms (ActiveRecord: 6.7ms)
+
+
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by ActiveStorage::BlobsController#show as JPEG
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/ZvJsb2w88TSeR7Wyy5s3BeEF?response-content-disposition=inline%3B%20filename%3D%22myHeroAcademiaPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27myHeroAcademiaPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=18975d70de813088acd9b64b5cf54453be6716e3ca6fdbd5e8e1bd138e3f0050
+Completed 302 Found in 100ms (ActiveRecord: 3.8ms)
+
+
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--aaa4e4ccdbdf96878181d58778c1093eee2364fc", "filename"=>"basiliskPic"}
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a45462f87a96b9300dedb2f5beee70a22c5ea880", "filename"=>"haikyuPic"}
+[36m  S3 Storage (2.6ms) [0m[34mGenerated URL for file at key: ozbiKSqFo1CzeSPBSivQ3KsU (https://soggyroll-dev.s3.us-west-1.amazonaws.com/ozbiKSqFo1CzeSPBSivQ3KsU?response-content-disposition=inline%3B%20filename%3D%22narutoPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27narutoPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=39bbb815554d49e62963e85434a60ef5da27ceb22c1878ffc76385447907cc3a)[0m
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/ozbiKSqFo1CzeSPBSivQ3KsU?response-content-disposition=inline%3B%20filename%3D%22narutoPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27narutoPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=39bbb815554d49e62963e85434a60ef5da27ceb22c1878ffc76385447907cc3a
+Completed 302 Found in 144ms (ActiveRecord: 2.3ms)
+
+
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9902aa3317899c72a1ee65efdbbae154bb75a662/hunterXPic.jpeg" for ::1 at 2021-06-08 12:04:01 -0700
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (5.2ms) [0m[34mGenerated URL for file at key: 1r36ESQ4fDPvGZaihQuwrd6E (https://soggyroll-dev.s3.us-west-1.amazonaws.com/1r36ESQ4fDPvGZaihQuwrd6E?response-content-disposition=inline%3B%20filename%3D%22basiliskPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27basiliskPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=6f5a13ce9ea05c5f0c43543cfe84187a249fb26fdc47fa8d3c46da526387ff51)[0m
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--59409d46a283074c039e0e0f7485beaf0360743c/reinSlimePic.jpeg" for ::1 at 2021-06-08 12:04:01 -0700
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/1r36ESQ4fDPvGZaihQuwrd6E?response-content-disposition=inline%3B%20filename%3D%22basiliskPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27basiliskPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=6f5a13ce9ea05c5f0c43543cfe84187a249fb26fdc47fa8d3c46da526387ff51
+Completed 302 Found in 76ms (ActiveRecord: 0.4ms)
+
+
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (2.7ms) [0m[34mGenerated URL for file at key: VbaR1ULqqncXpw2876iYaT8v (https://soggyroll-dev.s3.us-west-1.amazonaws.com/VbaR1ULqqncXpw2876iYaT8v?response-content-disposition=inline%3B%20filename%3D%22haikyuPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27haikyuPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=c72dc4c384025bf87bce28e0dcf77346e6afb65b1307458899cf7e107e66b436)[0m
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/VbaR1ULqqncXpw2876iYaT8v?response-content-disposition=inline%3B%20filename%3D%22haikyuPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27haikyuPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=c72dc4c384025bf87bce28e0dcf77346e6afb65b1307458899cf7e107e66b436
+Processing by ActiveStorage::BlobsController#show as JPEG
+Completed 302 Found in 76ms (ActiveRecord: 1.0ms)
+
+
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9902aa3317899c72a1ee65efdbbae154bb75a662", "filename"=>"hunterXPic"}
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--59409d46a283074c039e0e0f7485beaf0360743c", "filename"=>"reinSlimePic"}
+  [1m[36mActiveStorage::Blob Load (2.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (9.0ms) [0m[34mGenerated URL for file at key: wHBHWuQvhEsMy1hWfU1uPXZe (https://soggyroll-dev.s3.us-west-1.amazonaws.com/wHBHWuQvhEsMy1hWfU1uPXZe?response-content-disposition=inline%3B%20filename%3D%22hunterXPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27hunterXPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=fc2362d388692785e7449a34aca53f0f08da9543ce595342720868688353cd84)[0m
+  [1m[36mActiveStorage::Blob Load (2.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ba43616fec75607312258d5a05ea4820b52531b3/jujutsuKPic.jpeg" for ::1 at 2021-06-08 12:04:01 -0700
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/wHBHWuQvhEsMy1hWfU1uPXZe?response-content-disposition=inline%3B%20filename%3D%22hunterXPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27hunterXPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=fc2362d388692785e7449a34aca53f0f08da9543ce595342720868688353cd84
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Completed 302 Found in 403ms (ActiveRecord: 2.9ms)
+
+
+Processing by ActiveStorage::BlobsController#show as JPEG
+[36m  S3 Storage (2.4ms) [0m[34mGenerated URL for file at key: yHctGjQLx99EbAEnpMb5UBgb (https://soggyroll-dev.s3.us-west-1.amazonaws.com/yHctGjQLx99EbAEnpMb5UBgb?response-content-disposition=inline%3B%20filename%3D%22reinSlimePic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27reinSlimePic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=1c0a537889e07ea19093457f4c9fd806e0a2a9a73a160ffe3ecf87e23ec3a977)[0m
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ba43616fec75607312258d5a05ea4820b52531b3", "filename"=>"jujutsuKPic"}
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/yHctGjQLx99EbAEnpMb5UBgb?response-content-disposition=inline%3B%20filename%3D%22reinSlimePic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27reinSlimePic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=1c0a537889e07ea19093457f4c9fd806e0a2a9a73a160ffe3ecf87e23ec3a977
+Completed 302 Found in 438ms (ActiveRecord: 2.0ms)
+
+
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ /Users/masonsaia/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (2.9ms) [0m[34mGenerated URL for file at key: L5iT22CBkE65EoqNd3Mm3rYc (https://soggyroll-dev.s3.us-west-1.amazonaws.com/L5iT22CBkE65EoqNd3Mm3rYc?response-content-disposition=inline%3B%20filename%3D%22jujutsuKPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27jujutsuKPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=cc211be0a25da8be5471e1eaa06c611569b15024283af7d1c0b5b274f5fae3da)[0m
+Redirected to https://soggyroll-dev.s3.us-west-1.amazonaws.com/L5iT22CBkE65EoqNd3Mm3rYc?response-content-disposition=inline%3B%20filename%3D%22jujutsuKPic.jpeg%22%3B%20filename%2A%3DUTF-8%27%27jujutsuKPic.jpeg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZPFZRG4WSRYMATZK%2F20210608%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210608T190401Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=cc211be0a25da8be5471e1eaa06c611569b15024283af7d1c0b5b274f5fae3da
+Completed 302 Found in 48ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-06-08 12:10:14 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "RjKm8dubDHt3P-VxDcllXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered api/users/_user.json.jbuilder (6.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 1357ms (Views: 1337.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/animes" for ::1 at 2021-06-08 12:10:17 -0700
+Processing by Api::AnimesController#index as JSON
+  Rendering api/animes/index.json.jbuilder
+  [1m[36mAnime Load (6.8ms)[0m  [1m[34mSELECT "animes".* FROM "animes"[0m
+  ↳ app/views/api/animes/index.json.jbuilder:1
+  Rendered api/animes/_anime.json.jbuilder (1.3ms)
+  [1m[36mActiveStorage::Attachment Load (3.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (1.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (2.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (4.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (1.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (4.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (1.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (5.9ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.5ms)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 8], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (2.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.1ms)
+  [1m[36mActiveStorage::Attachment Load (26.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 9], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (25.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/_anime.json.jbuilder (0.2ms)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "Anime"], ["name", "cover_photo"], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/api/animes/index.json.jbuilder:4
+  Rendered api/animes/index.json.jbuilder (1626.2ms)
+Completed 200 OK in 1657ms (Views: 1563.7ms | ActiveRecord: 92.0ms)
+
+

@@ -11,17 +11,19 @@ class Animes extends React.Component {
             cover_photo: null
         };
     }
-    
+
     componentDidMount(){
     }
 
     render(){
         return(
             <div className="anime-template">
-                <Link to="/animes/{this.props.anime.id}" className="show-title-link">
-                    <img className="anime-img" src={this.props.anime.cover_photo} />   
-                    <b>{this.props.anime.title}</b>
-                </Link>
+                <Tooltip title={this.props.anime.description}>
+                    <Link to="/animes/{this.props.anime.id}" className="show-title-link">
+                        <img className="anime-img" src={this.props.anime.cover_photo} />   
+                        <b>{this.props.anime.title}</b>
+                    </Link>
+                </Tooltip>
             </div>
         )
     }
