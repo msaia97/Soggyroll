@@ -11,13 +11,16 @@ class AnimeLibrary extends React.Component {
     componentDidMount(){
         this.props.getAnimes()
     }
+    componentWillUnmount(){
+        this.props.getAnimes()
+    }
  
     render(){
         return(
             <div className="library">
                 <div className="grid">
                    {this.props.animes.map(anime => {
-                       return <Anime anime={anime}/>
+                       return <Anime anime={anime} />
                    })}
                 </div>
             </div>

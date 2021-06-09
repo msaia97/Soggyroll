@@ -12,7 +12,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
     return {
-        getAnime: animeId => dispatch(getAnime(animeId))
+        getAnime: animeId => dispatch(getAnime(animeId)),
+        getAnimes: () => dispatch(getAnimes()),
     };
 }
 

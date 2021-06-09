@@ -19,9 +19,10 @@ class AnimeShow extends React.Component{
     }
 
 
+
     render(){
-        // const { curAnime } = this.props.anime;
-        console.log(this.props.anime);
+        // const ({ curAnime }) = this.props.anime;
+        // console.log(this.props.anime);
         return(
             <div className="anime-show">
                 <img className="anime-show-img" src={this.props.anime.cover_photo} />
