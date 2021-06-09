@@ -7,7 +7,7 @@ const animeReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_ANIME:
             return Object.assign({}, state, {
-                [action.anime.id]: action.anime
+                [action.anime.id]: action.anime.id
             })
         case RECEIVE_ALL_ANIMES:
             return action.animes

@@ -20,7 +20,7 @@ const Homepage = ({ currentUser, logout }) => {
           <button className="header-button" onClick={logout}>Log Out</button>
         </hgroup>
         {/* <Link to="/shows">Show Library</Link> */}
-        <AnimeLibrary />
+        {/* <AnimeLibrary /> */}
     </div>
    )};
 
