@@ -1,5 +1,4 @@
-# json.partial! 'api/shows/show', show: @show
-json.anime.id do
-    json.partial! 'api/animes/anime', anime: @anime
-    json.cover_photo url_for(anime.cover_photo)
+json.set! @anime.id do
+    json.extract! @anime, :id, :title, :description
+    json.cover_photo url_for(@anime.cover_photo) if @anime.cover_photo.attached?
 end

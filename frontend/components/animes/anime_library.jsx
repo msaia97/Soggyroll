@@ -1,5 +1,7 @@
 import React from 'react';
 import Anime from './anime_container';
+// import { logout } from '../../actions/session_actions';
+
 
 class AnimeLibrary extends React.Component {
     constructor(props){

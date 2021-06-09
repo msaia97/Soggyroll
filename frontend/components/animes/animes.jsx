@@ -14,34 +14,16 @@ class Animes extends React.Component {
     }
 
     componentDidMount(){
-        console.log(this.props)
+        // console.log(this.props.anime)
     }
 
-    // handleClick(e){
-    //     e.preventDefault();
-    //     this.setState({
-    //         anime: this.state.anime
-    //     })
-    // }
-
     render(){
-        // let animeId = this.props.animeId
-        // let animeNames;
-        // let allAnimes = Object.values(this.props.animes);
-        // animeNames = allAnimes.map((anime, i) => (
-        
-        // ))
-        let currentAnime = Object.values(this.props.animes)
-        // this.state.anime
+        const { anime } = this.props;
         return(
             <div className="anime-template">
-                <Link to={`/animes/${currentAnime.id}`}
-                        className="show-title-link"
-                        // component={AnimeShow}
-                        // onClick={this.handleClick}
-                        >
-                    <img className="anime-img" src={this.props.anime.cover_photo} />   
-                    <b>{this.props.anime.title}</b>
+                <Link to={`/animes/${anime.id}`} className="show-title-link">
+                    <img className="anime-img" src={anime.cover_photo} />   
+                    <b>{anime.title}</b>
                 </Link>
             </div>
         )
