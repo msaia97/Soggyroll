@@ -19,6 +19,7 @@ class Animes extends React.Component {
 
     render(){
         const { anime } = this.props;
+        console.log(this.props)
         return(
             <div className="anime-template">
                 <Link to={`/animes/${anime.id}`} className="show-title-link">

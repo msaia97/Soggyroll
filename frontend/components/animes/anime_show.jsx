@@ -13,21 +13,22 @@ class AnimeShow extends React.Component{
     }
 
     componentDidMount(){
-        // let animeId = this.props.match.params
         this.props.getAnime(this.props.match.params.animeId)
-            .then(() => this.setState(this.props.currentAnime))
+            .then(() => this.setState(this.props.anime))
         // console.log(this.props)
     }
+
+
     render(){
-        // const { curAnime } = this.props.currentAnime;
-        console.log(this.props.currentAnime);
+        // const { curAnime } = this.props.anime;
+        console.log(this.props.anime);
         return(
             <div className="anime-show">
-                <img className="anime-show-img" src={this.props.currentAnime.cover_photo} />
+                <img className="anime-show-img" src={this.props.anime.cover_photo} />
                 <ul>
-                    <li>{this.props.currentAnime.title}</li>
+                    <li>{this.props.anime.title}</li>
                     <br />
-                    <li>{this.props.currentAnime.description}</li>
+                    <li>{this.props.anime.description}</li>
                 </ul>
              <br />
                 <p>Its Working !</p>
