@@ -9,6 +9,7 @@ import Homepage from './homepage/homepage_container';
 import NotFoundPage from './not_found_page';
 import AnimeLibrary from './animes/anime_library_container';
 import AnimeShow from './animes/anime_show_container';
+import Navbar from './navbar/navbar_container';
 
 const App = () => (
     <div>
@@ -16,8 +17,8 @@ const App = () => (
             <Link to="/animes" className="header-link">
                 <h1>Soggyroll</h1>
             </Link>
-            {/* <Homepage /> */}
         </header>
+         <Navbar />
         <br />
         <Switch>
             <Route exact path = "/" component ={Homepage}/>
