@@ -14,11 +14,8 @@ import Navbar from './navbar/navbar_container';
 const App = () => (
     <div>
         <header>
-            <Link to="/animes" className="header-link">
-                <h1>Soggyroll</h1>
-            </Link>
+            <Navbar />
         </header>
-         <Navbar />
         <br />
         <Switch>
             {/* <ProtectedRoute path="/" component={Navbar} /> */}

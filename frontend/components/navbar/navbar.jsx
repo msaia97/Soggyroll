@@ -11,6 +11,9 @@ class Navbar extends React.Component {
         if(this.props.user === null || this.props.user === undefined){
             return(
                 <div className="nav">
+                    <Link to="/animes" className="header-link">
+                        <h1>Soggyroll</h1>
+                    </Link>
                     <div className="nav-element">
                         <ul>
                             <li>
@@ -26,6 +29,9 @@ class Navbar extends React.Component {
         }else{
             return(
                <div className="nav">
+                    <Link to="/animes" className="header-link">
+                        <h1>Soggyroll</h1>
+                    </Link>
                    <div className="nav-elements">
                         <ul>
                             <li>

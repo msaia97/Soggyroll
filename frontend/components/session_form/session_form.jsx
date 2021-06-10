@@ -32,17 +32,17 @@ class SessionForm extends React.Component{
 
     insertDemoUser () {
         if (this.props.formType === 'Log in') {
-        return (
-            <div className='demo-login'>
-                <h2>No Account? Try a demo!</h2>
-                <br />
-                <input className="demo-button"
-                     type="submit"
-                     value="Demo"
-                     onClick={this.demoUser}
-                />
-            </div>
-        )
+            return (
+                <div className='demo-login'>
+                    <h2>No Account? Try a demo!</h2>
+                    <br />
+                    <input className="demo-button"
+                        type="submit"
+                        value="Demo"
+                        onClick={this.demoUser}
+                    />
+                </div>
+            )
         }
     }
   
@@ -91,9 +91,9 @@ class SessionForm extends React.Component{
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     <br />
-                    <div className="login-signup-choice">
+                    {/* <div className="login-signup-choice">
                      {this.props.formType} or {this.props.navLink}
-                    </div>
+                    </div> */}
                     <div className="login-form">
                         <br />
                         {this.enterEmail()}
