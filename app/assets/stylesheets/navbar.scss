@@ -1,0 +1,94 @@
+// entire nav bar that is rendered
+.nav{
+    display: flex;
+    // text-decoration: none;
+
+}
+
+// the Soggyroll title
+.header-link{
+    margin-right: 50%;
+}
+
+.header-link:link{
+    color: #f78c25;
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.header-link:visited{
+    color: #f78c25;
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.header-link:hover{
+    color: #f78c25;
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.header-link:active{
+    color: #f78c25;
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+// navbar elements
+.nav-elements li {
+    display: inline;
+    float: right;
+    margin-right: 30px;
+    background-color: #f78c25;
+    // border-color: #b78142;
+    color: rgb(100%,100%,100%);
+    border: 0;
+    border-bottom: .125em solid;
+    border-radius: .5625em;
+    font-weight: 500;
+    line-height: 1.5;
+    width: 75px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+// navbar links 
+.nav-link:link{
+    color: rgb(100%,100%,100%);
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.nav-link:visited{
+    color: rgb(100%,100%,100%);
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.nav-link:hover{
+    color: rgb(100%,100%,100%);
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.nav-link:active{
+    color: rgb(100%,100%,100%);
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+// nav button
+.nav-button{
+    box-sizing: border-box;
+    display: block;
+    margin: 0 auto 1.5em auto;
+    // max-width: none;
+    // padding: 1.35em 2em;
+    width: 100%;
+    border: 0;
+    border-bottom: .125em solid;
+    border-radius: .5625em;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+    background-color: #f78c25;
+    border-color: #b78142;
+    color: rgb(100%,100%,100%);
+    cursor: pointer;
+}

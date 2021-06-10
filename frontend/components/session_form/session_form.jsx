@@ -108,7 +108,7 @@ class SessionForm extends React.Component{
                             </label>
                         </div>
                         <br />
-                        
+                        <br />
                         <div className="password-input">
                             <label>Password
                                 <input type="password"
