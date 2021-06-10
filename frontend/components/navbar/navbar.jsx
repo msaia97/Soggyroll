@@ -7,7 +7,6 @@ class Navbar extends React.Component {
     }
 
     render(){
-        // console.log(this.props)
         if(this.props.user === null || this.props.user === undefined){
             return(
                 <div className="nav">

@@ -15,14 +15,12 @@ class AnimeShow extends React.Component{
     componentDidMount(){
         this.props.getAnime(this.props.match.params.animeId)
             .then(() => this.setState(this.props.anime))
-        // console.log(this.props)
     }
 
 
 
     render(){
         // const ({ curAnime }) = this.props.anime;
-        // console.log(this.props.anime);
         return(
             <div className="anime-show">
                 <img className="anime-show-img" src={this.props.anime.cover_photo} />

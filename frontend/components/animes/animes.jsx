@@ -6,7 +6,7 @@ class Animes extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            anime: {},//this.props.show,
+            anime: {},
             title: '',
             description: '',
             cover_photo: null,
@@ -17,8 +17,6 @@ class Animes extends React.Component {
 
     handleMouseEnter(e){
         e.preventDefault();
-        // console.log(HoverTemplate)
-        // console.log(this.props)
         this.setState({
             isHovering: true
         })
@@ -26,8 +24,6 @@ class Animes extends React.Component {
 
     handleMouseOut(e){
         e.preventDefault();
-        // console.log(HoverTemplate)
-        console.log(this.props)
         this.setState({
             isHovering: false
         })
@@ -35,7 +31,6 @@ class Animes extends React.Component {
 
     render(){
         const { anime } = this.props;
-        // console.log(this.props)
         return(
             <div className="anime-template">
                 <Link to={`/animes/${anime.id}`} className="show-title-link">
@@ -50,18 +45,5 @@ class Animes extends React.Component {
         )
     }
 }
-
-// const HoverTemplate = (props) =>{
-//      return(
-//         <div className="anime-hover-wrapper">
-//                 <div className="anime-hover-header">
-//                     <p>{this.props.anime.title}</p>
-//                 </div>
-//                 <div className="anime-hover-description">
-//                     <p>{this.props.anime.title}</p>
-//                 </div>
-//             </div>
-//      )
-// }
 
 export default Animes;
