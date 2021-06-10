@@ -1,50 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 class Navbar extends React.Component {
     constructor(props){
         super(props);
-        this.buttonSwitch = this.buttonSwitch.bind(this);
     }
 
-    buttonSwitch = () => {
-        if(currentUser !== null){
+    render(){
+        // console.log(this.props)
+        if(this.props.user === null || this.props.user === undefined){
             return(
-                <div>
-                    <input type="submit"
-                        value="logout"
-                        onClick={this.props.logout}
-                     />
+                <div className="nav">
+                    <div className="nav-element">
+                        <ul>
+                            <li>
+                                <Link to="/signup"> Sign up</Link>
+                            </li>
+                            <li>
+                                <Link to="/login">Log in</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             )
         }else{
             return(
-                <div>
-                    <Link to="/signup">Sign up</Link>
-                </div>
+               <div className="nav">
+                   <div className="nav-elements">
+                        <ul>
+                            <li>
+                                <button className="nav-button" 
+                                    onClick={this.props.logout}>
+                                Log Out</button>
+                            </li>
+                        </ul>
+                   </div>
+               </div>
             )
-        }
-    }
-
-    render(){
-        return(
-            <div className="nav">
-                <ul className="nav-items">
-                    {/* <li>
-                        <Link to="/animes">Home</Link>
-                    </li> */}
-                    <li>{this.buttonSwitch}</li>
-                    {/* <li>
-                        <input type="submit"
-                        value="logut"
-                        onClick={this.props.logout} />
-                        {/* {currentUser !== null ? a} */}
-                     {/* </li>    */}
-                    {/* <li>Hello world im a nav bar</li> */}
-                </ul>
-            </div>
-        )
+        }          
     }
 }
 

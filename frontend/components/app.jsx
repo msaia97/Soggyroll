@@ -4,7 +4,7 @@ import { Route, Redirect, Switch, Link, Hashrouter } from 'react-router-dom';
 
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Homepage from './homepage/homepage_container';
 import NotFoundPage from './not_found_page';
 import AnimeLibrary from './animes/anime_library_container';
@@ -21,6 +21,7 @@ const App = () => (
          <Navbar />
         <br />
         <Switch>
+            {/* <ProtectedRoute path="/" component={Navbar} /> */}
             <Route exact path = "/" component ={Homepage}/>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
