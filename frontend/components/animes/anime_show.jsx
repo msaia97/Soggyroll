@@ -31,8 +31,6 @@ class AnimeShow extends React.Component{
                     <br />
                     <li>{this.props.anime.description}</li>
                 </ul>
-             <br />
-                <p>Its Working !</p>
             </div>
         )
     }

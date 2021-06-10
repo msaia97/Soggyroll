@@ -1,17 +1,19 @@
 .anime-template{
-    width: 127px;;
+    width: 151px;;
     display: block;
     background: #fff;
-    padding: 6px;
+    padding: 12px;
     margin-bottom: 12px;
     position: relative;
     border: 1px solid grey;
+    box-sizing: border-box;
 }
+
 .grid{
     display: grid;
     width: 75%;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, 151px);
+    gap: 12px;
 }
 
 .anime-img{
@@ -21,4 +23,41 @@
     right: 0px;
 }
 
+.anime-hover-wrapper{
+    z-index: 1;
+    background: rgb(75, 75, 75);
+    // border: 2px;
+    color: white;
+    // border-radius: 4px;
+    padding: 10px 12px;
+    position: absolute;
+    width: 260px;
+    height: 150px;
+    left: 163px;
+    top: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.anime-hover-description{
+    width: 100%;
+    height: 102px;
+    font-size: 14px;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    // white-space: nowrap;
+}
+
+.anime-hover-header{
+    width: 100%;
+    height: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 

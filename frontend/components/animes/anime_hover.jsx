@@ -8,39 +8,23 @@ class AnimeHover extends React.Component{
             isHovering: false,
             anime: {}
         }
-        this.handleHover = this.handleHover.bind(this);
+        // this.handleHover = this.handleHover.bind(this);
     }
 
-    handleHover(){
-        this.setState(this.toggleHoverState);
-    }
-
-    toggleHoverState(state){
-        return({ 
-            isHovering: !state.isHovering
-        })
-    };
-
-    componentDidMount(){
-        this.props.getAnime(this.props.match.params.animeId)
-            .then(() => this.setState(this.props.anime))
-            console.log('yoooooo')
-    }
-
+    
     render(){
-        return(
-            <div className="anime-hover-wrapper"
-                 onMouseEnter={this.handleHover}
-                 onMouseLeave={this.handleHover}>
-                <div className="anime-hover-header">
-                    <p>{this.props.anime.title}</p>
+        if(this.props.isHovering){
+            return(
+                
+                <div className="anime-hover-wrapper">
+                    <p className="anime-hover-header">{this.props.anime.title}</p>
+                    <p className="anime-hover-description">{this.props.anime.description}</p>
                 </div>
-                <div className="anime-hover-description">
-                    <p>{this.props.anime.title}</p>
-                </div>
-            </div>
-            // <p>Am I hovering?</p>
-        )
+                // <p>Am I hovering?</p>
+            )  
+        }else{
+            return null
+        }
     }
 }
 
