@@ -15,8 +15,8 @@ class Anime < ApplicationRecord
     # associations with queue and episodes
     has_one_attached :cover_photo
 
-    # has_may :episodes,
-    #     foreign_key: :video_id,
-    #     class_name: 'Episode'
+    has_many :episodes,
+        foreign_key: :video_id,
+        class_name: 'Episode'
 
 end

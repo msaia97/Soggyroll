@@ -20,9 +20,9 @@ const App = () => (
         <Switch>
             {/* <ProtectedRoute path="/" component={Navbar} /> */}
             <Route exact path = "/" component ={Homepage}/>
+            <Route path ="/animes/:animeId" component={AnimeShow}/>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <Route path ="/animes/:animeId" component={AnimeShow}/>
             <Route path ="/animes" component={AnimeLibrary}/>
             <Route path="/404" component={NotFoundPage} />
             <Redirect to="/404" />    

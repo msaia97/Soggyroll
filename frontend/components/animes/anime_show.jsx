@@ -1,5 +1,5 @@
 import React from 'react';
-
+import EpisodeList from '../episodes/episode_list_container';
 
 
 class AnimeShow extends React.Component{
@@ -15,6 +15,8 @@ class AnimeShow extends React.Component{
     componentDidMount(){
         this.props.getAnime(this.props.match.params.animeId)
             .then(() => this.setState(this.props.anime))
+        this.props.getEpisodes(this.props.match.params.animeId)
+            .then((episodes) => dispatch(receiveAllEpisodes(episodes)))
     }
 
 
@@ -23,12 +25,15 @@ class AnimeShow extends React.Component{
         // const ({ curAnime }) = this.props.anime;
         return(
             <div className="anime-show">
-                <img className="anime-show-img" src={this.props.anime.cover_photo} />
-                <ul>
-                    <li>{this.props.anime.title}</li>
-                    <br />
-                    <li>{this.props.anime.description}</li>
-                </ul>
+                <div className="anime-show-description">
+                    <img className="anime-show-img" src={this.props.anime.cover_photo} />
+                    <ul>
+                        <li>{this.props.anime.title}</li>
+                        <br />
+                        <li>{this.props.anime.description}</li>
+                    </ul>
+                </div>
+                <EpisodeList />
             </div>
         )
     }
