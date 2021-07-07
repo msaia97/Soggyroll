@@ -1,9 +1,12 @@
 class Api::AnimesController < ApplicationController
+
+    # a list of all the animes 
     def index
         @animes = Anime.all
         render :index
     end
     
+    # the animes specific page
     def show
         @anime = Anime.find(params[:id])
         if @anime
@@ -13,6 +16,7 @@ class Api::AnimesController < ApplicationController
         end 
     end
 
+    # the allowed parameters for the anime
     private 
     def anime_params
         params.require(:anime).permit(:title, :description, :cover_photo)

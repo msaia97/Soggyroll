@@ -1,6 +1,6 @@
 class Api::EpisodesController < ApplicationController
+    # a list of all the episodes 
     def index 
-
         @episodes = Episode.all
     
         @animeId = Anime.find_by(id: params[:video_id])
@@ -8,6 +8,7 @@ class Api::EpisodesController < ApplicationController
         render :index
     end
 
+    # the episode watch page 
     def show
         @episode = Episode.find(params[:id])
         if @episode 
@@ -17,6 +18,7 @@ class Api::EpisodesController < ApplicationController
         end
     end
 
+    # the allowed episode params 
     private
     def episode_params
         params.require(:episode).permit(:title, :description, :video_id, :photo, :video)
