@@ -9,6 +9,7 @@ require 'open-uri'
 
 User.destroy_all
 Anime.destroy_all
+Episode.destroy_all
 
 
 # user

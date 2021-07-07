@@ -3,7 +3,7 @@ class Api::EpisodesController < ApplicationController
 
         @episodes = Episode.all
     
-        @animeId = Anime.find_by(video_id: params[:video_id])
+        @animeId = Anime.find_by(id: params[:video_id])
         # debugger
         render :index
     end
