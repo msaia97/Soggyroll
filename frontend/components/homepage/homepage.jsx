@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AnimeLibrary from '../animes/anime_library_container';
-
+import Carousel from './carousel';
 
 
 const Homepage = ({ currentUser, logout }) => {
   return(
-    <AnimeLibrary />
+    <Carousel />
   )
   // const sessionLinks = () => (
   //   <nav className="login-signup">

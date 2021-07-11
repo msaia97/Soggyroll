@@ -10,7 +10,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(png|jsx)?$/,
         exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
@@ -23,6 +23,6 @@ module.exports = {
   },
   devtool: "source-map",
   resolve: {
-    extensions: [".js", ".jsx", "*"],
+    extensions: [".js", ".jsx", "*", ".png"],
   },
 };
