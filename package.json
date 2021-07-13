@@ -16,10 +16,6 @@
     "postinstall": "webpack",
     "start": "webpack --watch --mode=development"
   },
-  "engines": {
-    "node": "16.0.0",
-    "npm": "7.10.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://https://github.com/msaia97/Soggyroll.git"
@@ -46,5 +42,9 @@
     "redux-thunk": "^2.2.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "image-webpack-loader": "^7.0.1"
   }
 }
