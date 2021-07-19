@@ -4,14 +4,17 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
 
-config.middleware.insert_before 0, Rack::Cors do
-  allow do
-     origins '*'
-     resource '*', :headers => :any, :methods => [:get, :post, :options]
-   end
-end
+Bundler.require(*Rails.groups)
+# Access-Control-Allow-Credentials: true
+# Access-Control-Allow-Origin: "https://www.imgur.com" 
+
+# config.middleware.insert_before 0, Rack::Cors do
+#   allow do
+#      origins '*'
+#      resource '*', :headers => :any, :methods => [:get, :post, :options]
+#    end
+# end
 
 module Soggyroll
   class Application < Rails::Application

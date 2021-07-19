@@ -1,14 +1,11 @@
 import React from 'react';
-// import myHeroA from './images/mHA.png';
-// import oP from './images/oP.png';
+
 
 const imgUrls = [
-    "https://imgur.com/s6dIV2p",
-    "https://imgur.com/iuKAefi",
-    "https://imgur.com/Bv1S6jy",
-    "https://imgur.com/WBylaSB"
-    // myHeroA,
-    // oP
+    "https://soggyroll-seed.s3.us-west-1.amazonaws.com/myHeroBanner.png",
+    "https://soggyroll-seed.s3.us-west-1.amazonaws.com/narutoBanner.jpg",
+    "https://soggyroll-seed.s3.us-west-1.amazonaws.com/opBanner.jpg",
+    "https://soggyroll-seed.s3.us-west-1.amazonaws.com/titanBanner.jpg"
 ];
 
 // this functional component will take in the image urls 
@@ -18,11 +15,11 @@ const ImageSlide = ({ url }) => {
     };
 
     return (
-        <div className="image-slide"
-            style={styles} >
+        <div className="image-slide">
+            <img src={url} alt="imgSlide" /> 
         </div>
-    );
-    // <img src={url} alt="imgSlide" /> 
+        );
+        // style={styles} >
 };
 
 // this is the arrows on the side of the images
