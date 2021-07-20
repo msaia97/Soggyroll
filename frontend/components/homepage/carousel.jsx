@@ -10,16 +10,11 @@ const imgUrls = [
 
 // this functional component will take in the image urls 
 const ImageSlide = ({ url }) => {
-    const styles = {
-        backgroundImage: `url(${url})`
-    };
-
     return (
         <div className="image-slide">
             <img src={url} alt="imgSlide" /> 
         </div>
         );
-        // style={styles} >
 };
 
 // this is the arrows on the side of the images
@@ -68,15 +63,17 @@ class Carousel extends React.Component {
     render(){
         return(
             <div className="carousel">
-                <Arrow 
-                    direction="left"
-                    clickFunction={this.previousSlide}
-                    glyph="&#9664;"/>
                 <ImageSlide url={ imgUrls[this.state.currentImageIndex] } />
-                 <Arrow 
-                    direction="right"
-                    clickFunction={this.nextSlide}
-                    glyph="&#9664;"/>
+                <div className="arrow">
+                    <Arrow 
+                        direction="left"
+                        clickFunction={this.previousSlide}
+                        glyph="&#9664;"/>
+                    <Arrow 
+                        direction="right"
+                        clickFunction={this.nextSlide}
+                        glyph="&#9654;"/>
+                </div>
             </div>
         );
     };

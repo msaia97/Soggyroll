@@ -140,3 +140,39 @@
     color: rgb(100%,100%,100%);
     cursor: pointer;
 }
+
+// image carousel css
+.carousel {
+    display: flex;
+    position: absolute;
+}
+
+.image-slide img{
+    display: flex;
+    text-align: center;
+    width: 600px;
+    height: 300px;
+}
+
+.slide-arrow {
+    position: absolute;
+    cursor: pointer;
+    top: 150px;
+}
+
+.slide-arrow.right{
+    right: 1rem;
+    margin-right: 1px;
+}
+
+.slide-arrow.left{
+    left: 1rem;
+}
+
+.slide-arrow:hover {
+    color: lightgrey;
+    transform: scale(2);
+    cursor: pointer;
+}
+
+
