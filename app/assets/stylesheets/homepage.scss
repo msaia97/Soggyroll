@@ -145,6 +145,7 @@
 .carousel {
     display: flex;
     position: absolute;
+    padding: 10px;
 }
 
 .image-slide img{
@@ -178,7 +179,34 @@
 
 // css for the articles in the home page 
 .article{
+    position: relative;
+    padding: 10px;
+    top: 310px;
     max-width: 600px;
 }
+
+.news-header{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.article-component{
+    // margin-bottom: 15px;
+}
+// .article-text{
+//     line-height: 1.5;
+//     display: inline-block;
+//     margin-bottom: 80px;
+// }
+
+.article-component img{
+    float: left;
+}
+
+.article ul li{
+    height: 500 px;
+}
+
 
 
