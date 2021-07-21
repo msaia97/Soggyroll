@@ -163,6 +163,7 @@
 .slide-arrow.right{
     right: 1rem;
     margin-right: 1px;
+    size: 2rem;
 }
 
 .slide-arrow.left{
@@ -173,6 +174,11 @@
     color: lightgrey;
     transform: scale(2);
     cursor: pointer;
+}
+
+// css for the articles in the home page 
+.article{
+    max-width: 600px;
 }
 
 
