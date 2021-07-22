@@ -13,8 +13,8 @@ class Article extends React.Component {
                     <li className="article-component">
                         <img src="https://soggyroll-seed.s3.us-west-1.amazonaws.com/Fena.jpg" alt="FenaPic" />
                         <div className="article-text">
-                            <p className="article-author">Posted by Joseph Luster 9 hours ago</p>
                             <p className="article-title">Fena: Pirate Princess Hits Soggyyroll and Adult Swim soon!</p>
+                            <p className="article-author">Posted by Joseph Luster 9 hours ago</p>
                             <p className="article-description">Last month we got another look at Fena: Pirate Princess with the announcement of the main staff and more, and now we have a premiere date to go to along with the English voice cast. Read on for more.</p>
                         </div>
                     </li>
@@ -22,7 +22,7 @@ class Article extends React.Component {
                     <li className="article-component">
                         <img src="https://soggyroll-seed.s3.us-west-1.amazonaws.com/crGirlArticle.png" alt="crArticle" />
                         <div className="article-text">
-                            <p className="article-title">FINAL UPDATE: Soggyrollw Announces Summer 2022 Anime Lineup!</p>
+                            <p className="article-title">FINAL UPDATE: Soggyroll Announces Summer 2022 Anime Lineup!</p>
                             <p className="article-author">Posted by Kyle Cardine 28 days ago</p>
                             <p className="article-description">Digi-dive into an exciting new anime season with Soggyroll-Hime as she gives you the full download on Soggyroll's upcoming Summer 2021 season! Check out the latest patch which includes That Time I Got Reincarnated as a Slime Season 2, The Idaten Deities Know Only Peace, Girlfriend, Girlfriend and more!</p>
                         </div>
