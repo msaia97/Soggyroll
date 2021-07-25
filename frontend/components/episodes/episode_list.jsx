@@ -1,5 +1,5 @@
 import React from 'react';
-import EpisodeContainer from './episode_container';
+import Episode from './episode_container';
 
 class EpisodeList extends React.Component {
     constructor(props) {
@@ -8,21 +8,23 @@ class EpisodeList extends React.Component {
     }
 
     componentDidMount(){
-        this.props.getEpisodes()
-            .then(animeId => dispatch(getAnime(animeId)))
-        console.log(this.props)
+        // this.props.getAnime(this)
+        // this.props.getEpisodes()
+        //     .then(animeId => dispatch(getAnime(animeId)))
     }
-
+    
     componentWillUnmount(){
         this.props.getAnimes()
     }
-
+    
     render(){
+        // console.log(this.props)
+        // console.log(this.state)
         return(
             <div className="episode-list">
                 <div className="episode-grid">
                     {this.props.episodes.map(episode => {
-                        return <EpisodeContainer episode={episode} />
+                        return <Episode episode={episode} />
                     })}
                 </div>
             </div>

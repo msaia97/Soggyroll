@@ -9,7 +9,9 @@ const episodeReducer = (state = {}, action) => {
                 [action.episode.id]: action.episode.id
             })
         case RECEIVE_ALL_EPISODES:
-            return action.episodes
+            // debugger
+            // console.log(action.episodes)
+            return action.episodes.episodes
         default:
             return state;
     }

@@ -10,10 +10,10 @@ const mSTP = (state) => {
 }
 
 const mDTP = dispatch => {
-    // return {
-    //   getAnime: (animeId) => dispatch(getAnime(animeId)),
-    //   getAnimes: () => dispatch(getAnimes()),
-    // };
+    return {
+      getAnime: (animeId) => dispatch(getAnime(animeId)),
+      getAnimes: () => dispatch(getAnimes()),
+    };
 }
 
 export default connect(mSTP, mDTP)(Featured)

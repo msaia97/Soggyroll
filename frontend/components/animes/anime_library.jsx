@@ -12,6 +12,7 @@ class AnimeLibrary extends React.Component {
         this.props.getAnimes()
         // this.props.getEpisodes()
     }
+    
     componentWillUnmount(){
         this.props.getAnimes()
     }

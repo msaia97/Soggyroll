@@ -3,6 +3,7 @@ import { getEpisode, getEpisodes } from "../../actions/episode_actions";
 import EpisodeList from "./episode_list";
 
 const mSTP = (state) => {
+  
   return {
     episodes: Object.values(state.entities.episodes),
   };

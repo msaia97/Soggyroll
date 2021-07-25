@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getAnime, receiveAnime } from '../../actions/anime_actions';
+import { getAnime, receiveAnime, getAnimes } from '../../actions/anime_actions';
 import { getEpisodes } from "../../actions/episode_actions";
 
 import AnimeShow from './anime_show';

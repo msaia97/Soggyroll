@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy, :show]
     resources :animes, only: [:index, :show] do 
-      resources :episodes, only: [:index, :show]
+      resources :episodes, only: [:show]
     end
   end
   root 'static_pages#root'

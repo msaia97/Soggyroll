@@ -4,15 +4,21 @@ export const RECEIVE_EPISODE = 'RECEIVE_EPISODE';
 export const RECEIVE_ALL_EPISODES = 'RECEIVE_ALL_EPISODES';
 
 // actions
-export const receiveEpisode = (episode) => ({
-    type: RECEIVE_EPISODE,
-    episode
-})
+export const receiveEpisode = (episode) => {
+    // console.log(episode)
+    return({
+        type: RECEIVE_EPISODE,
+        episode
+    })
+}
 
-export const receiveAllEpisodes = (episodes) => ({
-    type: RECEIVE_ALL_EPISODES,
-    episodes
-})
+export const receiveAllEpisodes = (episodes) => {
+    // console.log(episodes)
+    return({
+        type: RECEIVE_ALL_EPISODES,
+        episodes
+    })
+}
 
 // thunk action creators 
 export const getEpisode = (episodeId) => dispatch => {

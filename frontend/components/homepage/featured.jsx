@@ -1,35 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Featured extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    componentDidMount(){
-        // this.props.getAnimes();
-        console.log(this.props)
-    }
 
     render() {
-        let animes = this.props.animes;
-        let final = [];
-        for(let i = 0; i < 6; i++) {
-            final.push(animes[i]);
-        }
-
-        return(
-            <div>
-                <img className="splash-ad" src="" alt="" />
-                {final.map(anime => {
-                    return(
-                        <ul>
-                            <li>anime.cover_photo</li>
-                            <li>anime.title</li>
-                        </ul>
-                    )
-                })}
-            </div>
-        )
+       return(
+           <div className="featured">
+               {/* <img className="ad" src="" alt="" />
+               <div className="featured-list">
+                   <ul className="featured-shows">
+                       <Link to={`/animes/5`} className="show-title-link">
+                        <li className="featured-anime">
+                            <img src="" alt="" />
+                            <p>My Hero Academia</p>
+                            <p>num videos</p>
+                        </li>
+                       </Link>
+                   </ul>
+               </div> */}
+           </div>
+       )
     }
 }
 
