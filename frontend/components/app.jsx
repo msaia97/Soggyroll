@@ -10,6 +10,7 @@ import NotFoundPage from './not_found_page';
 import AnimeLibrary from './animes/anime_library_container';
 import AnimeShow from './animes/anime_show_container';
 import Navbar from './navbar/navbar_container';
+import Episode from './episodes/episode_container';
 
 const App = () => (
     <div>
@@ -20,6 +21,7 @@ const App = () => (
         <Switch>
             {/* <ProtectedRoute path="/" component={Navbar} /> */}
             <Route exact path = "/" component ={Homepage}/>
+            <Route path ="/animes/:animeId/:episodeId" component={Episode}/>
             <Route path ="/animes/:animeId" component={AnimeShow}/>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />

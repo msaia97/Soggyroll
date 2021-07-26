@@ -14,7 +14,7 @@ class EpisodeList extends React.Component {
     }
     
     componentWillUnmount(){
-        this.props.getAnimes()
+        // this.props.getAnimes()
     }
     
     render(){
