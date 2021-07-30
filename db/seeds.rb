@@ -38,6 +38,6 @@ haikyu = Anime.create!(title: 'Haikyu!!', description: 'Based off of the origina
 haikyu.cover_photo.attach(io: open('https://soggyroll-seed.s3-us-west-1.amazonaws.com/haikyuPic.jpeg'), filename: 'haikyuPic.jpeg')
 
 # episodes
-opEp1 = Episode.create!(title: 'I’m Luffy! The Man Who’s Gonna Be King of the Pirates!', description: 'Countless souls have been lured along the Grand Line in pursuit of the legendary One Piece! Luffy D. Monkey is a young pirate with a dream: to prove the legend true and be king of them all!', video_id: onePiece.id)
+opEp1 = Episode.create!(title: 'I’m Luffy! The Man Who’s Gonna Be King of the Pirates!', description: 'Countless souls have been lured along the Grand Line in pursuit of the legendary One Piece! Luffy D. Monkey is a young pirate with a dream: to prove the legend true and be king of them all!', video_id: onePiece.id, episode_num: 1)
 opEp1.photo.attach(io: open('https://soggyroll-seed.s3.us-west-1.amazonaws.com/opEp1img.jpeg'), filename: 'opEp1img.jpeg')
 opEp1.video.attach(io: open('https://soggyroll-seed.s3.us-west-1.amazonaws.com/opEp1.mp4'), filename: 'opEp1.mp4')

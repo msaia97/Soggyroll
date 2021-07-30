@@ -21,7 +21,7 @@ class AnimeShow extends React.Component{
     }
 
     componentWillUnmount(){
-        this.props.getAnimes()
+        // this.props.getAnimes()
     }
 
 

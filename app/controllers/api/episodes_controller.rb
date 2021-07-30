@@ -21,6 +21,6 @@ class Api::EpisodesController < ApplicationController
     # the allowed episode params 
     private
     def episode_params
-        params.require(:episode).permit(:title, :description, :video_id, :photo, :video)
+        params.require(:episode).permit(:title, :description, :video_id, :photo, :video, :episode_num)
     end
 end

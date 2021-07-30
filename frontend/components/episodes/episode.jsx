@@ -10,6 +10,7 @@ class Episode extends React.Component {
             episode: {},
             photo: '',
             video: '',
+            episode_num: '',
             hovering: false
         }
         this.handleMouseEnter = this.handleMouseEnter.bind(this);
@@ -42,6 +43,7 @@ class Episode extends React.Component {
                     <Link to={`/animes/${episode.video_id}/${episode.id}`}>
                         <div className="episode-template">
                             <img className="episode-photo" src={episode.photo} />
+                            <p>Episode {episode.episode_num}</p>
                             <p className="episode-title" >{episode.title}</p>
                         </div>
                     </Link>
