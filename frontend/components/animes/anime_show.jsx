@@ -17,7 +17,7 @@ class AnimeShow extends React.Component{
         this.props.getAnime(this.props.match.params.animeId)
             .then(() => this.setState(this.props.anime))
         this.props.getEpisodes(this.props.match.params.animeId)
-        //     .then((episodes) => dispatch(receiveAllEpisodes(episodes)))
+            .then((episodes) => dispatch(receiveAllEpisodes(episodes)))
     }
 
     componentWillUnmount(){
@@ -40,7 +40,7 @@ class AnimeShow extends React.Component{
                         </ul>
                     </div>
                 </div>
-                 <EpisodeList />
+                 <EpisodeList animeId={this.props.anime.id} />
             </div>
         )
     }

@@ -4,31 +4,46 @@ import Episode from './episode_container';
 class EpisodeList extends React.Component {
     constructor(props) {
         super(props);
-
     }
 
-    componentDidMount(){
-        // this.props.getAnime(this)
-        // this.props.getEpisodes()
-        //     .then(animeId => dispatch(getAnime(animeId)))
+
+    componentDidMount(){  
+  
+        this.props.getEpisodes()
+            .then(animeId => dispatch(getAnime(animeId)))
     }
     
-    componentWillUnmount(){
-        // this.props.getAnimes();
+    componentDidUpdate(){
+
+    }
+
+    shouldComponentUpdate(nextProps, nextState){
+        if(this.props.episodes !== nextProps.episodes){
+            return true;
+        }else{
+            return false;
+        }
     }
     
     render(){
-        // console.log(this.props)
-        // console.log(this.state)
-        return(
-            <div className="episode-list">
-                <div className="episode-grid">
-                    {this.props.episodes.map(episode => {
-                        return <Episode episode={episode} />
-                    })}
+        let anime = this.props.anime;
+        let episodes = this.props.episodes;
+
+        if(episodes.length !== 0){
+            return(
+                <div className="episode-list">
+                    <div className="episode-grid">
+                        {episodes.map(ep => {
+                            if(anime.id === ep.video_id){
+                                return <Episode episode={ep} />
+                            }
+                        })}
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }else{
+            return null
+        }
     }
 }
 

@@ -12,9 +12,10 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
     return {
-        getEpisode: episodeId => dispatch(getEpisode(episodeId)),
-        getAnime: animeId => dispatch(getAnime(animeId))
-    }
+      getEpisode: (episodeId) => dispatch(getEpisode(episodeId)),
+      getAnime: (animeId) => dispatch(getAnime(animeId)),
+      getAnimes: () => dispatch(getAnimes()),
+    };
 }
 
 export default connect(mSTP, mDTP)(EpisodeShow);

@@ -32,15 +32,14 @@ class EpisodeShow extends React.Component {
                             // })
                             console.log(episodes[0])
         return(
-            <video controls autoPlay  src={episodes[0].video}></video>
+            <video  autoPlay  src={episodes[0].video} controls></video>
             // <div>
             //     {episodes.forEach(episode => {
             //         if(episode.videoId === anime.id){
             //             return(
             //                 <div>
             //                     <p>Working?</p>
-            //                     <video src={episode.video}></video>
-            //                 </div>
+            //                  </div>
             //             )
             //         }else{
             //             return(
