@@ -8,6 +8,7 @@
 #  video_id    :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  episode_num :integer
 #
 class Episode < ApplicationRecord
     validates :title, presence: true, uniqueness: true

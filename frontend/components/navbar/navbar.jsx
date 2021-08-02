@@ -10,11 +10,14 @@ class Navbar extends React.Component {
         if(this.props.user === null || this.props.user === undefined){
             return(
                 <div className="nav">
-                    <Link to="/animes" className="header-link">
+                    <Link to="/" className="header-link">
                         <h1>Soggyroll</h1>
                     </Link>
                     <div className="nav-elements">
                         <ul className="nav-element">
+                            <li>
+                                <Link to="/animes" > Shows</Link>
+                            </li>
                             <li>
                                 <Link to="/signup" className="nav-link"> Sign up</Link>
                             </li>
@@ -28,10 +31,13 @@ class Navbar extends React.Component {
         }else{
             return(
                <div className="nav">
-                    <Link to="/animes" className="header-link">
+                    <Link to="/" className="header-link">
                         <h1>Soggyroll</h1>
                     </Link>
                    <div className="nav-elements">
+                       <li>
+                                <Link to="/animes" > Shows</Link>
+                        </li>
                         <button className="nav-button" 
                             onClick={this.props.logout}>
                             Log Out</button>

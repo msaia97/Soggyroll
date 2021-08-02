@@ -1,4 +1,6 @@
 class Api::SessionsController < ApplicationController
+    # when users log in they are creating a session and will
+    # log them in or else render errors 
     def create
         @user = User.find_by_credentials(
             params[:user][:username],
@@ -13,6 +15,7 @@ class Api::SessionsController < ApplicationController
         end
     end
 
+    # this allows the iser to logout and stop the current session
     def destroy
         @user = current_user
         if @user

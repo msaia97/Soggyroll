@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+    # this will allow for a user to sign up and upon succesful signup 
+    # they will be logged in 
     def create
         @user = User.new(user_params)
 
@@ -10,6 +12,7 @@ class Api::UsersController < ApplicationController
         end
     end
 
+    # these are the necessary things that user needs to register
     private
     def user_params
         params.require(:user).permit(:username, :password, :email)

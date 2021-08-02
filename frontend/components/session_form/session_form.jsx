@@ -1,4 +1,5 @@
 import React from 'react';
+// import crGirl from './images/crGirl.png';
 
 class SessionForm extends React.Component{
     constructor(props){
@@ -91,9 +92,7 @@ class SessionForm extends React.Component{
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     <br />
-                    {/* <div className="login-signup-choice">
-                     {this.props.formType} or {this.props.navLink}
-                    </div> */}
+                    {/* <img src={crGirl} alt="crGirl" /> */}
                     <div className="login-form">
                         <br />
                         {this.enterEmail()}

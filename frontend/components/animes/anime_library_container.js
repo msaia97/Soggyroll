@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import { getAnimes } from '../../actions/anime_actions';
+
 import AnimeLibrary from './anime_library';
 
 const mSTP = state => ({
