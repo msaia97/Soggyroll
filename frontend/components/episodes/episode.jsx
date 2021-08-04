@@ -39,11 +39,11 @@ class Episode extends React.Component {
         // console.log(episode)
         if(episode.video){
             return(
-                <div>
+                <div >
                     <Link to={`/animes/${episode.video_id}/${episode.id}`}>
                         <div className="episode-template">
                             <img className="episode-photo" src={episode.photo} />
-                            <p>Episode {episode.episode_num}</p>
+                            <p className="episode-num" >Episode {episode.episode_num}</p>
                             <p className="episode-title" >{episode.title}</p>
                         </div>
                     </Link>

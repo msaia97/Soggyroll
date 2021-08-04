@@ -1,0 +1,49 @@
+// .episode-list{
+// }
+.episode-grid{
+    display: grid;
+    // width: 75%;
+    grid-template-columns: repeat(3, 151px);
+    gap: 12px;
+     background-color: 	#F5F5F5;
+
+}
+
+.episode-template{
+    display: block;
+    padding: 12px;
+    width: 151px;
+    height: 152px;
+    color: #3f3f3f;
+    background: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 0 0.5rem lightgrey;
+}
+
+.episode-photo{
+    width: 127px;
+    height: 70px;
+}
+
+.episode-num{
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.episode-title{
+    font-size: 13px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.anime-title-list{
+    font-size: 18px;
+    font-weight: bold;
+    color: #3f3f3f;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}

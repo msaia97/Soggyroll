@@ -28,10 +28,11 @@ class EpisodeList extends React.Component {
     render(){
         let anime = this.props.anime;
         let episodes = this.props.episodes;
-
+        // console.log(anime);
         if(episodes.length !== 0){
             return(
                 <div className="episode-list">
+                    <p className="anime-title-list" >{anime.title}</p>
                     <div className="episode-grid">
                         {episodes.map(ep => {
                             if(anime.id === ep.video_id){
