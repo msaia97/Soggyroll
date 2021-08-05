@@ -4,8 +4,10 @@ import { getAnime} from '../../actions/anime_actions';
 import EpisodeShow from './episode_show';
 
 const mSTP = (state, ownProps) => {
+  // console.log(ownProps)
+  // console.log(Object.values(state.entities.episodes[ownProps.match.params.episodeId]));
     return {
-      episodes: Object.values(state.entities.episodes),
+      episode: state.entities.episodes[ownProps.match.params.episodeId],
       anime: state.entities.animes[ownProps.match.params.animeId],
     };
 }
