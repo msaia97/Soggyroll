@@ -5,8 +5,9 @@ import EpisodeShow from './episode_show';
 
 const mSTP = (state, ownProps) => {
   // console.log(ownProps)
-  // console.log(Object.values(state.entities.episodes[ownProps.match.params.episodeId]));
+  // console.log(state.entities.episodes);
     return {
+      episodes: state.entities.episodes,
       episode: state.entities.episodes[ownProps.match.params.episodeId],
       anime: state.entities.animes[ownProps.match.params.animeId],
     };

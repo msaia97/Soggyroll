@@ -10,7 +10,6 @@ class Featured extends React.Component {
     render() {
        return(
            <div className="featured">
-               {/* <img className="ad" src="" alt="" />
                <div className="featured-list">
                    <ul className="featured-shows">
                        <Link to={`/animes/5`} className="show-title-link">
@@ -21,7 +20,7 @@ class Featured extends React.Component {
                         </li>
                        </Link>
                    </ul>
-               </div> */}
+               </div> 
            </div>
        )
     }

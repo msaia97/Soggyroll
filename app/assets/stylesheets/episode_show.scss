@@ -1,10 +1,8 @@
-// .episode-vid{
-//     width: 100%;
-//     max-height: 360;
-//     object-fit: cover;
-//     // z-index: -100;
-// }
 
+.whole-ep-show{
+    display: flex;
+    flex-direction: row;
+}
 .video-wrapper {
     height:360px;
     width:640px;
@@ -13,4 +11,68 @@
 .video-wrapper > video {
     max-width: 100%;
     max-height: 100%;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.episode-show{
+    font-size: 18px;
+    color: #3f3f3f;
+}
+
+.episode-show-header{
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.episode-carousel{
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+}
+
+.episode-carousel-item{
+    display: block;
+}
+
+// .episode-carousel-item img{
+//     width: 108;
+//     height: 62;
+// }
+
+.episode-carousel-number{
+    font-size: 13px;
+}
+
+.episode-carousel-title{
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.about-wrapper{
+    display: block;
+    // position: relative;
+    float: right;
+    // border: 1px solid grey;
+    margin-left: 30px;
+}
+
+.about-wrapper p{
+    color: #3f3f3f;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.about-title{
+    font-weight: bold;
+}
+
+.about-num{
+    font-weight: bold;
+}
+
+.about-description{
+    font-weight: bold;
 }
