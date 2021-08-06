@@ -19,6 +19,7 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
     # associations with queue and maybe comments
+    has_many :queues
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
