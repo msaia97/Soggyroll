@@ -7,10 +7,14 @@ import Featured from './featured_container';
 
 const Homepage = ({ currentUser, logout }) => {
   return(
-    <div>
-      <Carousel />
-      <Article />
-      <Featured />
+    <div className="homepage">
+      <div className="home-left">
+        <Carousel />
+        <Article />
+      </div>
+      <div className="home-right">
+        <Featured />
+      </div>
     </div>
   )
   // const sessionLinks = () => (

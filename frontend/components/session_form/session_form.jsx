@@ -46,6 +46,10 @@ class SessionForm extends React.Component{
             )
         }
     }
+
+    componentDidMount(){
+        this.props.getAnimes()
+    }
   
     componentWillUnmount() {
         this.props.removeErrors();

@@ -16,7 +16,7 @@
 }
 .grid{
     display: grid;
-    width: 75%;
+    // width: 75%;
     grid-template-columns: repeat(4, 151px);
     gap: 12px;
 }
@@ -67,5 +67,7 @@
 .library {
     background-color: 	#F5F5F5;
     margin-left: 10px;
+    display: flex;
+    justify-content: center;
 }
 

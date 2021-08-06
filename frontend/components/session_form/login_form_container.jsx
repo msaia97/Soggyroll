@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { login, removeErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
+import { getAnimes } from '../../actions/anime_actions';  
 
 
 const mSTP = ({ errors }) => ({
@@ -14,7 +15,8 @@ const mSTP = ({ errors }) => ({
 const mDTP = (dispatch) => {
     return{
     processForm: (user) => dispatch(login(user)),
-    removeErrors: () => dispatch(removeErrors())
+    removeErrors: () => dispatch(removeErrors()),
+    getAnimes: () => dispatch(getAnimes())
 }};
 
 export default connect(mSTP, mDTP)(SessionForm);

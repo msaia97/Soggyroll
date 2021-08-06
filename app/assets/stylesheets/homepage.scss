@@ -146,6 +146,8 @@
     display: flex;
     position: absolute;
     padding: 10px;
+    box-shadow: 0 0 0.5rem rgb(219, 216, 216);
+    margin-bottom: 10px;
 }
 
 .image-slide img{
@@ -189,6 +191,7 @@
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
+    margin-top: 10px;   
 }
 
 .article-component{
@@ -230,5 +233,30 @@
 // right side of the home screen
 .featured{
     float: right;
+    position: relative;
+    margin-left: 10px;
+}
+
+.featured p{
+    margin-bottom: 10px;
+}
+
+.home-featured-img{
+    width: 52px;
+    height: 77px;
+}
+
+.homepage{
+    display: flex;
+    justify-content: center;
+    // background-color: #F5F5F5;
+}
+
+.featured-item{
+    display: flex;
+    padding: 10px;
+    box-shadow: 0 0 0.5rem rgb(219, 216, 216);
+    margin-bottom: 10px;
+
 }
 

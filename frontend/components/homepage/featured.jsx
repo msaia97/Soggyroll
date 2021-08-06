@@ -6,21 +6,38 @@ class Featured extends React.Component {
         super(props);
     }
 
+    componentWillUpdate(){
+        // this.props.getAnimes()
+    }
+
+    componentDidMount(){
+        console.log(this.props)
+    }
+
 
     render() {
+        let animes = this.props.animes;
+        let final = [];
+        for(let i = 0; i < 5; i++){
+            final.push(animes[i]);
+        }
+        console.log(final)
+
        return(
            <div className="featured">
-               <div className="featured-list">
-                   <ul className="featured-shows">
-                       <Link to={`/animes/5`} className="show-title-link">
-                        <li className="featured-anime">
-                            <img src="" alt="" />
-                            <p>My Hero Academia</p>
-                            <p>num videos</p>
-                        </li>
-                       </Link>
-                   </ul>
-               </div> 
+               <p>Featured Shows:</p>
+               <ul>
+                {final.map(anime => {
+                    return(
+                        <Link to={`/animes/${anime.id}`}>
+                            <li className="featured-item">
+                                <img className="home-featured-img" src={anime.cover_photo} alt="" />
+                                <p className="home-featured-title">{anime.title}</p>
+                            </li>
+                        </Link>
+                    )
+                })}
+               </ul>
            </div>
        )
     }

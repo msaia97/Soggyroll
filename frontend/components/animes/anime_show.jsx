@@ -29,19 +29,21 @@ class AnimeShow extends React.Component{
     render(){
         // const ({ curAnime }) = this.props.anime;
         return(
-            <div className="full-show">
-                <div className="anime-show">
-                    <div className="anime-show-description">
-                        <img className="anime-show-img" src={this.props.anime.cover_photo} />
-                        <ul>
-                            <li>{this.props.anime.title}</li>
-                            <br />
-                            <li>{this.props.anime.description}</li>
-                        </ul>
+                <div className="full-show">
+                    <div className="anime-show-ep">
+                        <EpisodeList animeId={this.props.anime.id} />
+                    </div>
+                    <div className="anime-show">
+                        <div className="anime-show-description">
+                            <img className="anime-show-img" src={this.props.anime.cover_photo} />
+                            <ul>
+                                <li>{this.props.anime.title}</li>
+                                <br />
+                                <li>{this.props.anime.description}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                 <EpisodeList animeId={this.props.anime.id} />
-            </div>
         )
     }
 }

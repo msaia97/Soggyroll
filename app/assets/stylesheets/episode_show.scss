@@ -2,6 +2,8 @@
 .whole-ep-show{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    background-color: #F5F5F5;
 }
 .video-wrapper {
     height:360px;
@@ -57,6 +59,7 @@
     float: right;
     // border: 1px solid grey;
     margin-left: 30px;
+    max-width: 300px;
 }
 
 .about-wrapper p{

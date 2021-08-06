@@ -1,20 +1,33 @@
 .anime-show{
-    width: 25%;;
+    // width: 25%;;
     display: block;
     background: #fff;
     padding: 12px;
     margin-bottom: 12px;
     position: relative;
     border: 1px solid grey;
-    float: right;
+    max-width: 309px;
+    // float: right;
 }
 
 .anime-show-img{
-    width: 100%;
-    height: auto;
+    width: 310px;
+    height: 463px;
     left: 0px;
     right: 0px;
 }
+
+.full-show{
+    display: flex;
+    justify-content: center;
+}
+
+.anime-show-ep{
+    // float: right;
+    margin-right: 10px;
+}
+
+
 
 
 
