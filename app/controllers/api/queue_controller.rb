@@ -11,7 +11,7 @@ class Api::QueuesController < ApplicationController
     end
 
     def create
-        @queue = current_user.queues.new()
+        @queue = current_user.queues.new(queue_params)
         if !@queue.save
             render json: ["You must be logged in for this function"]
         end
@@ -20,5 +20,10 @@ class Api::QueuesController < ApplicationController
     def destroy #
        @queue = Queue.find(params[:id])
        @queue.destroy
+    end
+
+    private
+    def queue_params
+        params.require(:queue).permit(:user_id, :anime_id, :episode_id)
     end
 end
