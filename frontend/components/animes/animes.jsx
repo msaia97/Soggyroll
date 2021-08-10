@@ -13,6 +13,7 @@ class Animes extends React.Component {
             isHovering: false
         };
         this.handleMouseEnter = this.handleMouseEnter.bind(this);
+        this.addToQueue = this.addToQueue.bind(this);
     }
 
     handleMouseEnter(e){
@@ -29,6 +30,11 @@ class Animes extends React.Component {
         })
     }
 
+    addToQueue(e){
+        e.preventDefault();
+        this.props.createQueue(this.props.user.id)
+    }
+
     render(){
         const { anime } = this.props;
         return(
@@ -40,7 +46,7 @@ class Animes extends React.Component {
                         onMouseOut={e => this.handleMouseOut(e)} />   
                     <b>{anime.title}</b>
                 </Link>
-                <button type="button" onClick={this.props.createQueue(this.props.user.id)}></button>
+                <button type="button" onClick={e => this.addToQueue(e)}></button>
                 <AnimeHover anime={anime} isHovering={this.state.isHovering} />
             </div>
         )

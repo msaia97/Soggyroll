@@ -5,6 +5,7 @@ import Queue from './queue';
 const mSTP = (state) => {
     return {
         queue: [],
+        user: state.entities.users
     }
 }
 

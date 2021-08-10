@@ -18,15 +18,17 @@ export const receiveQueues = payload => {
     };
 }
 
-export const removeQueue = (userId) => {
+export const removeQueue = (payload) => {
     return({
-        type: REMOVE_QUEUE,    
+        type: REMOVE_QUEUE, 
+        payload   
     })
 }
 
 // thunk
 
 export const createQueue = (user) => {
+  console.log(user)
   return(APIUtil.createQueue(user)
     .then((user) => dispatch(receiveQueue(user))))
 }

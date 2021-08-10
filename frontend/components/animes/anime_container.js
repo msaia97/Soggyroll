@@ -5,9 +5,10 @@ import { createQueue } from "../../actions/queue_actions";
 import Animes from './animes';
 
 const mSTP = (state) => {
+    // console.log(state.entities)
   return {
       animes: Object.values(state.entities.animes),
-      user: state.entities.user
+      user: state.entities.users
   }
 }
 

@@ -40,7 +40,7 @@ class Navbar extends React.Component {
                                 <Link to="/animes" > Shows</Link>
                         </li>
                        <li>
-                                <Link to={`/queue/${this.props.user.id}`} > Shows</Link>
+                                <Link to={`/queue/${this.props.user.id}`} >Queue</Link>
                         </li>
                         <button className="nav-button" 
                             onClick={this.props.logout}>

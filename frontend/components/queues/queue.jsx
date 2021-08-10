@@ -7,15 +7,25 @@ class Queue extends React.Component {
     }
 
     componentDidMount(){
-
+        let user = this.props.user
+        this.props.getQueues(user.id)
     }
 
     render() {
-        return(
-            <div>
-                <p>Supposed to be a queue</p>
-            </div>
-        )
+        let queues = this.props.queue;
+        if(this.props.queue.length > 0){
+            return(
+                <div>
+                    <ul>
+                        {queues.map(queue => {
+                            return(
+                                <li>{queue}</li>
+                            )
+                        })}
+                    </ul>
+                </div>
+            )
+        }else{}
     }
 }
 

@@ -11,7 +11,7 @@ class Featured extends React.Component {
     }
 
     componentDidMount(){
-        console.log(this.props)
+        // console.log(this.props)
     }
 
 
@@ -21,7 +21,7 @@ class Featured extends React.Component {
         for(let i = 0; i < 5; i++){
             final.push(animes[i]);
         }
-        console.log(final)
+        // console.log(final)
 
        return(
            <div className="featured">
