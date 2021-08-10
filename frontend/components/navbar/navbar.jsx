@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import Queue from '../queues/queues_container';
 
 class Navbar extends React.Component {
     constructor(props){
@@ -37,6 +38,9 @@ class Navbar extends React.Component {
                    <div className="nav-elements">
                        <li>
                                 <Link to="/animes" > Shows</Link>
+                        </li>
+                       <li>
+                                <Link to={`/queue/${this.props.user.id}`} > Shows</Link>
                         </li>
                         <button className="nav-button" 
                             onClick={this.props.logout}>

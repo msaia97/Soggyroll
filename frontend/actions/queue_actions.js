@@ -25,18 +25,19 @@ export const removeQueue = (userId) => {
 }
 
 // thunk
+
 export const createQueue = (user) => {
   return(APIUtil.createQueue(user)
     .then((user) => dispatch(receiveQueue(user))))
 }
 
-export const fetchQueues = (userId) => {
-  return(APIUtil.fetchQueues(userId)
+export const getQueues = (userId) => {
+  return(APIUtil.getQueues(userId)
     .then((user) => dispatch(receiveQueues(user))))
 }
 
-export const fetchQueue = (userId) => {
-  return(APIUtil.fetchQueue(userId)
+export const getQueue = (userId) => {
+  return(APIUtil.getQueue(userId)
     .then((user) => dispatch(receiveQueue(user))))
 }
 

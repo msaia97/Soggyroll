@@ -40,6 +40,7 @@ class Animes extends React.Component {
                         onMouseOut={e => this.handleMouseOut(e)} />   
                     <b>{anime.title}</b>
                 </Link>
+                <button type="button" onClick={this.props.createQueue(this.props.user.id)}></button>
                 <AnimeHover anime={anime} isHovering={this.state.isHovering} />
             </div>
         )
