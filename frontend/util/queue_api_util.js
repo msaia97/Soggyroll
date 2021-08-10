@@ -6,7 +6,7 @@ export const fetchQueues = (user) => {
     });
 }
 
-export const deleteQueues = (user) => {
+export const deleteQueue = (user) => {
     $.ajax({
       method: "DELETE",
       url: "/api/queues",
@@ -14,7 +14,7 @@ export const deleteQueues = (user) => {
     });
 }
 
-export const createQueues = (user) => {
+export const createQueue = (user) => {
     $.ajax({
       method: "POST",
       url: "/api/queues",
