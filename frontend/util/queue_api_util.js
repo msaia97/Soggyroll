@@ -15,10 +15,16 @@ export const deleteQueue = (user, queue) => {
 }
 
 export const createQueue = (userId) => {
+
   console
     $.ajax({
       method: "POST",
       url: `/api/users/${userId}/queues`,
-      data: { userId },
+      data: { 
+        queue: {
+          user_id: userId,
+          anime_id: null,
+          episode_id: null,
+        } },
     });
 }

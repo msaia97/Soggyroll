@@ -31,8 +31,9 @@ class Animes extends React.Component {
     }
 
     addToQueue(e){
+        // console.log(this.props)
         e.preventDefault();
-        this.props.createQueue(this.props.user.id)
+        this.props.createQueue(Object.values(this.props.user)[0])
     }
 
     render(){

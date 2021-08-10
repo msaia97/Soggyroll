@@ -29,13 +29,13 @@ export const removeQueue = (payload) => {
 
 export const createQueue = (user) => {
   console.log(user)
-  return(APIUtil.createQueue(user)
-    .then((user) => dispatch(receiveQueue(user))))
+  return(APIUtil.createQueue(user.id)
+    .then((queue) => dispatch(receiveQueue(queue))))
 }
 
 export const getQueues = (userId) => {
   return(APIUtil.getQueues(userId)
-    .then((user) => dispatch(receiveQueues(user))))
+    .then((queues) => dispatch(receiveQueues(queues))))
 }
 
 // export const getQueue = (userId) => {
