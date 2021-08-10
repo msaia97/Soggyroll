@@ -1,23 +1,24 @@
-export const fetchQueues = (user) => {
+export const getQueues = (user) => {
     return $.ajax({
       method: "GET",
-      url: "/api/queues",
+      url: `/api/users/${user.id}/queues`,
       data: { user },
     });
 }
 
-export const deleteQueue = (user) => {
+export const deleteQueue = (user, queue) => {
     $.ajax({
       method: "DELETE",
-      url: "/api/queues",
-      data: { user },
+      url: `/api/users/${user.id}/queues/${queue.id}`,
+      data: { user, queue },
     });
 }
 
-export const createQueue = (user) => {
+export const createQueue = (userId) => {
+  console
     $.ajax({
       method: "POST",
-      url: "/api/queues",
-      data: { user },
+      url: `/api/users/${userId}/queues`,
+      data: { userId },
     });
 }

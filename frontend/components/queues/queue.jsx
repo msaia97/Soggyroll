@@ -7,6 +7,7 @@ class Queue extends React.Component {
     }
 
     componentDidMount(){
+        console.log(this.props)
         let user = this.props.user
         this.props.getQueues(user.id)
     }

@@ -11,7 +11,7 @@ class Api::QueuesController < ApplicationController
     end
 
     def create
-        @queue = current_user.queues.new(queue_params)
+        @queue = Queue.new(queue_params)
         if !@queue.save
             render json: ["You must be logged in for this function"]
         end

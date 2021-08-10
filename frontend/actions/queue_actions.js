@@ -38,10 +38,10 @@ export const getQueues = (userId) => {
     .then((user) => dispatch(receiveQueues(user))))
 }
 
-export const getQueue = (userId) => {
-  return(APIUtil.getQueue(userId)
-    .then((user) => dispatch(receiveQueue(user))))
-}
+// export const getQueue = (userId) => {
+//   return(APIUtil.getQueue(userId)
+//     .then((user) => dispatch(receiveQueue(user))))
+// }
 
 export const deleteQueue = (userId) => {
   return(APIUtil.deleteQueue(userId)
