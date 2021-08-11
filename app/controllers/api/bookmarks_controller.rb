@@ -1,6 +1,5 @@
 class Api::BookmarksController < ApplicationController
     def index
-        #  queue = Queue.where(user_id: params[:user_id])
         @user = current_user
         if @user
             @bookmark = Bookmark.where(user_id: params[:user_id])

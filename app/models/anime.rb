@@ -12,7 +12,7 @@ class Anime < ApplicationRecord
     validates :title, presence: true, uniqueness: true
     validates :description, presence: true
 
-    # associations with queue and episodes
+    # associations with bookmark and episodes
     has_one_attached :cover_photo
 
     has_many :episodes,

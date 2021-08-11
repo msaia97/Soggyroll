@@ -18,8 +18,8 @@ class User < ApplicationRecord
     attr_reader :password
     after_initialize :ensure_session_token
 
-    # associations with queue and maybe comments
-    has_many :queues
+    # associations with bookmark and maybe comments
+    has_many :bookmarks
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)

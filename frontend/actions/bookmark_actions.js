@@ -5,6 +5,7 @@ export const RECEIVE_BOOKMARKS = "RECEIVE_BOOKMARKS";
 export const REMOVE_BOOKMARK = "REMOVE_BOOKMARK";
 
 export const receiveBookmark = bookmark => {
+  console.log(bookmark)
     return {
       type: RECEIVE_BOOKMARKS,
       bookmark
@@ -29,7 +30,7 @@ export const removeBookmark = (payload) => {
 
 export const createBookmark = (user) => {
   console.log(user)
-  debugger
+  // debugger
   return(APIUtil.createBookmark(user.id)
   .then((bookmark) => dispatch(receiveBookmark(bookmark))))
 }
@@ -39,10 +40,10 @@ export const getBookmarks = (userId) => {
     .then((bookmarks) => dispatch(receiveBookmarks(bookmarks))))
 }
 
-// export const getBookmark = (userId) => {
-//   return(APIUtil.getBookmark(userId)
-//     .then((user) => dispatch(receiveBookmark(user))))
-// }
+export const getBookmark = (userId) => {
+  return(APIUtil.getBookmark(userId)
+    .then((user) => dispatch(receiveBookmark(user))))
+}
 
 export const deleteBookmark = (userId) => {
   return(APIUtil.deleteBookmark(userId)
