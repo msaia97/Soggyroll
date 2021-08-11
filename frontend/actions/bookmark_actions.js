@@ -4,10 +4,10 @@ export const RECEIVE_BOOKMARK = "RECEIVE_BOOKMARK";
 export const RECEIVE_BOOKMARKS = "RECEIVE_BOOKMARKS";
 export const REMOVE_BOOKMARK = "REMOVE_BOOKMARK";
 
-export const receiveBookmark = payload => {
+export const receiveBookmark = bookmark => {
     return {
       type: RECEIVE_BOOKMARKS,
-      payload
+      bookmark
     };
 }
 
@@ -29,8 +29,9 @@ export const removeBookmark = (payload) => {
 
 export const createBookmark = (user) => {
   console.log(user)
+  debugger
   return(APIUtil.createBookmark(user.id)
-    .then((bookmark) => dispatch(receiveBookmark(bookmark))))
+  .then((bookmark) => dispatch(receiveBookmark(bookmark))))
 }
 
 export const getBookmarks = (userId) => {

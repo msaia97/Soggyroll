@@ -13,7 +13,7 @@ class Animes extends React.Component {
             isHovering: false
         };
         this.handleMouseEnter = this.handleMouseEnter.bind(this);
-        this.addToQueue = this.addToQueue.bind(this);
+        this.addToBookmarks = this.addToBookmarks.bind(this);
     }
 
     handleMouseEnter(e){
@@ -30,10 +30,10 @@ class Animes extends React.Component {
         })
     }
 
-    addToQueue(e){
+    addToBookmarks(e){
         // console.log(this.props)
         e.preventDefault();
-        this.props.createQueue(Object.values(this.props.user)[0])
+        this.props.createBookmark(Object.values(this.props.user)[0])
     }
 
     render(){
@@ -47,7 +47,7 @@ class Animes extends React.Component {
                         onMouseOut={e => this.handleMouseOut(e)} />   
                     <b>{anime.title}</b>
                 </Link>
-                <button type="button" onClick={e => this.addToQueue(e)}></button>
+                <button type="button" onClick={e => this.addToBookmarks(e)}></button>
                 <AnimeHover anime={anime} isHovering={this.state.isHovering} />
             </div>
         )

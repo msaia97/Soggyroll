@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Queue from '../queues/queues_container';
+import Bookmark from '../bookmarks/bookmarks_container';
 
 class Navbar extends React.Component {
     constructor(props){
@@ -40,7 +40,7 @@ class Navbar extends React.Component {
                                 <Link to="/animes" > Shows</Link>
                         </li>
                        <li>
-                                <Link to={`/queue/${this.props.user.id}`} >Queue</Link>
+                                <Link to={`/bookmark/${this.props.user.id}`} >Bookmarks</Link>
                         </li>
                         <button className="nav-button" 
                             onClick={this.props.logout}>

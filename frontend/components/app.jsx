@@ -11,7 +11,7 @@ import AnimeLibrary from './animes/anime_library_container';
 import AnimeShow from './animes/anime_show_container';
 import Navbar from './navbar/navbar_container';
 import EpisodeShow from './episodes/episode_show_container';
-import Queue from './queues/queues_container';
+import Bookmarks from './bookmarks/bookmarks_container';
 
 const App = () => (
     <div>
@@ -24,7 +24,7 @@ const App = () => (
             <Route exact path = "/" component ={Homepage}/>
             <Route path ="/animes/:animeId/:episodeId" component={EpisodeShow}/>
             <Route path ="/animes/:animeId" component={AnimeShow}/>
-            <AuthRoute exact path="/queue/:userId" component={Queue} />
+            <AuthRoute exact path="/bookmark/:userId" component={Bookmarks} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <Route path ="/animes" component={AnimeLibrary}/>

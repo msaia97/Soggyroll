@@ -12,7 +12,7 @@ class Api::BookmarksController < ApplicationController
     end
 
     def create
-        debugger
+        # debugger
         @bookmark = Bookmark.new(bookmark_params)
         if @bookmark.save!
             render json: @bookmark
