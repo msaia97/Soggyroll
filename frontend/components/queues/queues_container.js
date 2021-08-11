@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getQueue, getQueues, createQueue, deleteQueue } from '../../actions/queue_actions';
+import { getQueue, getQueues, createQueue, deleteQueue } from '../../actions/bookmark_actions';
 import Queue from './queue';
 
 const mSTP = (state) => {
