@@ -7,7 +7,7 @@
 #     t.index ["user_id"], name: "index_queues_on_user_id"
 #   end
 
-class Queue < ApplicationRecord
+class Bookmark < ApplicationRecord
     belongs_to :user
     belongs_to :anime 
     belongs_to :episode
