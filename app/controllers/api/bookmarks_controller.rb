@@ -13,6 +13,8 @@ class Api::BookmarksController < ApplicationController
     def create
         # debugger
         @bookmark = Bookmark.new(bookmark_params)
+        @bookmark.anime_id = nil
+        @bookmark.episode_id = nil
         if @bookmark.save!
             render json: @bookmark
         else

@@ -1,0 +1,1 @@
+json.extract! @bookmarks, :id, :user_id, :anime_id, :episode_id
