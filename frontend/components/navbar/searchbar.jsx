@@ -11,22 +11,56 @@ class SearchBar extends React.Component {
             episode: [],
             searchField: '',
         }
+        this.handleChange = this.handleChange.bind(this);
+    }
+    componentWillMount(){
+        this.props.getAnimes()
+
+    }
+    componentDidUpdate(){
+        // console.log(this.props)
     }
 
-    componentDidMount(){
-        console.log(this.props)
-        // this.props.getAnimes()
-    }
-
-    searchFilterOnChange(e){
+    handleChange(e){
+        e.preventDefault()
         this.setState({
-            inputValue: e.target.value,
+            searchField: e.target.value
         })
+        console.log(this.state)
+    }
+
+    SearchList(){
+        return(
+            <div>
+                <ul>
+                    {props.map(prop => {
+                        return(
+                            <li>{prop.title}</li>
+                        )
+                    })}
+                </ul>
+            </div>
+        )
     }
 
     render(){
+        // console.log(this.props.animes)
+        let animes = this.props.animes;
+        let searchField = this.state.searchField;
+        console.log(this.props)
+        if(animes){
+            let filteredAnimes = animes.map(anime => {
+                return anime.title.toLowerCase().includes(searchField.toLowerCase())
+            });
+        }
+       
         return(
-            <div></div>
+            <div>
+                <SearchBox placeHolder="Enter an Anime ..."
+                onChange={e => this.handleChange(e)}
+                />
+                <SearchList props={filteredAnimes} />
+            </div>
         )
     }
 }
