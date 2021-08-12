@@ -28,7 +28,7 @@ export const removeBookmark = (payload) => {
 
 // thunk
 
-export const createBookmark = (user) => {
+export const createBookmark = ({user, animeId}) => {
   console.log(user)
   // debugger
   return(APIUtil.createBookmark(user.id)

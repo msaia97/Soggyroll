@@ -14,16 +14,16 @@ export const deleteBookmark = (user, bookmark) => {
     });
 }
 
-export const createBookmark = (userId) => {
+export const createBookmark = ({userId, animeId}) => {
 
-  console
+  console.log(animeId)
     $.ajax({
       method: "POST",
       url: `/api/users/${userId}/bookmarks`,
       data: { 
         bookmark: {
           user_id: userId,
-          anime_id: null,
+          anime_id: animeId,
           episode_id: null,
         } },
     });
