@@ -10,6 +10,6 @@
 
 class Bookmark < ApplicationRecord
     belongs_to :user
-    # belongs_to :anime 
+    belongs_to :anime 
     # belongs_to :episode
 end

@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBox from './search_box';
 import { useState } from 'react';
 
-// const filteredAnimes = (animes, query) => {
+// const filterAnimes = (animes, query) => {
 //         if(!query){
 //             return animes;
 //         }
@@ -16,8 +16,8 @@ import { useState } from 'react';
 // function SearchBar() {
 //     const { search } = window.location;
 //     const query = new URLSearchParams(search).get('s');
-//     // const [searchQuery, setSearchQuery] = useState(query || '');
-//     const filteredAnimes = filteredAnimes(animes, searchQuery);
+//     // const [searchQuery, setSearchQuery] = useState('');
+//     const filteredAnimes = filterAnimes(animes, searchQuery);
 
 //     console.log(filteredAnimes)
 //     return (
@@ -37,8 +37,8 @@ import { useState } from 'react';
 
 
 // -----------------------------------
-// const { search } = window.location;
-// const query = new URLSearchParams(search).get('s');
+const { search } = window.location;
+const query = new URLSearchParams(search).get('s');
 // const [searchQuery, setSearchQuery] = useState(query || '');
 // const filteredAnimes = filterPosts(posts, searchQuery);
 
@@ -55,16 +55,16 @@ class SearchBar extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
     
-    filteredAnimes = (animes, query) => {
-        if(!query){
-            return animes;
-        }
+    // filteredAnimes = (animes, query) => {
+    //     if(!query){
+    //         return animes;
+    //     }
     
-        return animes.filter(anime => {
-            const animeTitle = anime.title.toLowerCase();
-            return animeTitle.includes(query)
-        })
-    }
+    //     return animes.filter(anime => {
+    //         const animeTitle = anime.title.toLowerCase();
+    //         return animeTitle.includes(query)
+    //     })
+    // }
 
     componentWillMount(){
         this.props.getAnimes()

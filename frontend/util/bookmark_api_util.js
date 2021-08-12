@@ -7,17 +7,17 @@ export const getBookmarks = (user) => {
 }
 
 export const deleteBookmark = (user, bookmark) => {
-    $.ajax({
+    return $.ajax({
       method: "DELETE",
       url: `/api/users/${user.id}/bookmarks/${bookmark.id}`,
       data: { user, bookmark },
     });
 }
 
-export const createBookmark = ({userId, animeId}) => {
+export const createBookmark = (userId, animeId) => {
 
   console.log(animeId)
-    $.ajax({
+    return $.ajax({
       method: "POST",
       url: `/api/users/${userId}/bookmarks`,
       data: { 

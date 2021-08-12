@@ -13,7 +13,7 @@ const mDTP = dispatch => {
     return {
         getBookmark: userId => dispatch(getBookmark(userId)),
         getBookmarks: userId => dispatch(getBookmarks(userId)),
-        createBookmark: userId => dispatch(createBookmark(userId)),
+        createBookmark: (userId, animeId) => dispatch(createBookmark(userId, animeId)),
         deleteBookmark: userId => dispatch(deleteBookmark(userId))
     }
 }

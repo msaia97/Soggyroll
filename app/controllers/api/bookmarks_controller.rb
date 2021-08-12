@@ -15,10 +15,10 @@ class Api::BookmarksController < ApplicationController
         @bookmark = Bookmark.new(bookmark_params)
         @bookmark.anime_id = nil
         @bookmark.episode_id = nil
-        if @bookmark.save!
+        if @bookmark.save
             render :show
         else
-            render json: ["You must be logged in for this function"]
+            render json: ["You must be logged in for this function"], status: 404
         end
     end
 

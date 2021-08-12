@@ -33,9 +33,10 @@ class Animes extends React.Component {
     addToBookmarks(e){
         // console.log(this.props)
         e.preventDefault();
-        let userId = Object.values(this.props.user)[0]
+        let user = Object.values(this.props.user)[0]
         let anime = this.props.anime
-        this.props.createBookmark(userId, anime.id)
+        // console.log(user.id)
+        this.props.createBookmark(user.id, anime.id)
     }
 
     render(){
