@@ -4,11 +4,12 @@ import { getEpisodes, getEpisode } from '../../actions/episode_actions';
 
 import SearchBar from './searchbar';
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
+    // console.log(ownProps)
     // console.log(state.entities.animes);
     // console.log(state.entities.episodes);
     return {
-      animes: state.entities.animes,
+      animes: Object.values(state.entities.animes),
       episodes: state.entities.episodes,
     };
 }

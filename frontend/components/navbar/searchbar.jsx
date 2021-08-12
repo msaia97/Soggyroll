@@ -1,5 +1,46 @@
 import React from 'react';
 import SearchBox from './search_box';
+import { useState } from 'react';
+
+// const filteredAnimes = (animes, query) => {
+//         if(!query){
+//             return animes;
+//         }
+    
+//         return animes.filter(anime => {
+//             const animeTitle = anime.title.toLowerCase();
+//             return animeTitle.includes(query)
+//         })
+// }
+
+// function SearchBar() {
+//     const { search } = window.location;
+//     const query = new URLSearchParams(search).get('s');
+//     // const [searchQuery, setSearchQuery] = useState(query || '');
+//     const filteredAnimes = filteredAnimes(animes, searchQuery);
+
+//     console.log(filteredAnimes)
+//     return (
+//         <div>
+//             <SearchBox
+//                 searchQuery={searchQuery}
+//                 setSearchQuery={setSearchQuery}
+//             />
+//             <ul>
+//                 {filteredAnimes.map(anime => (
+//                     <li key={anime.key}>{anime.title}</li>
+//                 ))}
+//             </ul>
+//         </div>
+//     );
+// }
+
+
+// -----------------------------------
+// const { search } = window.location;
+// const query = new URLSearchParams(search).get('s');
+// const [searchQuery, setSearchQuery] = useState(query || '');
+// const filteredAnimes = filterPosts(posts, searchQuery);
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -13,12 +54,24 @@ class SearchBar extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
     }
+    
+    filteredAnimes = (animes, query) => {
+        if(!query){
+            return animes;
+        }
+    
+        return animes.filter(anime => {
+            const animeTitle = anime.title.toLowerCase();
+            return animeTitle.includes(query)
+        })
+    }
+
     componentWillMount(){
         this.props.getAnimes()
+        this.setState({
+            animes: this.props.animes
+        })
 
-    }
-    componentDidUpdate(){
-        // console.log(this.props)
     }
 
     handleChange(e){
@@ -26,40 +79,28 @@ class SearchBar extends React.Component {
         this.setState({
             searchField: e.target.value
         })
-        console.log(this.state)
-    }
-
-    SearchList(){
-        return(
-            <div>
-                <ul>
-                    {props.map(prop => {
-                        return(
-                            <li>{prop.title}</li>
-                        )
-                    })}
-                </ul>
-            </div>
-        )
     }
 
     render(){
-        // console.log(this.props.animes)
-        let animes = this.props.animes;
+        const animes = this.props.animes;
         let searchField = this.state.searchField;
-        console.log(this.props)
-        if(animes){
-            let filteredAnimes = animes.map(anime => {
-                return anime.title.toLowerCase().includes(searchField.toLowerCase())
-            });
-        }
+        // if(Object.keys(animes).length > 0){
+        //     let filteredAnimes = animes.map(anime => {
+        //         return anime.title.toLowerCase().includes(searchField.toLowerCase())
+        //     });
+        //     console.log(filteredAnimes)
+        // }
        
         return(
             <div>
-                <SearchBox placeHolder="Enter an Anime ..."
-                onChange={e => this.handleChange(e)}
-                />
-                <SearchList props={filteredAnimes} />
+                <SearchBox  />
+                {/* <ul>
+                    {filteredAnimes.map(anime => {
+                        return(
+                            <li key={anime.id}>{anime.title}</li>
+                        )
+                    })}
+                </ul> */}
             </div>
         )
     }
