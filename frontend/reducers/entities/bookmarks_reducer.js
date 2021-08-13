@@ -1,7 +1,13 @@
-import { RECEIVE_BOOKMARK, RECEIVE_BOOKMARKS, REMOVE_BOOKMARK } from '../../actions/bookmark_actions';
+import {
+  RECEIVE_BOOKMARK,
+  RECEIVE_BOOKMARKS,
+  REMOVE_BOOKMARK,
+} from "../../actions/bookmark_actions";
 
 const bookmarkReducer = (state = {}, action ) => {
     Object.freeze(state);
+    // console.log(action.type)
+    // debugger
     switch(action.type){
         case RECEIVE_BOOKMARK:
             debugger

@@ -37,26 +37,27 @@ export const bookmarkError = (payload) => {
 
 // thunk
 
-export const createAnimeBookmark = (userId, animeId) => {
+export const createAnimeBookmark = ({ userId, animeId }) => {
   animeId = animeId || null;
   // episodeId = episodeId || null;
-  let bookmarks = APIUtil.createAnimeBookmark(userId, animeId);
-  bookmarks.then(bookmark => {
-    console.log(bookmark)
+  // let bookmarks = APIUtil.createAnimeBookmark(userId, animeId);
+  // bookmarks.then(bookmark => {
+  //   console.log(bookmark)
 
-  })
+  // })
   // debugger
-  // return(APIUtil.createAnimeBookmark(userId, animeId)
-  //   .then(
-  //     (bookmark) => {
-  //       // debugger
-  //       dispatch(receiveBookmark(bookmark));
-  //     })
-  //   // .catch((err) => dispatch(bookmarkError(err)))
-  //   )
-}
+  // return
+    new Promise(APIUtil.createAnimeBookmark(userId, animeId)).then((bookmark) => {
+    debugger
+    return dispatch(receiveBookmark(bookmark))
+    // console.log(bookmark);
+  })
+  .catch((err) => dispatch(bookmarkError(err)))
+  // let res = await APIUtil.createAnimeBookmark(userId, animeId)
+  // dispatch(res)
+};
 
-export const createEpisodeBookmark = (userId, animeId, episodeId) => {
+export const createEpisodeBookmark = ({userId, animeId, episodeId}) => {
   animeId = animeId || null;
   episodeId = episodeId || null;
   return(APIUtil.createAnimeBookmark(userId, animeId)

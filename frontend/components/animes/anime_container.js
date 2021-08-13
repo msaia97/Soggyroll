@@ -13,6 +13,7 @@ const mSTP = (state) => {
 }
 
 const mDTP = dispatch => {
+    // console.log(createAnimeBookmark)
     return{
         getAnime: animeId => dispatch(getAnime(animeId)),
         getAnimes: () => dispatch(getAnimes()),
