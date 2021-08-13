@@ -36,7 +36,7 @@ class Animes extends React.Component {
         let user = Object.values(this.props.user)[0]
         let anime = this.props.anime
         // console.log(user.id)
-        this.props.createBookmark(user.id, anime.id)
+        this.props.createAnimeBookmark(user.id, anime.id)
     }
 
     render(){

@@ -7,18 +7,18 @@ export const BOOKMARK_ERROR = "BOOKMARK_ERROR";
 
 export const receiveBookmark = bookmark => {
   console.log(bookmark)
-  debugger
-    return {
+  // debugger
+    return ({
       type: RECEIVE_BOOKMARK,
       bookmark
-    };
+    });
 }
 
 export const receiveBookmarks = payload => {
-    return {
+    return ({
       type: RECEIVE_BOOKMARKS,
       payload
-    };
+    });
 }
 
 export const removeBookmark = (payload) => {
@@ -37,19 +37,30 @@ export const bookmarkError = (payload) => {
 
 // thunk
 
-export const createBookmark = (userId, animeId, episodeId) => {
+export const createAnimeBookmark = (userId, animeId) => {
   animeId = animeId || null;
-  episodeId = episodeId || null;
+  // episodeId = episodeId || null;
   // let bookmark = APIUtil.createBookmark(userId, animeId);
   // console.log(bookmark)
-  // debugger
-  return(APIUtil.createBookmark(userId, animeId)
+  debugger
+  return(APIUtil.createAnimeBookmark(userId, animeId)
     .then(
       (bookmark) => {
-        debugger
+        // debugger
         dispatch(receiveBookmark(bookmark))
       })
     // .catch((err) => dispatch(bookmarkError(err)))
+    )
+}
+
+export const createEpisodeBookmark = (userId, animeId, episodeId) => {
+  animeId = animeId || null;
+  episodeId = episodeId || null;
+  return(APIUtil.createAnimeBookmark(userId, animeId)
+    .then(
+      (bookmark) => {
+        dispatch(receiveBookmark(bookmark))
+      })
     )
 }
 
@@ -58,9 +69,14 @@ export const getBookmarks = (userId) => {
     .then((bookmarks) => dispatch(receiveBookmarks(bookmarks))))
 }
 
-export const getBookmark = (userId) => {
-  return(APIUtil.getBookmark(userId)
-    .then((user) => dispatch(receiveBookmark(user))))
+export const getAnimeBookmark = (userId, animeId) => {
+  return(APIUtil.getAnimeBookmark(userId, animeId)
+    .then((bookmark) => dispatch(receiveBookmark(bookmark))))
+}
+
+export const getEpisodeBookmark = (userId, animeId, episodeId) => {
+  return(APIUtil.getEpisodeBookmark(userId, animeId, episodeId)
+    .then((bookmark) => dispatch(receiveBookmark(bookmark))))
 }
 
 export const deleteBookmark = (userId) => {

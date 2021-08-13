@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getAnime, getAnimes } from '../../actions/anime_actions';
-import { createBookmark } from "../../actions/bookmark_actions";
+import { createAnimeBookmark } from "../../actions/bookmark_actions";
 
 import Animes from './animes';
 
@@ -16,7 +16,7 @@ const mDTP = dispatch => {
     return{
         getAnime: animeId => dispatch(getAnime(animeId)),
         getAnimes: () => dispatch(getAnimes()),
-        createBookmark: userId => dispatch(createBookmark(userId)),
+        createAnimeBookmark: (userId, animeId) => dispatch(createAnimeBookmark(userId, animeId)),
     };
 }
 

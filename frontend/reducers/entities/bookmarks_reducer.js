@@ -10,7 +10,7 @@ const bookmarkReducer = (state = {}, action ) => {
         case RECEIVE_BOOKMARKS: 
             return action.bookmarks
         case REMOVE_BOOKMARK:
-             nextState = Object.assign({}, state);
+            nextState = Object.assign({}, state);
             delete nextState[action.bookmark.id]
             return nextState
         default:
