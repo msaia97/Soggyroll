@@ -4,6 +4,7 @@ const bookmarkReducer = (state = {}, action ) => {
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_BOOKMARK:
+            debugger
             return Object.assign({}, state, {
                 [action.user.id]: action.bookmark.id
             })

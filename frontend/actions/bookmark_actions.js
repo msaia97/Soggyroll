@@ -1,17 +1,17 @@
 import * as APIUtil from '../util/bookmark_api_util';
 
-export const RECEIVE_BOOKMARK = "RECEIVE_BOOKMARK";
-export const RECEIVE_BOOKMARKS = "RECEIVE_BOOKMARKS";
-export const REMOVE_BOOKMARK = "REMOVE_BOOKMARK";
-export const BOOKMARK_ERROR = "BOOKMARK_ERROR";
+export const RECEIVE_BOOKMARK = 'RECEIVE_BOOKMARK';
+export const RECEIVE_BOOKMARKS = 'RECEIVE_BOOKMARKS';
+export const REMOVE_BOOKMARK = 'REMOVE_BOOKMARK';
+export const BOOKMARK_ERROR = 'BOOKMARK_ERROR';
 
 export const receiveBookmark = bookmark => {
   console.log(bookmark)
-  // debugger
-    return ({
+  debugger
+    return {
       type: RECEIVE_BOOKMARK,
-      bookmark
-    });
+      bookmark,
+    };
 }
 
 export const receiveBookmarks = payload => {
@@ -40,17 +40,20 @@ export const bookmarkError = (payload) => {
 export const createAnimeBookmark = (userId, animeId) => {
   animeId = animeId || null;
   // episodeId = episodeId || null;
-  // let bookmark = APIUtil.createBookmark(userId, animeId);
-  // console.log(bookmark)
-  debugger
-  return(APIUtil.createAnimeBookmark(userId, animeId)
-    .then(
-      (bookmark) => {
-        // debugger
-        dispatch(receiveBookmark(bookmark))
-      })
-    // .catch((err) => dispatch(bookmarkError(err)))
-    )
+  let bookmarks = APIUtil.createAnimeBookmark(userId, animeId);
+  bookmarks.then(bookmark => {
+    console.log(bookmark)
+
+  })
+  // debugger
+  // return(APIUtil.createAnimeBookmark(userId, animeId)
+  //   .then(
+  //     (bookmark) => {
+  //       // debugger
+  //       dispatch(receiveBookmark(bookmark));
+  //     })
+  //   // .catch((err) => dispatch(bookmarkError(err)))
+  //   )
 }
 
 export const createEpisodeBookmark = (userId, animeId, episodeId) => {
