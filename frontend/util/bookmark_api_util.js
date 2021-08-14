@@ -53,6 +53,7 @@ export const createAnimeBookmark = (userId, animeId) => {
           anime_id: animeId
         } },
     });
+    // return new Promise((resolve) => resolve("test") );
 }
 export const createEpisodeBookmark = (userId, animeId, episodeId) => {
   // console.log(animeId)
