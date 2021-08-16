@@ -1,9 +1,8 @@
 json.extract! @user, :id
+#debugger
 json.bookmarks do 
-    @user.bookmarks.each do |bookamrk|
-        json.set! bookmark.id do
-            json.extract! bookmark, :id, :user_id, :anime_id, :episode_id
-        end
+    @user.bookmarks.each do |bookmark|
+        json.extract! bookmark, :id, :user_id, :anime_id, :episode_id
     end
 end
 

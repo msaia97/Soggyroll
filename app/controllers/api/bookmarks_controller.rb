@@ -1,8 +1,9 @@
 class Api::BookmarksController < ApplicationController
     def index
         @user = current_user
+       #debugger
         if @user
-            @bookmark = Bookmark.where(userid: params[:user_id])
+            @bookmarks = Bookmark.where(user_id: params[:user_id])
             render :index
         else
             render json: ["You must be logged in for this function"]

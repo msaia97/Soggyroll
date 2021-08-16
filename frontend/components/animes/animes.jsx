@@ -88,8 +88,8 @@ class Animes extends React.Component {
                         <button className={this.state.isBookmarked === false ? "is-bookmarked" : "not-bookmarked"} 
                             type="button" 
                             onClick={
-                                this.state.isBookmarked === false ? 
-                                    (e) => this.addToBookmarks(e) :
+                                // this.state.isBookmarked === false ? 
+                                    // (e) => this.addToBookmarks(e) :
                                     (e) => this.deleteBookmark(e)
                             }>{ this.state.isBookmarked === true ? 'Bookmark' : 'Bookmarked' }
                         </button>
