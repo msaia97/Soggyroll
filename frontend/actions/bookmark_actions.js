@@ -6,7 +6,7 @@ export const REMOVE_BOOKMARK = 'REMOVE_BOOKMARK';
 export const BOOKMARK_ERROR = 'BOOKMARK_ERROR';
 
 export const receiveBookmark = bookmark => {
-  console.log(bookmark)
+  // console.log(bookmark)
   // debugger
     return ({
       type: RECEIVE_BOOKMARK,
@@ -53,7 +53,7 @@ export const createAnimeBookmark = (userId, animeId ) => {
   // debugger
   // return
     return APIUtil.createAnimeBookmark(userId, animeId).then((bookmark) => {
-    debugger
+    // debugger
     return dispatch(receiveBookmark(bookmark))
   })
   // , (errors) => dispatch(bookmarkError(errors.responseJSON))

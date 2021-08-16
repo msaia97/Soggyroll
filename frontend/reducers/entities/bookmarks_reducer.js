@@ -11,10 +11,8 @@ const bookmarkReducer = (state = {}, action ) => {
     switch(action.type){
         case RECEIVE_BOOKMARK:
             // debugger
-            console.log("LOOK", state, action)
-            return Object.assign({}, state, {
-                [action.user.id]: action.bookmarks.id
-            })
+            const bmk = Object.values(action.bookmark);
+            return Object.assign({}, state, bmk)
         case RECEIVE_BOOKMARKS: 
             return action.bookmarks
         case REMOVE_BOOKMARK:
