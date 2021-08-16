@@ -14,8 +14,8 @@ class Api::BookmarksController < ApplicationController
         # debugger
         @user = current_user
         @bookmark = Bookmark.new(bookmark_params)
-        @bookmark.anime_id = nil
-        @bookmark.episode_id = nil
+        @bookmark.anime_id || nil
+        @bookmark.episode_id || nil
         if @bookmark.save
             render :show
         else

@@ -41,9 +41,9 @@ export const createAnimeBookmark = (userId, animeId ) => {
   animeId = animeId || null;
 
   let bmk = APIUtil.createAnimeBookmark(userId, animeId).then(bookmark => {
-    console.log(REEEEEEEE,bookmark)
+    // console.log(REEEEEEEE,bookmark)
   })
-  console.log(bmk)
+  // console.log(bmk)
 
   // episodeId = episodeId || null;
   // let bookmarks = APIUtil.createAnimeBookmark(userId, animeId);
