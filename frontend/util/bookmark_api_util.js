@@ -33,11 +33,11 @@ export const getEpisodeBookmark = (userId, animeId, episodeId) => {
   });
 }
 
-export const deleteBookmark = (user, bookmark) => {
+export const deleteBookmark = (user, bookmarkId) => {
     return $.ajax({
       method: "DELETE",
-      url: `/api/users/${user.id}/bookmarks/${bookmark.id}`,
-      data: { user, bookmark },
+      url: `/api/users/${user.id}/bookmarks/${bookmarkId}`,
+      data: { user, bookmarkId },
     });
 }
 

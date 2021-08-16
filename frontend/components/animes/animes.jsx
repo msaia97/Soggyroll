@@ -10,10 +10,19 @@ class Animes extends React.Component {
             title: '',
             description: '',
             cover_photo: null,
-            isHovering: false
+            isHovering: false,
+            isBookmarked: false
         };
         this.handleMouseEnter = this.handleMouseEnter.bind(this);
         this.addToBookmarks = this.addToBookmarks.bind(this);
+        this.deleteBookmark = this.deleteBookmark.bind(this);
+    }
+
+    componentDidMount(){
+        console.log(this.props.anime)
+        this.props.getAnimeBookmark(Object.values(this.props.user)[0].id,
+            this.props.anime.id
+        )
     }
 
     handleMouseEnter(e){
@@ -31,29 +40,78 @@ class Animes extends React.Component {
     }
 
     addToBookmarks(e){
-        // console.log(this.props)
         e.preventDefault();
+        console.log("Look HERE add", this.state)
+        // debugger
         let user = Object.values(this.props.user)[0]
         let anime = this.props.anime
-        // console.log(user, anime)
-        this.props.createAnimeBookmark(user.id, anime.id)
+        if(this.state.isBookmarked === false){
+            this.props.createAnimeBookmark(user.id, anime.id)
+            this.setState({
+                isBookmarked: true
+            })
+        }
+        console.log("Look HERE add^^", this.state)
+    }
+
+    deleteBookmark(e){
+        // debugger
+        console.log("Look HERE delete", this.state)
+        e.preventDefault();
+        let userId = Object.values(this.props.user)[0].id;
+        let bookmarks = this.props.bookmarks;
+        let anime = this.props.anime;
+        console.log(bookmarks, userId)
+        this.props.deleteBookmark(userId, anime.id)
+       this.setState({
+            isBookmarked: false
+        })
+
     }
 
     render(){
         const { anime } = this.props;
-        return(
-            <div className="anime-template">
-                <Link to={`/animes/${anime.id}`} className="show-title-link">
-                    <img className="anime-img"
-                        src={anime.cover_photo}
-                        onMouseEnter={e => this.handleMouseEnter(e)}
-                        onMouseOut={e => this.handleMouseOut(e)} />   
-                    <b>{anime.title}</b>
-                </Link>
-                <button type="button" onClick={e => this.addToBookmarks(e)}></button>
-                <AnimeHover anime={anime} isHovering={this.state.isHovering} />
-            </div>
-        )
+        let user = Object.values(this.props.user)
+        // console.log(this.state);
+        if(user.length !== 0){
+            return(
+                <div className="anime-template">
+                    <Link to={`/animes/${anime.id}`} className="show-title-link">
+                        <img className="anime-img"
+                            src={anime.cover_photo}
+                            onMouseEnter={e => this.handleMouseEnter(e)}
+                            onMouseOut={e => this.handleMouseOut(e)} />   
+                        <b>{anime.title}</b>
+                    </Link>
+                    <div className="bookmark-button-container">
+                        {/* {console.log(this.state)} */}
+                        <button className={this.state.isBookmarked === false ? "is-bookmarked" : "not-bookmarked"} 
+                            type="button" 
+                            onClick={
+                                this.state.isBookmarked === false ? 
+                                    (e) => this.addToBookmarks(e) :
+                                    (e) => this.deleteBookmark(e)
+                            }>{ this.state.isBookmarked === true ? 'Bookmark' : 'Bookmarked' }
+                        </button>
+                    </div>
+                    <AnimeHover anime={anime} isHovering={this.state.isHovering} />
+                </div>
+            )
+        }else{
+            return(
+                    <div className="anime-template">
+                        <Link to={`/animes/${anime.id}`} className="show-title-link">
+                            <img className="anime-img"
+                                src={anime.cover_photo}
+                                onMouseEnter={e => this.handleMouseEnter(e)}
+                                onMouseOut={e => this.handleMouseOut(e)} />   
+                            <b>{anime.title}</b>
+                        </Link>
+                        <AnimeHover anime={anime} isHovering={this.state.isHovering} />
+                    </div>
+                )
+        }
+   
     }
 }
 
