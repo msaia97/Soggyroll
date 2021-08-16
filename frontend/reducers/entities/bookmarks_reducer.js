@@ -6,7 +6,7 @@ import {
 
 const bookmarkReducer = (state = {}, action ) => {
     Object.freeze(state);
-    console.log('LOGGER',action);
+    // console.log('LOGGER',action);
     // debugger
     switch(action.type){
         case RECEIVE_BOOKMARK:

@@ -43,7 +43,7 @@ export const deleteBookmark = (user, bookmark) => {
 
 export const createAnimeBookmark = (userId, animeId) => {
 
-  // console.log(animeId)
+  console.log(userId, animeId)
     return $.ajax({
       method: "POST",
       url: `/api/users/${userId}/bookmarks`,

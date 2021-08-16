@@ -14,6 +14,7 @@ export const receiveAllAnimes = (animes) => ({
 })
 //thunk action creators idk if i need them
 export const getAnime = (animeId) => dispatch => {
+    console.log(APIUtil.getAnime(animeId));
     return (APIUtil.getAnime(animeId)
         .then((anime) => dispatch(receiveAnime(anime))))
 };

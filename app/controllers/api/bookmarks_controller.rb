@@ -12,6 +12,7 @@ class Api::BookmarksController < ApplicationController
 
     def create
         # debugger
+        @user = current_user
         @bookmark = Bookmark.new(bookmark_params)
         @bookmark.anime_id = nil
         @bookmark.episode_id = nil

@@ -8,10 +8,10 @@ export const BOOKMARK_ERROR = 'BOOKMARK_ERROR';
 export const receiveBookmark = bookmark => {
   console.log(bookmark)
   // debugger
-    return {
+    return ({
       type: RECEIVE_BOOKMARK,
       bookmark,
-    };
+    });
 }
 
 export const receiveBookmarks = payload => {
@@ -37,8 +37,14 @@ export const bookmarkError = (payload) => {
 
 // thunk
 
-export const createAnimeBookmark = ({ userId, animeId }) => {
+export const createAnimeBookmark = (userId, animeId ) => {
   animeId = animeId || null;
+
+  let bmk = APIUtil.createAnimeBookmark(userId, animeId).then(bookmark => {
+    console.log(REEEEEEEE,bookmark)
+  })
+  console.log(bmk)
+
   // episodeId = episodeId || null;
   // let bookmarks = APIUtil.createAnimeBookmark(userId, animeId);
   // bookmarks.then(bookmark => {
@@ -49,7 +55,10 @@ export const createAnimeBookmark = ({ userId, animeId }) => {
     return APIUtil.createAnimeBookmark(userId, animeId).then((bookmark) => {
     debugger
     return dispatch(receiveBookmark(bookmark))
-  }, (errors) => dispatch(bookmarkError(errors.responseJSON)))
+  })
+  // , (errors) => dispatch(bookmarkError(errors.responseJSON))
+  // )
+
   // .catch((err) => dispatch(bookmarkError(err)))
   // let res = await APIUtil.createAnimeBookmark(userId, animeId)
   // dispatch(res)
