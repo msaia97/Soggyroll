@@ -27,7 +27,7 @@ class Api::BookmarksController < ApplicationController
     def destroy #
        @user = current_user
        if @user
-        @bookmark = Bookmark.find(params[:id])
+        @bookmark = Bookmark.where(user_id: params[:user_id], bookmark_id: params[:bookmark_id])
         @bookmark.destroy
        end
     end
