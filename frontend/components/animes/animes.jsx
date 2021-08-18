@@ -61,10 +61,10 @@ class Animes extends React.Component {
         let bookmarks = this.props.bookmarks;
         // let anime = this.props.anime;
         let bmk = Object.values(bookmarks)
-        console.log(bmk[1])
+        console.log(userId, bmk[1])
         this.props.deleteBookmark(userId, bmk[1].id)
             .then((userId, bookmarkId) => dispatch(removeBookmark(userId, bookmarkId)))
-        console.log(this.props.deleteBookmark(user.id, bmk[1].id))
+        // console.log(this.props.deleteBookmark(user.id, bmk[1].id))
         this.setState({
             isBookmarked: false
         })

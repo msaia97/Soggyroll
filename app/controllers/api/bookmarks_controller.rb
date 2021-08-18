@@ -25,11 +25,18 @@ class Api::BookmarksController < ApplicationController
     end
 
     def destroy #
-       @user = current_user
-       if @user
-        @bookmark = Bookmark.where(user_id: params[:user_id], bookmark_id: params[:bookmark_id])
-        @bookmark.destroy
-       end
+     #  @user = current_user
+       debugger
+      # if @user
+       # @bookmark = Bookmark.where((user_id: params[:user_id]) && (bookmark_id: params[:bookmark_id]))
+        @bookmark = current_user.bookmarks.where(id: params[:id])
+        if @bookmark
+            @bookmark.destroy
+            render :show
+        else
+            render json: ["Cant find the bookmark"]
+        end
+      # end
     end
 
     private

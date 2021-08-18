@@ -34,7 +34,7 @@ export const getEpisodeBookmark = (userId, animeId, episodeId) => {
 }
 
 export const deleteBookmark = (user, bookmarkId) => {
-    debugger
+    // debugger
     return $.ajax({
       method: "DELETE",
       url: `/api/users/${user.id}/bookmarks/${bookmarkId}`,
