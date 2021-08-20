@@ -12,10 +12,11 @@ const bookmarkReducer = (state = {}, action ) => {
         case RECEIVE_BOOKMARK:
             // debugger
             const bmk = Object.values(action.bookmark);
-            return Object.assign({}, state, bmk)
+            return Object.assign({}, state, action.bookmark)
         case RECEIVE_BOOKMARKS: 
             return action.bookmarks
         case REMOVE_BOOKMARK:
+            debugger
             const nextState = Object.assign({}, state);
             delete nextState[action.bookmark.id]
             return nextState

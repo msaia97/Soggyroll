@@ -14,7 +14,7 @@ const mSTP = (state) => {
   return {
       animes: Object.values(state.entities.animes),
       user: state.entities.users,
-      bookmarks: state.entities.bookmarks,
+      bookmarks: state.entities.bookmarks.bookmarks,
   }
 }
 
