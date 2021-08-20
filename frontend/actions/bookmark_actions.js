@@ -90,8 +90,9 @@ export const getEpisodeBookmark = (userId, animeId, episodeId) => {
     .then((bookmark) => dispatch(receiveBookmark(bookmark))))
 }
 
-export const deleteBookmark = (userId, bookmarkId) => {
-  return(APIUtil.deleteBookmark(userId, bookmarkId)
-    .then((userId, bookmarkId) => dispatch(removeBookmark(userId, bookmarkId))
+export const deleteBookmark = (userId, bookmark) => {
+  debugger
+  return(APIUtil.deleteBookmark(userId, bookmarks)
+    .then((userId, bookmark) => dispatch(removeBookmark(userId, bookmark))
     ))
 }
