@@ -1,4 +1,5 @@
 export const getBookmarks = (user) => {
+  // debugger
     return $.ajax({
       method: "GET",
       url: `/api/users/${user.id}/bookmarks`,

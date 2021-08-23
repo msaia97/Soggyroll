@@ -1,23 +1,22 @@
 import * as APIUtil from '../util/bookmark_api_util';
 
-export const RECEIVE_BOOKMARK = 'RECEIVE_BOOKMARK';
-export const RECEIVE_BOOKMARKS = 'RECEIVE_BOOKMARKS';
+export const RECEIVE_BOOKMARK = "RECEIVE_BOOKMARK";
+export const RECEIVE_ALL_BOOKMARKS = 'RECEIVE_ALL_BOOKMARKS';
 export const REMOVE_BOOKMARK = 'REMOVE_BOOKMARK';
 export const BOOKMARK_ERROR = 'BOOKMARK_ERROR';
 
-export const receiveBookmark = bookmark => {
+export const receiveBookmark = (bookmark) => ({
   // console.log(bookmark)
   // debugger
-    return ({
-      type: RECEIVE_BOOKMARK,
-      bookmark,
-    });
-}
+  type: RECEIVE_BOOKMARK,
+  bookmark,
+});
 
-export const receiveBookmarks = payload => {
+export const receiveAllBookmarks = (bookmarks) => {
+  // console.log(bookmarks)
     return ({
-      type: RECEIVE_BOOKMARKS,
-      payload
+      type: RECEIVE_ALL_BOOKMARKS,
+      bookmarks
     });
 }
 
@@ -77,7 +76,7 @@ export const createEpisodeBookmark = ({userId, animeId, episodeId}) => {
 
 export const getBookmarks = (userId) => {
   return(APIUtil.getBookmarks(userId)
-    .then((bookmarks) => dispatch(receiveBookmarks(bookmarks))))
+    .then((bookmarks) => dispatch(receiveAllBookmarks(bookmarks))))
 }
 
 export const getAnimeBookmark = (userId, animeId) => {
@@ -92,7 +91,7 @@ export const getEpisodeBookmark = (userId, animeId, episodeId) => {
 
 export const deleteBookmark = (userId, bookmark) => {
   debugger
-  return(APIUtil.deleteBookmark(userId, bookmarks)
+  return(APIUtil.deleteBookmark(userId, bookmark)
     .then((userId, bookmark) => dispatch(removeBookmark(userId, bookmark))
     ))
 }

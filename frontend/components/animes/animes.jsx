@@ -19,10 +19,10 @@ class Animes extends React.Component {
     }
 
     componentDidMount(){
-        console.log(this.props.anime)
-        this.props.getAnimeBookmark(Object.values(this.props.user)[0].id,
-            this.props.anime.id
-        )
+        // console.log(this.props.anime)
+        // this.props.getAnimeBookmark(Object.values(this.props.user)[0].id,
+        //     this.props.anime.id
+        // )
     }
 
     handleMouseEnter(e){
@@ -88,13 +88,13 @@ class Animes extends React.Component {
                     </Link>
                     <div className="bookmark-button-container">
                         {/* {console.log(this.state)} */}
-                        <button className={this.state.isBookmarked === false ? "is-bookmarked" : "not-bookmarked"} 
+                        <button className={this.state.isBookmarked === true ? "is-bookmarked" : "not-bookmarked"} 
                             type="button" 
                             onClick={
                                 // this.state.isBookmarked === false ? 
                                     // (e) => this.addToBookmarks(e) :
                                     (e) => this.deleteBookmark(e)
-                            }>{ this.state.isBookmarked === true ? 'Bookmark' : 'Bookmarked' }
+                            }>{ this.state.isBookmarked === true ? 'Bookmarked' : 'Bookmark' }
                         </button>
                     </div>
                     <AnimeHover anime={anime} isHovering={this.state.isHovering} />
