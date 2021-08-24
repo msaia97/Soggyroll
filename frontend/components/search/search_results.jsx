@@ -27,6 +27,7 @@ export default class SearchResults extends Component {
           <>
             <div className="background-results"></div>
             <h2 className="no-results">No results for {this.props.query}</h2>
+            <p>Try to search for something else</p>
           </>
         ) : (
           <div className="results-list">
