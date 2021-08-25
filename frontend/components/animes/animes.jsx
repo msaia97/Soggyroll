@@ -39,6 +39,23 @@ class Animes extends React.Component {
         })
     }
 
+    componentDidUpdate(){
+        // console.log(this.props)
+        // let userId = this.props.user.id
+        // let animeId = this.props.anime.id
+        // let res = this.props.getAnimeBookmark(userId, animeId);
+        // if(res){
+        //     this.setState({
+        //         isBookmarked: true
+        //     })
+        // }else{
+        //     this.setState({
+        //         isBookmarked: false
+        //     })
+        // }
+
+    }
+
     addToBookmarks(e){
         e.preventDefault();
         console.log("Look HERE add", this.state)
@@ -91,8 +108,8 @@ class Animes extends React.Component {
                         <button className={this.state.isBookmarked === true ? "is-bookmarked" : "not-bookmarked"} 
                             type="button" 
                             onClick={
-                                // this.state.isBookmarked === false ? 
-                                    // (e) => this.addToBookmarks(e) :
+                                this.state.isBookmarked === false ? 
+                                    (e) => this.addToBookmarks(e) :
                                     (e) => this.deleteBookmark(e)
                             }>{ this.state.isBookmarked === true ? 'Bookmarked' : 'Bookmark' }
                         </button>
