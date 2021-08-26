@@ -19,10 +19,17 @@ class Animes extends React.Component {
     }
 
     componentDidMount(){
-        // console.log(this.props.anime)
-        // this.props.getAnimeBookmark(Object.values(this.props.user)[0].id,
-        //     this.props.anime.id
-        // )
+        // debugger
+        // console.log(this.props)
+        // console.log(Object.values(this.props.user)[0].id)
+        let animeId = this.props.anime.id;
+        let userId = Object.values(this.props.user)[0].id
+        this.props.getAnimeBookmark(userId, animeId);
+        // let res = this.props.getAnimeBookmark(userId, animeId);
+        // console.log(res)
+        if(res.then){
+        }
+       
     }
 
     handleMouseEnter(e){
@@ -72,7 +79,7 @@ class Animes extends React.Component {
     }
 
     deleteBookmark(e){
-        // debugger
+        debugger
         e.preventDefault();
         let userId = Object.values(this.props.user)[0].id;
         let bookmarks = this.props.bookmarks;
@@ -108,8 +115,8 @@ class Animes extends React.Component {
                         <button className={this.state.isBookmarked === true ? "is-bookmarked" : "not-bookmarked"} 
                             type="button" 
                             onClick={
-                                this.state.isBookmarked === false ? 
-                                    (e) => this.addToBookmarks(e) :
+                                // this.state.isBookmarked === false ? 
+                                    // (e) => this.addToBookmarks(e) :
                                     (e) => this.deleteBookmark(e)
                             }>{ this.state.isBookmarked === true ? 'Bookmarked' : 'Bookmark' }
                         </button>

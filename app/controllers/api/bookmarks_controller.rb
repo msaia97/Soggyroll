@@ -1,7 +1,7 @@
 class Api::BookmarksController < ApplicationController
     def index
         @user = current_user
-       debugger
+    #    debugger
         if @user
             @bookmarks = @user.bookmarks
             render :index
