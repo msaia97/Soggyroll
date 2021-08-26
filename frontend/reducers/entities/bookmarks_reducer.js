@@ -4,7 +4,7 @@ import {
     REMOVE_BOOKMARK
 } from '../../actions/bookmark_actions';
 
-const boookmarkReducer = (state = {}, action) => {
+const boookmarksReducer = (state = {}, action) => {
     Object.freeze(state);
 
     switch(action.type){
@@ -21,4 +21,4 @@ const boookmarkReducer = (state = {}, action) => {
     }
 }
 
-export default boookmarkReducer;
+export default boookmarksReducer;

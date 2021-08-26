@@ -21,14 +21,12 @@ class Animes extends React.Component {
     componentDidMount(){
         // debugger
         // console.log(this.props)
-        // console.log(Object.values(this.props.user)[0].id)
+        // console.log(this.props.anime)
         let animeId = this.props.anime.id;
         let userId = Object.values(this.props.user)[0].id
-        this.props.getAnimeBookmark(userId, animeId);
         // let res = this.props.getAnimeBookmark(userId, animeId);
-        // console.log(res)
-        if(res.then){
-        }
+        // console.log(this.props.getAnimeBookmark(userId, animeId))
+        
        
     }
 
