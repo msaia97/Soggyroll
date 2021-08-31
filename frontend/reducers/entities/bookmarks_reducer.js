@@ -13,7 +13,7 @@ const boookmarksReducer = (state = {}, action) => {
             return Object.assign({}, state, action.bookmarks)
         case RECEIVE_ALL_BOOKMARKS:
             debugger
-            console.log(action.bookmarks)
+            // console.log(action.bookmarks)
             return Object.assign({}, state, action.bookmarks.bookmarks);
         case REMOVE_BOOKMARK:
             const nextState = Object.assign({}, state);

@@ -15,7 +15,7 @@ const mSTP = state => {
 }
 
 const mDTP = dispatch => {
-    // debugger
+    debugger
     return {
         getAnimes: animes => dispatch(getAnimes(animes)),
         getBookmarks: userId => dispatch(getBookmarks(userId)),

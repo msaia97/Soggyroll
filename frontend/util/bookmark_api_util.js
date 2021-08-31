@@ -1,10 +1,3 @@
-// export function loadArticles() {
-//   return {
-//     type: LOAD_ARTICLES,
-//     url: "./api/articles.json",
-//   };
-// }
-
 // export const fetchBookmarks = (userId) => {
 //   debugger
 //   return $.ajax({

@@ -12,28 +12,53 @@ export const RECEIVE_ALL_BOOKMARKS = "RECEIVE_ALL_BOOKMARKS";
 //   });
 // };
 
+const receiveAllBookmarks = (bookmarks) => {
+  debugger
+  return ({
+    type: RECEIVE_ALL_BOOKMARKS,
+    bookmarks
+  });
+};
+
 export const getBookmarks = (userId) => {
   debugger
   return $.ajax({
-    method: "GET",
+    type: "GET",
     url: `/api/users/${userId}/bookmarks`,
     data: { userId },
-  }).then((bookmarks) => {
-    debugger
-    return {
-      type: RECEIVE_ALL_BOOKMARKS,
-            bookmarks
-    };
+    success: function (bookmarks){
+      debugger
+      return dispatch(receiveAllBookmarks(bookmarks));
+    }
+  })
+  // .then((bookmarks) => {
+  //   // console.log(bookmarks)
+  //   debugger
+  //   return {
+  //     type: RECEIVE_ALL_BOOKMARKS,
+  //           bookmarks
+  //   };
+  // })
+}
+
+export const getAnimeBookmark = (userId, animeId) => {
+  return $.ajax({
+    method: "GET",
+    url: `/api/users/${userId}/bookmarks`,
+    data: {
+      bookmark: {
+        user_id: userId,
+        anime_id: animeId,
+      },
+    },
+  }).then((bookmark) => {
+    return dispatch ({
+      type: RECEIVE_BOOKMARK,
+      bookmark
+    });
   })
 }
 
-// const receiveAllBookmarks = (bookmarks) => {
-//   debugger
-//   return ({
-//     type: RECEIVE_ALL_BOOKMARKS,
-//     bookmarks
-//   });
-// };
 
 // export const getBookmarks = (userId) => {
 //   debugger

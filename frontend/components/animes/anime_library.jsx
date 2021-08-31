@@ -20,18 +20,18 @@ class AnimeLibrary extends React.Component {
     componentWillMount(){
         this.props.getAnimes()
         //     .then(bookmarks => {
-        //       return dispatch(receiveAllBookmarks(bookmarks))
-        //     })
+            //       return dispatch(receiveAllBookmarks(bookmarks))
+            //     })
     }
-
+        
     componentDidUpdate(){
-
+        
     }
     
     componentWillUnmount(){
         this.props.getAnimes()
     }
- 
+        
     render(){
         return(
             <div>

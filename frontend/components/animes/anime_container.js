@@ -10,7 +10,7 @@ import {
 import Animes from './animes';
 
 const mSTP = (state) => {
-    console.log(state.entities.bookmarks)
+    // console.log(state.entities.bookmarks)
   return {
       animes: Object.values(state.entities.animes),
       user: state.entities.users,
