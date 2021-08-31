@@ -11,25 +11,20 @@ export const RECEIVE_ALL_BOOKMARKS = "RECEIVE_ALL_BOOKMARKS";
 //     bookmark
 //   });
 // };
-const fetchBookmarks = (userId) => {
-  // debugger;
+
+export const getBookmarks = (userId) => {
+  debugger
   return $.ajax({
     method: "GET",
     url: `/api/users/${userId}/bookmarks`,
     data: { userId },
-  });
-};
-export const getBookmarks = (userId) => {
-  debugger
-  return fetchBookmarks(userId).then(
-    (bookmarks) => {
-      debugger
-      return {
-        type: RECEIVE_ALL_BOOKMARKS,
-        bookmarks
-      };
-    }
-  )
+  }).then((bookmarks) => {
+    debugger
+    return {
+      type: RECEIVE_ALL_BOOKMARKS,
+            bookmarks
+    };
+  })
 }
 
 // const receiveAllBookmarks = (bookmarks) => {
