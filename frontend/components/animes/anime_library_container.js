@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import { getAnimes } from '../../actions/anime_actions';
 // import { getBookmarks } from '../../util/bookmark_api_util';
-import { getBookmarks } from '../../actions/bookmark_actions';
+// import { getBookmarks } from '../../actions/bookmark_actions';
 
 import AnimeLibrary from './anime_library';
 
@@ -15,10 +15,10 @@ const mSTP = state => {
 }
 
 const mDTP = dispatch => {
-    debugger
+    // debugger
     return {
         getAnimes: animes => dispatch(getAnimes(animes)),
-        getBookmarks: userId => dispatch(getBookmarks(userId)),
+        // getBookmarks: (userId)  => dispatch(getBookmarks(userId)),
     }
 }
 

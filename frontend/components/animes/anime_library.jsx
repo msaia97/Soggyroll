@@ -2,6 +2,8 @@ import React from 'react';
 import Anime from './anime_container';
 // import { logout } from '../../actions/session_actions';
 import Featured from '../homepage/featured';
+import { getBookmarks } from '../../actions/bookmark_actions';
+// import { useDispatch } from 'react-redux';
 
 
 class AnimeLibrary extends React.Component {
@@ -14,7 +16,10 @@ class AnimeLibrary extends React.Component {
         //     .then(bookmarks => dispatch(receiveBookmark(bookmarks)))
         // this.props.getEpisodes()
         let userId = Object.values(this.props.user)[0].id;
-        this.props.getBookmarks(userId)
+        // this.props.getBookmarks(userId);
+        // let dispatch = useDispatch();
+        // dispatch(getBookmarks(userId))
+        getBookmarks(userId);
     }
     
     componentWillMount(){
@@ -22,9 +27,9 @@ class AnimeLibrary extends React.Component {
         //     .then(bookmarks => {
             //       return dispatch(receiveAllBookmarks(bookmarks))
             //     })
-    }
+        }
         
-    componentDidUpdate(){
+        componentDidUpdate(){
         
     }
     

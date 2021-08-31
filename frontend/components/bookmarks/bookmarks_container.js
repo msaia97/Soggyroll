@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getAnimeBookmark, getBookmarks, createAnimeBookmark, deleteBookmark } from '../../actions/bookmark_actions';
+// import { getAnimeBookmark, getBookmarks, createAnimeBookmark, deleteBookmark } from '../../actions/bookmark_actions';
 import Bookmark from './bookmarks';
 
 const mSTP = (state) => {
@@ -11,10 +11,10 @@ const mSTP = (state) => {
 
 const mDTP = dispatch => {
     return {
-        getAnimeBookmark: (userId, animeId) => dispatch(getAnimeBookmark(userId, animeId)),
-        getBookmarks: userId => dispatch(getBookmarks(userId)),
-        createAnimeBookmark: (userId, animeId) => dispatch(createAnimeBookmark(userId, animeId)),
-        deleteBookmark: userId => dispatch(deleteBookmark(userId))
+        // getAnimeBookmark: (userId, animeId) => dispatch(getAnimeBookmark(userId, animeId)),
+        // getBookmarks: userId => dispatch(getBookmarks(userId)),
+        // createAnimeBookmark: (userId, animeId) => dispatch(createAnimeBookmark(userId, animeId)),
+        // deleteBookmark: userId => dispatch(deleteBookmark(userId))
     }
 }
 
