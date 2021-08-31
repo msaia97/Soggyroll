@@ -9,7 +9,7 @@ const entitiesReducer = combineReducers({
     users: usersReducer,
     animes: animesReducer,
     episodes: episodesReducer,
-    bookmarks: bookmarksReducer
+    bookmarks: bookmarksReducer,
 });
 
 export default entitiesReducer;

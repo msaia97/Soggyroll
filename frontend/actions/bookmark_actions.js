@@ -1,76 +1,104 @@
 import * as APIUtil from "../util/bookmark_api_util";
 
-export const RECEIVE_BOOKMARK = "RECEIVE_BOOKMARK";
+// export const RECEIVE_BOOKMARK = "RECEIVE_BOOKMARK";
 export const RECEIVE_ALL_BOOKMARKS = "RECEIVE_ALL_BOOKMARKS";
-export const REMOVE_BOOKMARK = "REMOVE_BOOKMARK";
-export const BOOKMARK_ERROR = "BOOKMARK_ERROR";
+// export const REMOVE_BOOKMARK = "REMOVE_BOOKMARK";
+// export const BOOKMARK_ERROR = "BOOKMARK_ERROR";
 
-export const receiveBookmark = (bookmark) => {
-  return ({
-    type: RECEIVE_BOOKMARK,
-    bookmark
+// const receiveBookmark = (bookmark) => {
+//   return ({
+//     type: RECEIVE_BOOKMARK,
+//     bookmark
+//   });
+// };
+const fetchBookmarks = (userId) => {
+  // debugger;
+  return $.ajax({
+    method: "GET",
+    url: `/api/users/${userId}/bookmarks`,
+    data: { userId },
   });
 };
+export const getBookmarks = (userId) => {
+  debugger
+  return fetchBookmarks(userId).then(
+    (bookmarks) => {
+      debugger
+      return {
+        type: RECEIVE_ALL_BOOKMARKS,
+        bookmarks
+      };
+    }
+  )
+}
 
-export const receiveAllBookmarks = (bookmarks) => {
-  return ({
-    type: RECEIVE_ALL_BOOKMARKS,
-    bookmarks
-  });
-};
+// const receiveAllBookmarks = (bookmarks) => {
+//   debugger
+//   return ({
+//     type: RECEIVE_ALL_BOOKMARKS,
+//     bookmarks
+//   });
+// };
 
-export const removeBookmark = (payload) => {
-  return ({
-    type: REMOVE_BOOKMARK,
-    payload
-  });
-};
+// export const getBookmarks = (userId) => {
+//   debugger
+//   return APIUtil.fetchBookmarks(userId).then((bookmarks) => {
+//     debugger
+//     return dispatch(receiveAllBookmarks(bookmarks))
+//   })
+// }
 
-export const bookmarkError = (payload) => {
-  return ({
-    type: BOOKMARK_ERROR,
-    payload
-  });
-};
+// const removeBookmark = (payload) => {
+//   return ({
+//     type: REMOVE_BOOKMARK,
+//     payload
+//   });
+// };
+
+// const bookmarkError = (payload) => {
+//   return ({
+//     type: BOOKMARK_ERROR,
+//     payload
+//   });
+// };
 
 // thunk
 
-export const createAnimeBookmark = (userId, animeId) => {
-  animeId = animeId || null;
-  return APIUtil.createAnimeBookmark(userId, animeId)
-    .then(bookmark => {
-      return dispatch(receiveBookmark(bookmark))
-    })
-}
+// export const createAnimeBookmark = (userId, animeId) => {
+//   animeId = animeId || null;
+//   return APIUtil.createAnimeBookmark(userId, animeId)
+//     .then(bookmark => {
+//       return dispatch(receiveBookmark(bookmark))
+//     })
+// }
 
-export const createEpisodeBookmark = ({ userId, animeId, episodeId }) => {
-  animeId = animeId || null;
-  episodeId = episodeId || null;
-  return APIUtil.createAnimeBookmark(userId, animeId).then((bookmark) => {
-   return  dispatch(receiveBookmark(bookmark));
-  });
-};
+// export const createEpisodeBookmark = ({ userId, animeId, episodeId }) => {
+//   animeId = animeId || null;
+//   episodeId = episodeId || null;
+//   return APIUtil.createAnimeBookmark(userId, animeId).then((bookmark) => {
+//    return  dispatch(receiveBookmark(bookmark));
+//   });
+// };
 
-export const getBookmarks = (userId) => {
-  return APIUtil.getBookmarks(userId).then((bookmarks) => {
-    return dispatch(receiveAllBookmarks(bookmarks))
-  })
-}
 
-export const getAnimeBookmark = (userId, animeId) => {
-  return APIUtil.getAnimeBookmark(userId, animeId).then(bookmark => {
-    return dispatch(receiveBookmark(bookmark))
-  });
-};
+// export const getAnimeBookmark = (userId, animeId) => {
+//   // debugger
+//   return APIUtil.getAnimeBookmark(userId, animeId)
+//     .then((bookmark) => {
+//       // debugger;
+//       return dispatch(receiveBookmark(bookmark));
+//     })
+//     .then((err) => dispatch(bookmarkError(err)));
+// };
 
-export const getEpisodeBookmark = (userId, animeId, episodeId) => {
-  return APIUtil.getEpisodeBookmark(userId, animeId, episodeId).then(bookmark => {
-    return dispatch(receiveBookmark(bookmark))
-  })
-}
+// export const getEpisodeBookmark = (userId, animeId, episodeId) => {
+//   return APIUtil.getEpisodeBookmark(userId, animeId, episodeId).then(bookmark => {
+//     return dispatch(receiveBookmark(bookmark))
+//   })
+// }
 
-export const deleteBookmark = (userId, bookmark) => {
-  return APIUtil.deleteBookmark(userId, bookmark).then((userId, bookmark) => {
-    return dispatch(removeBookmark(userId, bookmark))
-  })
-}
+// export const deleteBookmark = (userId, bookmark) => {
+//   return APIUtil.deleteBookmark(userId, bookmark).then((userId, bookmark) => {
+//     return dispatch(removeBookmark(userId, bookmark))
+//   })
+// }

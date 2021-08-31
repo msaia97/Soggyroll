@@ -24,7 +24,7 @@ class Animes extends React.Component {
         // console.log(this.props.anime)
         let animeId = this.props.anime.id;
         let userId = Object.values(this.props.user)[0].id
-        // let res = this.props.getAnimeBookmark(userId, animeId);
+        // this.props.getAnimeBookmark(userId, animeId);
         // console.log(this.props.getAnimeBookmark(userId, animeId))
         
        
