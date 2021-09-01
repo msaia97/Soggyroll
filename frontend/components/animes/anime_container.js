@@ -27,7 +27,7 @@ const mDTP = dispatch => {
         getBookmarks: (userId) => dispatch(getBookmarks(userId)),
         getAnimeBookmark: (userId, animeId) => dispatch(getAnimeBookmark(userId, animeId)),
         createAnimeBookmark: (userId, animeId) => dispatch(createAnimeBookmark(userId, animeId)),
-        deleteBookmark: (userId, bookmarkId) => dispatch(deleteBookmark(userId, bookmarkId)),
+        deleteBookmark: (bookmark) => dispatch(deleteBookmark(bookmark)),
     };
 }
 

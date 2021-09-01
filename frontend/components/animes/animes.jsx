@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AnimeHover from './anime_hover';
+import { deleteBookmark, createAnimeBookmark } from '../../actions/bookmark_actions';
 
 class Animes extends React.Component {
     constructor(props){
@@ -45,53 +46,39 @@ class Animes extends React.Component {
     }
 
     componentDidUpdate(){
-        // console.log(this.props)
-        // let userId = this.props.user.id
-        // let animeId = this.props.anime.id
-        // let res = this.props.getAnimeBookmark(userId, animeId);
-        // if(res){
-        //     this.setState({
-        //         isBookmarked: true
-        //     })
-        // }else{
-        //     this.setState({
-        //         isBookmarked: false
-        //     })
-        // }
 
     }
 
     addToBookmarks(e){
         e.preventDefault();
-        console.log("Look HERE add", this.state)
+        // console.log("Look HERE add", this.state)
         // debugger
         let user = Object.values(this.props.user)[0]
         let anime = this.props.anime
         if(this.state.isBookmarked === false){
-            this.props.createAnimeBookmark(user.id, anime.id)
+            createAnimeBookmark(user.id, anime.id)
             this.setState({
                 isBookmarked: true
             })
         }
-        console.log("Look HERE add^^", this.state)
+        // console.log("Look HERE add^^", this.state)
     }
 
     deleteBookmark(e){
-        debugger
         e.preventDefault();
-        let userId = Object.values(this.props.user)[0].id;
-        let bookmarks = this.props.bookmarks;
-        // let anime = this.props.anime;
-        let bmk = Object.values(bookmarks)
-        console.log(userId, bmk[1])
-        this.props.deleteBookmark(userId, bmk[1].id)
-            .then((userId, bookmarkId) => dispatch(removeBookmark(userId, bookmarkId)))
-        // console.log(this.props.deleteBookmark(user.id, bmk[1].id))
-        this.setState({
-            isBookmarked: false
-        })
-        console.log("Look HERE delete", this.state)
-
+        let anime  = this.props.anime;
+        let bookmarks = this.props.bookmarks
+        bookmarks.forEach(bookmark => {
+            if(bookmark.anime_id === anime.id){
+                // this means that the bookmark belongs to this anime
+                deleteBookmark(bookmark);
+                this.setState({
+                    isBookmarked: false
+                })
+            }
+        })    
+    
+      
     }
 
     render(){
@@ -112,8 +99,8 @@ class Animes extends React.Component {
                         <button className={this.state.isBookmarked === true ? "is-bookmarked" : "not-bookmarked"} 
                             type="button" 
                             onClick={
-                                // this.state.isBookmarked === false ? 
-                                    // (e) => this.addToBookmarks(e) :
+                                this.state.isBookmarked === false ? 
+                                    (e) => this.addToBookmarks(e) :
                                     (e) => this.deleteBookmark(e)
                             }>{ this.state.isBookmarked === true ? 'Bookmarked' : 'Bookmark' }
                         </button>

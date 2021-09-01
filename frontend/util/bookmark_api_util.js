@@ -45,6 +45,7 @@
 // };
 
 // export const deleteBookmark = (user, bookmark) => {
+//     debugger
 //   return $.ajax({
 //     method: "DELETE",
 //     url: `/api/users/${user.id}/bookmarks/${bookmark.id}`,
