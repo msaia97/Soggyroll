@@ -12,13 +12,7 @@ class AnimeLibrary extends React.Component {
     }
 
     componentDidMount(){
-        // console.log(userId);
-        //     .then(bookmarks => dispatch(receiveBookmark(bookmarks)))
-        // this.props.getEpisodes()
         let userId = Object.values(this.props.user)[0].id;
-        // this.props.getBookmarks(userId);
-        // let dispatch = useDispatch();
-        // dispatch(getBookmarks(userId))
         getBookmarks(userId);
     }
     

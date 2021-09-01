@@ -17,17 +17,17 @@ class Animes extends React.Component {
         this.addToBookmarks = this.addToBookmarks.bind(this);
         this.deleteBookmark = this.deleteBookmark.bind(this);
     }
-
-    componentDidMount(){
-        // debugger
-        // console.log(this.props)
-        // console.log(this.props.anime)
-        let animeId = this.props.anime.id;
-        let userId = Object.values(this.props.user)[0].id
-        // this.props.getAnimeBookmark(userId, animeId);
-        // console.log(this.props.getAnimeBookmark(userId, animeId))
-        
-       
+    
+    componentWillMount(){
+        let { anime } = this.props;
+        let bookmarks = this.props.bookmarks
+        bookmarks.forEach(bookmark => {
+            if(bookmark.anime_id === anime.id){
+                this.setState({
+                    isBookmarked: true
+                })
+            }
+        })    
     }
 
     handleMouseEnter(e){
@@ -96,8 +96,8 @@ class Animes extends React.Component {
 
     render(){
         const { anime } = this.props;
-        let user = Object.values(this.props.user)
         // console.log(this.state);
+        let user = Object.values(this.props.user)
         if(user.length !== 0){
             return(
                 <div className="anime-template">
@@ -109,7 +109,6 @@ class Animes extends React.Component {
                         <b>{anime.title}</b>
                     </Link>
                     <div className="bookmark-button-container">
-                        {/* {console.log(this.state)} */}
                         <button className={this.state.isBookmarked === true ? "is-bookmarked" : "not-bookmarked"} 
                             type="button" 
                             onClick={

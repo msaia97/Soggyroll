@@ -12,10 +12,10 @@ import Animes from './animes';
 const mSTP = (state) => {
     // console.log(state.entities.bookmarks)
   return {
-      animes: Object.values(state.entities.animes),
-      user: state.entities.users,
-      bookmarks: state.entities.bookmarks,
-  }
+    animes: Object.values(state.entities.animes),
+    user: state.entities.users,
+    bookmarks: Object.values(state.entities.bookmarks),
+  };
 }
 
 const mDTP = dispatch => {

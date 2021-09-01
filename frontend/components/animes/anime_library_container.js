@@ -6,7 +6,7 @@ import { getAnimes } from '../../actions/anime_actions';
 import AnimeLibrary from './anime_library';
 
 const mSTP = state => {
-    // console.log(state);
+    // console.log(Object.values(state.entities.bookmarks));
     return({
         animes: Object.values(state.entities.animes),
         bookmarks: Object.values(state.entities.bookmarks),
