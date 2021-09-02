@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Bookmark from '../bookmarks/bookmarks_container';
+import BookmarkList from '../bookmarks/bookmark_list_container';
 // import Searchbar from './searchbar_container';
 
 class Navbar extends React.Component {

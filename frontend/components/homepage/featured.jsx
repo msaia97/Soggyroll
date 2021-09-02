@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getBookmarks } from '../../actions/bookmark_actions';
 
 class Featured extends React.Component {
     constructor(props) {
@@ -11,7 +12,9 @@ class Featured extends React.Component {
     }
 
     componentDidMount(){
-        // console.log(this.props)
+        let userId = Object.values(this.props.user)[0].id
+        // console.log(user)
+        getBookmarks(userId)
     }
 
 

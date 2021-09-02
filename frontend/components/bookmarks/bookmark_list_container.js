@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 // import { getAnimeBookmark, getBookmarks, createAnimeBookmark, deleteBookmark } from '../../actions/bookmark_actions';
-import Bookmark from './bookmarks';
+import BookmarkList from './bookmark_list';
 
 const mSTP = (state) => {
     return {
-        bookmarks: [],
+        bookmarks: state.entities.bookmarks,
         user: state.entities.users
     }
 }
@@ -18,4 +18,4 @@ const mDTP = dispatch => {
     }
 }
 
-export default connect(mSTP, mDTP)(Bookmark);
+export default connect(mSTP, mDTP)(BookmarkList);

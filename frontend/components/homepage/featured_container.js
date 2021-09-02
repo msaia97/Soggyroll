@@ -6,6 +6,7 @@ const mSTP = (state) => {
   // console.log(Object.values(state.entities.animes));
     return {
       animes: Object.values(state.entities.animes),
+      user: state.entities.users,
     };
 }
 

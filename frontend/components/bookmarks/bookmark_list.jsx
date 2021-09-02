@@ -1,20 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getBookmarks } from '../../actions/bookmark_actions';
 
-class Bookmark extends React.Component {
+class BookmarkList extends React.Component {
     constructor(props) {
         super(props)
     }
 
-    componentDidMount(){
-        console.log(this.props)
-        let user = this.props.user
-        this.props.getBookmarks(user.id)
+    componentWillMount(){
+        let user = Object.values(this.props.user)[0]
+        // console.log(user)
+        getBookmarks(user.id)
     }
 
     render() {
-        let bookmarks = this.props.bookmark;
-        if(this.props.bookmark.length > 0){
+        let bookmarks = this.props.bookmarks;
+        let user = this.props.user;
+        console.log(user);
+        if((bookmarks.length > 0) && (user.id !== undefined)){
             return(
                 <div>
                     <ul>
@@ -36,4 +39,4 @@ class Bookmark extends React.Component {
     }
 }
 
-export default Bookmark;
+export default BookmarkList;
