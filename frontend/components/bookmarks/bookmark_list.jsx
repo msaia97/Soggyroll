@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getBookmarks } from '../../actions/bookmark_actions';
+import BookmarkItem from './bookmark_item_container';
 
 class BookmarkList extends React.Component {
     constructor(props) {
@@ -22,9 +23,7 @@ class BookmarkList extends React.Component {
                 <div>
                     <ul>
                         {bookmarks.map(bookmark => {
-                            return(
-                                <li>{bookmark}</li>
-                            )
+                            return <BookmarkItem bookmark={bookmark} />
                         })}
                     </ul>
                 </div>
