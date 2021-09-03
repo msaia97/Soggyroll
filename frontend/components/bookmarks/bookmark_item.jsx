@@ -1,4 +1,5 @@
 import React from 'react';
+import { getBookmarks } from '../../actions/bookmark_actions';
 
 class BookmarkItem extends React.Component {
     constructor(props){
@@ -6,6 +7,13 @@ class BookmarkItem extends React.Component {
     }
     componentDidMount(){
         this.props.getAnimes();
+        let userId = Object.values(this.props.user)[0].id;
+        getBookmarks(userId);
+    }
+
+    componentWillUnmount(){
+        let userId = Object.values(this.props.user)[0].id;
+        getBookmarks(userId);
     }
     
     render(){
@@ -31,28 +39,6 @@ class BookmarkItem extends React.Component {
                 })}
             </div>
         )
-        // if(animes !== null){
-        //     animes.forEach(anime => {
-        //     if(anime.anime_id === anime.id){
-        //         return(
-        //             <div>
-        //                 {/* <div>
-        //                     <img src={anime.cover_photo} alt="" />
-        //                 </div> */}
-        //                 <div>
-        //                     <li>{anime.title}</li>
-        //                     <li>{anime.description}</li>
-        //                 </div>
-        //             </div>
-        //         )
-
-        //     }
-        //     })
-        // }else{
-        //     return(
-        //         null
-        //     )
-        // }
     }
 }
 

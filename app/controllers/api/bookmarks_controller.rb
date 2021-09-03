@@ -30,8 +30,10 @@ class Api::BookmarksController < ApplicationController
       # if @user
        # @bookmark = Bookmark.where((user_id: params[:user_id]) && (bookmark_id: params[:bookmark_id]))
         @bookmark = current_user.bookmarks.where(id: params[:id])
+        @bookmark = @bookmark.first
         if @bookmark
-            @bookmark.destroy_all
+            # debugger
+            @bookmark.destroy!
             render :show
         else
             render json: ["Cant find the bookmark"], status: 404
