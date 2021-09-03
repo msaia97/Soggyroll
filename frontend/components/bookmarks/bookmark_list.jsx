@@ -15,9 +15,9 @@ class BookmarkList extends React.Component {
     }
 
     render() {
-        let bookmarks = this.props.bookmarks;
+        let bookmarks = Object.values(this.props.bookmarks);
         let user = this.props.user;
-        console.log(user);
+        // console.log(bookmarks);
         // if((bookmarks.length > 0) && (user.id !== undefined)){
             return(
                 <div>
