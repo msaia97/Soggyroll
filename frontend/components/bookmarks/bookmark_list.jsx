@@ -18,7 +18,7 @@ class BookmarkList extends React.Component {
         let bookmarks = this.props.bookmarks;
         let user = this.props.user;
         console.log(user);
-        if((bookmarks.length > 0) && (user.id !== undefined)){
+        // if((bookmarks.length > 0) && (user.id !== undefined)){
             return(
                 <div>
                     <ul>
@@ -28,13 +28,13 @@ class BookmarkList extends React.Component {
                     </ul>
                 </div>
             )
-        }else{
-            return(
-                <div>
-                    <p>Not working</p>
-                </div>
-            )
-        }
+        // }else{
+        //     return(
+        //         <div>
+        //             <p>Not working</p>
+        //         </div>
+        //     )
+        // }
     }
 }
 

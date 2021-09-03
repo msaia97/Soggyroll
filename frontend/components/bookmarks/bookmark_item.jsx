@@ -6,7 +6,9 @@ class BookmarkItem extends React.Component {
     }
 
     render(){
-        
+        return(
+            <div></div>
+        )
     }
 }
 

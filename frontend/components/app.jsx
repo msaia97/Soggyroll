@@ -24,7 +24,7 @@ const App = () => (
             <Route exact path = "/" component ={Homepage}/>
             <Route path ="/animes/:animeId/:episodeId" component={EpisodeShow}/>
             <Route path ="/animes/:animeId" component={AnimeShow}/>
-            <AuthRoute exact path="/bookmark/:userId" component={BookmarkList} />
+            <Route path="/bookmark/:userId" component={BookmarkList} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <Route path ="/animes" component={AnimeLibrary}/>
