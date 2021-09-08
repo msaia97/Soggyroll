@@ -18,17 +18,17 @@ class AnimeLibrary extends React.Component {
     
     componentWillMount(){
         this.props.getAnimes()
-        //     .then(bookmarks => {
-            //       return dispatch(receiveAllBookmarks(bookmarks))
-            //     })
-        }
+        let user = Object.values(this.props.user)[0]
+        getBookmarks(user.id)
+    }
         
-        componentDidUpdate(){
-        
+    componentDidUpdate(){
     }
     
     componentWillUnmount(){
         this.props.getAnimes()
+        let user = Object.values(this.props.user)[0]
+        getBookmarks(user.id)
     }
         
     render(){

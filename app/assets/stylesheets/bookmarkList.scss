@@ -1,0 +1,24 @@
+.bookmark-item{
+    display: flex;
+    height: 320px;
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 0.5rem lightgrey;
+}
+
+.bookmark-item-photo{
+    width: 200px;
+    height: auto;
+    left: 0px;
+    right: 0px;
+}
+
+.bookmark-item-detail{
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.bookmark-item-detail li {
+    margin-bottom: 10px;
+}

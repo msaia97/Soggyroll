@@ -20,7 +20,9 @@ const bookmarksReducer = (state = {}, action) => {
         case REMOVE_BOOKMARK:
             debugger
             const nextState = Object.assign({}, state);
-            delete nextState[action.bookmarks.id];
+            console.log(nextState, action)
+            delete nextState[action.data.bookmark];
+            console.log(nextState)
             return nextState;
         default:
             return state;

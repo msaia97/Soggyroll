@@ -9,8 +9,18 @@ class BookmarkList extends React.Component {
     }
 
     componentWillMount(){
-        let user = Object.values(this.props.user)[0]
         // console.log(user)
+        let user = Object.values(this.props.user)[0]
+        getBookmarks(user.id)
+    }
+    
+    componentDidUpdate(){
+        // let user = Object.values(this.props.user)[0]
+        // getBookmarks(user.id)
+    }
+
+    componentWillUnmount(){
+        let user = Object.values(this.props.user)[0]
         getBookmarks(user.id)
     }
 
