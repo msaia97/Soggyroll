@@ -68,6 +68,7 @@ class Animes extends React.Component {
         e.preventDefault();
         let anime  = this.props.anime;
         let bookmarks = this.props.bookmarks
+        debugger
         bookmarks.forEach(bookmark => {
             if(bookmark.anime_id === anime.id){
                 // this means that the bookmark belongs to this anime
