@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { deleteBookmark, createAnimeBookmark } from '../../actions/bookmark_actions';
+import { deleteBookmark, createEpisodeBookmark } from '../../actions/bookmark_actions';
 
 const About = (props) => {
     // console.log(props);
@@ -19,7 +19,7 @@ const About = (props) => {
 
 const EpisodeCarousel = (props) => {
     let episodes = Object.values(props.episodes)
-    console.log(episodes)
+    // console.log(episodes)
     return(
         <div>
             <ul className="episode-carousel">
@@ -42,21 +42,51 @@ const EpisodeCarousel = (props) => {
 class EpisodeShow extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            isBookmarked: false,
+        }
+        this.addToBookmark = this.addToBookmark.bind(this);
+        this.deleteBookmark = this.deleteBookmark.bind(this);
     }
 
     componentDidMount(){
+        console.log(this.props.bookmarks)
        
     }
 
-    addToBookmarks(e){
-        
+    addToBookmark(e){
+        e.preventDefault();
+        let userId = Object.values(this.props.user)[0].id;
+        let anime = this.props.anime
+        let episode = this.props.episode;
+
+        if(this.state.isBookmarked === false){
+            createEpisodeBookmark(userId, anime.id, episode.id)
+            this.setState({isBookmarked: true})
+        }
+    }
+
+    deleteBookmark(e){
+        e.preventDefault();
+        let anime = this.props.anime
+        let episode = this.props.episode;
+        let bookmarks = Object.values(this.props.bookmarks);
+
+        bookmarks.forEach(bookmark => {
+            if((bookmark.anime_id === anime.id) && (bookmark.episode_id === episode.id)) {
+                deleteBookmark(bookmark);
+                this.setState({
+                    isBookmarked: false
+                })
+            }
+        })
     }
 
     render(){
         let episode = this.props.episode;
         let anime = this.props.anime;
         let episodes = this.props.episodes;
-        console.log(this.props.episodes);
+        // console.log(this.props.episodes);
         return(
             <div className="whole-ep-show">
                 <div className="episode-show">
@@ -67,6 +97,16 @@ class EpisodeShow extends React.Component {
                     <EpisodeCarousel episodes={episodes}/>
                 </div>
                     <About episode={episode} anime={anime} />
+                    <div>
+                        <button className={this.state.isBookmarked === true ? "is-bookmarked" : "not-bookmarked"} 
+                            type="button" 
+                            onClick={
+                                this.state.isBookmarked === false ? 
+                                    (e) => this.addToBookmark(e) :
+                                    (e) => this.deleteBookmark(e)
+                            }>{ this.state.isBookmarked === true ? 'Bookmarked' : 'Bookmark' }
+                        </button>
+                    </div>
             </div>
         )
     }

@@ -10,6 +10,8 @@ const mSTP = (state, ownProps) => {
       episodes: state.entities.episodes,
       episode: state.entities.episodes[ownProps.match.params.episodeId],
       anime: state.entities.animes[ownProps.match.params.animeId],
+      user: state.entities.users,
+      bookmarks: state.entities.bookmarks
     };
 }
 
