@@ -105,14 +105,24 @@ export const createAnimeBookmark = (userId, animeId) => {
   })
 }
 
-// export const createEpisodeBookmark = ({ userId, animeId, episodeId }) => {
-//   animeId = animeId || null;
-//   episodeId = episodeId || null;
-//   return APIUtil.createAnimeBookmark(userId, animeId).then((bookmark) => {
-//    return  dispatch(receiveBookmark(bookmark));
-//   });
-// };
-
+export const createEpisodeBookmark = (userId, animeId, episodeId) => {
+  animeId = animeId || null;
+  episodeId = episodeId || null;
+  return $.ajax({
+    method: "POST",
+    url: `/api/users/${userId}/bookmarks`,
+    data: {
+      bookmark: {
+        user_id: userId,
+        anime_id: animeId,
+        episode_id: episodeId,
+      },
+    },
+    success: function(bookmark){
+      return dispatch(receiveBookmark(bookmark))
+    }
+  });
+}
 
 // export const getAnimeBookmark = (userId, animeId) => {
 //   // debugger
