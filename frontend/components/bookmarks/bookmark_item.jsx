@@ -16,9 +16,9 @@ class BookmarkItem extends React.Component {
         getBookmarks(userId);
     }
 
-    shouldComponentUpdate(){
+    // shouldComponentUpdate(){
       
-    }
+    // }
 
     componentDidUpdate(){
         // let userId = Object.values(this.props.user)[0].id;

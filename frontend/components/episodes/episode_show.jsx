@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { deleteBookmark, createAnimeBookmark } from '../../actions/bookmark_actions';
 
 const About = (props) => {
     // console.log(props);
@@ -45,6 +46,10 @@ class EpisodeShow extends React.Component {
 
     componentDidMount(){
        
+    }
+
+    addToBookmarks(e){
+        
     }
 
     render(){
