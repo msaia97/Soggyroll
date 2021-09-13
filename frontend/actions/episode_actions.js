@@ -6,6 +6,7 @@ export const RECEIVE_ALL_EPISODES = 'RECEIVE_ALL_EPISODES';
 // actions
 export const receiveEpisode = (episode) => {
     // console.log(episode)
+    debugger
     return({
         type: RECEIVE_EPISODE,
         episode
@@ -22,6 +23,7 @@ export const receiveAllEpisodes = (episodes) => {
 
 // thunk action creators 
 export const getEpisode = (episodeId) => dispatch => {
+    debugger
     return (APIUtil.getEpisode(episodeId)
         .then((episode) => dispatch(receiveEpisode(episode))))
 }

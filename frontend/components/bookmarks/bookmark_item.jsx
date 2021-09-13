@@ -1,20 +1,28 @@
 import React from 'react';
 import { getBookmarks, deleteBookmark } from '../../actions/bookmark_actions';
+import { Link } from 'react-router-dom';
 
 class BookmarkItem extends React.Component {
     constructor(props){
         super(props)
     }
     componentDidMount(){
-        console.log(this.props)
         this.props.getAnimes();
         let userId = Object.values(this.props.user)[0].id;
         getBookmarks(userId);
+     
+        
+    }
+
+    componentWillMount(){
+        let animeId = this.props.bookmark.anime_id;
+        this.props.getEpisodes(animeId);
+        console.log("HEYYY", this.props.episodes)
     }
 
     componentWillUnmount(){
-        let userId = Object.values(this.props.user)[0].id;
-        getBookmarks(userId);
+        // let userId = Object.values(this.props.user)[0].id;
+        // getBookmarks(userId);
     }
 
     // shouldComponentUpdate(){
@@ -22,8 +30,8 @@ class BookmarkItem extends React.Component {
     // }
 
     componentDidUpdate(){
-        // let userId = Object.values(this.props.user)[0].id;
-        // getBookmarks(userId);
+        let animeId = this.props.bookmark.anime_id;
+        this.props.getEpisodes(animeId);
     }
 
     removeBookmark(e){
@@ -35,6 +43,7 @@ class BookmarkItem extends React.Component {
     render(){
         let animes = this.props.animes || null
         let bmk = this.props.bookmark
+        let episodes = this.props.episodes || null
         // console.log(animes)
         if(bmk.episode_id === null){
             return(
@@ -43,19 +52,21 @@ class BookmarkItem extends React.Component {
                         if(bmk.anime_id === anime.id){
                             return(
                                 <div className="bookmark-item">
-                                    <div className="bookmark-item-photo-wrapper">
-                                        <img className="bookmark-item-photo" src={anime.cover_photo} alt="" />
-                                    </div>
-                                    <div className="bookmark-item-detail">
-                                        <li>{anime.title}</li>
-                                        <li>{anime.description}</li>
-                                        <div>
-                                            <button
-                                                className="remove-bookmark-button"
-                                                onClick={e => this.removeBookmark(e)}
-                                            >Remove</button>
+                                    <Link to={`/animes/${anime.id}`} >
+                                        <div className="bookmark-item-photo-wrapper">
+                                            <img className="bookmark-item-photo" src={anime.cover_photo} alt="" />
                                         </div>
-                                    </div>
+                                        <div className="bookmark-item-detail">
+                                            <li>{anime.title}</li>
+                                            <li>{anime.description}</li>
+                                            <div>
+                                                <button
+                                                    className="remove-bookmark-button"
+                                                    onClick={e => this.removeBookmark(e)}
+                                                >Remove</button>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </div>
                             )
                         }
@@ -65,7 +76,27 @@ class BookmarkItem extends React.Component {
         }else{
             return(
                 <div className="bookmark-item">
-
+                    {episodes.map( (episode) => {
+                        if(bmk.episode_id === episode.id){
+                            return(
+                                <div className="bookmark-item" >
+                                    <div className="bookmark-item-photo-wrapper">
+                                        <img className="bookmark-item-photo" src={episode.photo} alt="" />
+                                    </div>
+                                    <div className="bookmark-item-detail">
+                                        <li>{episode.title}</li>
+                                        <li>{episode.description}</li>
+                                        <div>
+                                            <button
+                                                className="remove-bookmark-button"
+                                                onClick={e => this.removeBookmark(e)}
+                                                >Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    })}
                 </div>
             )
         }

@@ -12,6 +12,13 @@ class BookmarkList extends React.Component {
         // console.log(user)
         let user = Object.values(this.props.user)[0]
         getBookmarks(user.id)
+        let bookmarks = this.props.bookmarks || null
+        if(bookmarks !== null){
+            bookmarks.map(bookmark => {
+                this.props.getEpisodes(bookmark.anime_id)
+            })
+
+        }
     }
     
     componentDidUpdate(){

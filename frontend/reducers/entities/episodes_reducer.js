@@ -5,6 +5,7 @@ const episodeReducer = (state = {}, action) => {
     
     switch(action.type){
         case RECEIVE_EPISODE:
+            debugger
             return Object.assign({}, state, {
                 [action.episode.id]: action.episode.id
             })
