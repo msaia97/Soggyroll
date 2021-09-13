@@ -50,11 +50,21 @@ class EpisodeShow extends React.Component {
     }
 
     componentDidMount(){
-        console.log(this.props.bookmarks)
+        console.log(this.props)
+        let bookmarks = Object.values(this.props.bookmarks);
+        let episode = this.props.episode;
+        bookmarks.forEach((bookmark) => {
+            if(bookmark.episode_id === episode.id){
+                this.setState({
+                    isBookmarked: true
+                })
+            }
+        })
        
     }
 
     addToBookmark(e){
+        debugger
         e.preventDefault();
         let userId = Object.values(this.props.user)[0].id;
         let anime = this.props.anime

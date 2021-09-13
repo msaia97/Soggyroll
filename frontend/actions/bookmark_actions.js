@@ -106,6 +106,7 @@ export const createAnimeBookmark = (userId, animeId) => {
 }
 
 export const createEpisodeBookmark = (userId, animeId, episodeId) => {
+  debugger
   animeId = animeId || null;
   episodeId = episodeId || null;
   return $.ajax({
@@ -119,6 +120,7 @@ export const createEpisodeBookmark = (userId, animeId, episodeId) => {
       },
     },
     success: function(bookmark){
+      debugger
       return dispatch(receiveBookmark(bookmark))
     }
   });

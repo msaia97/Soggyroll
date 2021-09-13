@@ -23,10 +23,12 @@ class Animes extends React.Component {
         let { anime } = this.props;
         let bookmarks = this.props.bookmarks
         bookmarks.forEach(bookmark => {
-            if(bookmark.anime_id === anime.id){
-                this.setState({
-                    isBookmarked: true
-                })
+            if(bookmark.episode_id === null){
+                if(bookmark.anime_id === anime.id){
+                    this.setState({
+                        isBookmarked: true
+                    })
+                }
             }
         })    
     }
@@ -70,12 +72,14 @@ class Animes extends React.Component {
         let bookmarks = this.props.bookmarks
         debugger
         bookmarks.forEach(bookmark => {
-            if(bookmark.anime_id === anime.id){
-                // this means that the bookmark belongs to this anime
-                deleteBookmark(bookmark);
-                this.setState({
-                    isBookmarked: false
-                })
+            if(bookmark.episode_id === null){
+                if(bookmark.anime_id === anime.id){
+                    // this means that the bookmark belongs to this anime
+                    deleteBookmark(bookmark);
+                    this.setState({
+                        isBookmarked: false
+                    })
+                }
             }
         })    
     

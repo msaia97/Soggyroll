@@ -12,7 +12,7 @@ const bookmarksReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_BOOKMARK:
             // console.log(action.bookmarks)
-            // debugger
+            debugger
             nextState[action.bookmark.id] = action.bookmark
             return nextState;
         case RECEIVE_ALL_BOOKMARKS:

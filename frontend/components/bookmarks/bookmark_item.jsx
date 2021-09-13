@@ -6,6 +6,7 @@ class BookmarkItem extends React.Component {
         super(props)
     }
     componentDidMount(){
+        console.log(this.props)
         this.props.getAnimes();
         let userId = Object.values(this.props.user)[0].id;
         getBookmarks(userId);
@@ -35,31 +36,39 @@ class BookmarkItem extends React.Component {
         let animes = this.props.animes || null
         let bmk = this.props.bookmark
         // console.log(animes)
-        return(
-            <div>
-                {animes.map( (anime) => {
-                    if(bmk.anime_id === anime.id){
-                        return(
-                            <div className="bookmark-item">
-                                <div className="bookmark-item-photo-wrapper">
-                                    <img className="bookmark-item-photo" src={anime.cover_photo} alt="" />
-                                </div>
-                                <div className="bookmark-item-detail">
-                                    <li>{anime.title}</li>
-                                    <li>{anime.description}</li>
-                                    <div>
-                                        <button
-                                            className="remove-bookmark-button"
-                                            onClick={e => this.removeBookmark(e)}
-                                        >Remove</button>
+        if(bmk.episode_id === null){
+            return(
+                <div>
+                    {animes.map( (anime) => {
+                        if(bmk.anime_id === anime.id){
+                            return(
+                                <div className="bookmark-item">
+                                    <div className="bookmark-item-photo-wrapper">
+                                        <img className="bookmark-item-photo" src={anime.cover_photo} alt="" />
+                                    </div>
+                                    <div className="bookmark-item-detail">
+                                        <li>{anime.title}</li>
+                                        <li>{anime.description}</li>
+                                        <div>
+                                            <button
+                                                className="remove-bookmark-button"
+                                                onClick={e => this.removeBookmark(e)}
+                                            >Remove</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    }
-                })}
-            </div>
-        )
+                            )
+                        }
+                    })}
+                </div>
+            )
+        }else{
+            return(
+                <div className="bookmark-item">
+
+                </div>
+            )
+        }
     }
 }
 
