@@ -1,12 +1,12 @@
 class Api::EpisodesController < ApplicationController
     # a list of all the episodes 
-    # def index 
-    #     @episodes = Episode.all
+    def index 
+        @episodes = Episode.all
     
-    #     @animeId = Anime.find_by(id: params[:video_id])
-    #     # debugger
-    #     render :index
-    # end
+        # @animeId = Anime.find_by(id: params[:video_id])
+        # debugger
+        render :index
+    end
 
     # the episode watch page 
     def show
