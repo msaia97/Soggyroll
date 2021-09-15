@@ -12,18 +12,22 @@ class BookmarkList extends React.Component {
         // console.log(user)
         let user = Object.values(this.props.user)[0]
         getBookmarks(user.id)
-        let bookmarks = this.props.bookmarks || null
-        if(bookmarks !== null){
-            bookmarks.map(bookmark => {
+        let bookmarks = Object.values(this.props.bookmarks);
+        
+            bookmarks.forEach(bookmark => {
                 this.props.getEpisodes(bookmark.anime_id)
             })
-
-        }
+        
     }
     
-    componentDidUpdate(){
-        // let user = Object.values(this.props.user)[0]
-        // getBookmarks(user.id)
+    componentDidMount(){
+        let bookmarks = Object.values(this.props.bookmarks);
+        // if(bookmarks.length > 0){
+            bookmarks.forEach(bookmark => {
+                this.props.getEpisodes(bookmark.anime_id)
+            })
+        // }
+     
     }
 
     componentWillUnmount(){
@@ -36,6 +40,7 @@ class BookmarkList extends React.Component {
         let user = this.props.user;
         // console.log(bookmarks);
         if(bookmarks.length > 0){
+           
             return(
                 <div>
                     <ul>

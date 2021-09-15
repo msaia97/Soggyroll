@@ -17,7 +17,7 @@ class BookmarkItem extends React.Component {
     componentWillMount(){
         let animeId = this.props.bookmark.anime_id;
         this.props.getEpisodes(animeId);
-        console.log("HEYYY", this.props.episodes)
+        // console.log("HEYYY", this.props.episodes)
     }
 
     componentWillUnmount(){
@@ -30,8 +30,8 @@ class BookmarkItem extends React.Component {
     // }
 
     componentDidUpdate(){
-        let animeId = this.props.bookmark.anime_id;
-        this.props.getEpisodes(animeId);
+        // let animeId = this.props.bookmark.anime_id;
+        // this.props.getEpisodes(animeId);
     }
 
     removeBookmark(e){

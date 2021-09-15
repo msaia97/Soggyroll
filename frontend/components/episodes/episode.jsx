@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EpisodeHover from './episode_hover';
+// import EpisodeHover from './episode_hover';
 
 class Episode extends React.Component {
     constructor(props){
@@ -47,7 +47,7 @@ class Episode extends React.Component {
                             <p className="episode-title" >{episode.title}</p>
                         </div>
                     </Link>
-                    <EpisodeHover episode={episode} hovering={this.state.hovering} />
+                    {/* <EpisodeHover episode={episode} hovering={this.state.hovering} /> */}
                 </div>
             )
         }else{

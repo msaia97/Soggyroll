@@ -1,8 +1,12 @@
-import { RECEIVE_EPISODE, RECEIVE_ALL_EPISODES } from '../../actions/episode_actions';
+import { RECEIVE_EPISODE, 
+    RECEIVE_ALL_EPISODES, 
+    FETCH_ALL_EPISODES
+} from '../../actions/episode_actions';
 
 const episodeReducer = (state = {}, action) => {
     Object.freeze(state);
-    
+    let nextState = Object.assign({}, state);
+
     switch(action.type){
         case RECEIVE_EPISODE:
             debugger
@@ -11,8 +15,11 @@ const episodeReducer = (state = {}, action) => {
             })
         case RECEIVE_ALL_EPISODES:
             // debugger
-            // console.log(action.episodes)
-            return action.episodes.episodes
+            console.log("EPISODE", action.episodes);
+            return nextState[Object.values(action.episodes)[0].id] = action.episodes.episodes
+        case FETCH_ALL_EPISODES:
+            debugger
+            return nextState
         default:
             return state;
     }

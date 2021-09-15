@@ -10,3 +10,9 @@ export const getEpisodes = (animeId) => {
     })
 }
 
+export const fetchEpisodes = () => {
+    return $.ajax({
+      url: `/api/animes/:anime_id/episodes`,
+    });
+}
+
