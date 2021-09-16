@@ -19,7 +19,7 @@ const episodeReducer = (state = {}, action) => {
             return nextState[Object.values(action.episodes)[0].id] = action.episodes.episodes
         case FETCH_ALL_EPISODES:
             debugger
-            return nextState
+            return nextState[episodes] = action.episodes
         default:
             return state;
     }
