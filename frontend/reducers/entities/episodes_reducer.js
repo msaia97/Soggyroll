@@ -15,7 +15,7 @@ const episodeReducer = (state = {}, action) => {
             })
         case RECEIVE_ALL_EPISODES:
             // debugger
-            console.log("EPISODE", action.episodes);
+            // console.log("EPISODE", action.episodes);
             return nextState[Object.values(action.episodes)[0].id] = action.episodes.episodes
         case FETCH_ALL_EPISODES:
             debugger

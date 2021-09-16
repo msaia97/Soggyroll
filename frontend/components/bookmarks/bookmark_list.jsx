@@ -15,7 +15,7 @@ class BookmarkList extends React.Component {
         let bookmarks = Object.values(this.props.bookmarks);
         
             bookmarks.forEach(bookmark => {
-                this.props.getEpisodes(bookmark.anime_id)
+                this.props.fetchEpisodes(bookmark.anime_id)
             })
         
     }
@@ -24,7 +24,7 @@ class BookmarkList extends React.Component {
         let bookmarks = Object.values(this.props.bookmarks);
         // if(bookmarks.length > 0){
             bookmarks.forEach(bookmark => {
-                this.props.getEpisodes(bookmark.anime_id)
+                this.props.fetchEpisodes(bookmark.anime_id)
             })
         // }
      

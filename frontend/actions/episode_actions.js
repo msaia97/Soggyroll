@@ -23,6 +23,7 @@ export const receiveAllEpisodes = (episodes) => {
 }
 
 export const fetchAllEpisodes = (episodes) => {
+    debugger
     return({
         type: FETCH_ALL_EPISODES,
         episodes
@@ -41,8 +42,9 @@ export const getEpisodes = (animeId) => dispatch => {
         .then((episodes) => dispatch(receiveAllEpisodes(episodes))))
 }
 
-export const fetchEpisodes = () => dispatch => {
-    return ( APIUtil.fetchEpisodes()
-        .then((episodes) => dispatch(fetchAllEpisodes(episodes)))
+export const fetchEpisodes = (animeId) => dispatch => {
+    debugger
+    return ( APIUtil.fetchEpisodes(animeId)
+        .then((animeId) => dispatch(fetchAllEpisodes(animeId)))
     );
 }
