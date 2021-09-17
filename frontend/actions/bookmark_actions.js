@@ -31,6 +31,7 @@ const receiveBookmark = (bookmark) => {
     bookmark
   });
 };
+
 export const getAnimeBookmark = (userId, animeId) => {
   return $.ajax({
     method: "GET",

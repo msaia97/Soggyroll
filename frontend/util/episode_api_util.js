@@ -10,10 +10,11 @@ export const getEpisodes = (animeId) => {
     })
 }
 
-export const fetchEpisodes = (animeId) => {
-    return $.ajax({
-      url: `/api/animes/${animeId}/episodes`,
-    //   /api/users/:user_id/bookmarks
-    });
-}
+// export const fetchEpisodes = (animeId) => {
+//     debugger
+//     return $.ajax({
+//       url: `/api/animes/${animeId}/episodes`,
+//     //   /api/users/:user_id/bookmarks
+//     });
+// }
 

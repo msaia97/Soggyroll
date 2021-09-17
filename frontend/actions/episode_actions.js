@@ -7,7 +7,7 @@ export const FETCH_ALL_EPISODES = 'FETCH_ALL_EPISODES';
 // actions
 export const receiveEpisode = (episode) => {
     // console.log(episode)
-    debugger
+    // debugger
     return({
         type: RECEIVE_EPISODE,
         episode
@@ -32,7 +32,7 @@ export const fetchAllEpisodes = (episodes) => {
 
 // thunk action creators 
 export const getEpisode = (episodeId) => dispatch => {
-    debugger
+    // debugger
     return (APIUtil.getEpisode(episodeId)
         .then((episode) => dispatch(receiveEpisode(episode))))
 }
@@ -42,9 +42,14 @@ export const getEpisodes = (animeId) => dispatch => {
         .then((episodes) => dispatch(receiveAllEpisodes(episodes))))
 }
 
-export const fetchEpisodes = (animeId) => dispatch => {
+export const fetchEpisodes = (animeId)  => {
     debugger
-    return ( APIUtil.fetchEpisodes(animeId)
-        .then((animeId) => dispatch(fetchAllEpisodes(animeId)))
-    );
+    return $.ajax({
+      method: "GET",
+      url: `/api/animes/${animeId}/episodes`,
+      data: { animeId },
+      success: function (episodes){
+          return dispatch(fetchAllEpisodes(episodes));
+      }
+    });
 }
