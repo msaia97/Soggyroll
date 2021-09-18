@@ -10,6 +10,8 @@ class Navbar extends React.Component {
             filteredAnime: [],
             searchBar: '',
         }
+        this.animeSearch = this.animeSearch.bind(this);
+        this.clearSearch = this.clearSearch.bind(this);
     }
 
     animeSearch(e) {
@@ -30,7 +32,23 @@ class Navbar extends React.Component {
         })
     }
 
+    clearSearch(){
+        this.setState({
+            serachBar: '',
+            filteredAnime: []
+        })
+    }
+
     render(){
+        const searchedAnime = this.state.filteredAnime.map(anime => {
+            return (
+                <Link to={`/animes/${anime.id}`}>
+                    <div>
+                        <span>anime.title</span>
+                    </div>
+                </Link>
+            )
+        })
         if(this.props.user === null || this.props.user === undefined){
             return(
                 <div className="nav">
