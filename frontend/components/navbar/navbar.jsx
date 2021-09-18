@@ -5,7 +5,29 @@ import BookmarkList from '../bookmarks/bookmark_list_container';
 
 class Navbar extends React.Component {
     constructor(props){
-        super(props);
+        super(props)
+        this.state = { 
+            filteredAnime: [],
+            searchBar: '',
+        }
+    }
+
+    animeSearch(e) {
+        if(e.target.value === ''){
+            this.setState({
+                filteredAnime: [],
+                searchBar: e.targetValue.value
+            })
+            return;
+        }
+
+        const filteredAnime = this.props.anime.filteredAnime(anime => {
+            return(anime.title.toLowerCase().includes(e.target.value))
+        })
+        this.setState({
+            filteredAnime: [],
+            searchBar: e.target.value
+        })
     }
 
     render(){
