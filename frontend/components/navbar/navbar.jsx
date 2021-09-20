@@ -14,6 +14,15 @@ class Navbar extends React.Component {
         this.clearSearch = this.clearSearch.bind(this);
     }
 
+    componentDidMount(){
+        this.props.getAnimes()
+        // console.log("HEYOOO", this.props.animes)
+    }
+    componentWillMount(){
+        this.props.getAnimes()
+        // console.log("HEYOOO", this.props.animes)
+    }
+
     animeSearch(e) {
         if(e.target.value === ''){
             this.setState({
@@ -23,9 +32,10 @@ class Navbar extends React.Component {
             return;
         }
 
-        const filteredAnime = this.props.anime.filteredAnime(anime => {
-            return(anime.title.toLowerCase().includes(e.target.value))
-        })
+        const filteredAnime = Object.values(this.props.animes).filter(anime => (
+            anime.title.toLowerCase().includes(e.target.value)
+        ))
+
         this.setState({
             filteredAnime: [],
             searchBar: e.target.value
@@ -40,9 +50,12 @@ class Navbar extends React.Component {
     }
 
     render(){
+        
         const searchedAnime = this.state.filteredAnime.map(anime => {
+            console.log(this.state.filteredAnime)
             return (
-                <Link to={`/animes/${anime.id}`}>
+                // /?#/animes
+                <Link to={`/?#/animes/${anime.id}`}>
                     <div>
                         <span>anime.title</span>
                     </div>
@@ -60,16 +73,25 @@ class Navbar extends React.Component {
                             <li>
                                 <Link to="/animes" > Shows</Link>
                             </li>
-                        </ul>
-                        {/* <Searchbar /> */}
-                        <ul>
+                            <li className='search-container'>
+                                <form>
+                                    <input className="search" type="text" 
+                                        placeholder="Search..." 
+                                        value={ this.state.searchBar } 
+                                        onChange={ this.animeSearch } 
+                                    />
+                                    <button type='submit'>Search</button>
+                                </form>
+                                <div className="results" onClick={this.clearSearch}>
+                                    {searchedAnime}
+                                </div>
+                            </li>
                             <li>
                                 <Link to="/signup" className="nav-link"> Sign up</Link>
                             </li>
                             <li>
                                 <Link to="/login" className="nav-link">Log in</Link>
                             </li>
-                        
                         </ul>
                     </div>
                 </div>
@@ -81,13 +103,27 @@ class Navbar extends React.Component {
                         <h1>Soggyroll</h1>
                     </Link>
                    <div className="nav-elements">
-                       <li>
-                                <Link to="/animes" > Shows</Link>
-                        </li>
-                    {/* <Searchbar /> */}
-                       <li>
-                                <Link to={`/bookmark/${this.props.user.id}`} >Bookmarks</Link>
-                        </li>
+                       <ul className="nav-element">
+                        <li>
+                                    <Link to="/animes" > Shows</Link>
+                            </li>
+                        <li>
+                                    <Link to={`/bookmark/${this.props.user.id}`} >Bookmarks</Link>
+                            </li>
+                            <li className='search-container'>
+                                    <form>
+                                        <input className="search" type="text" 
+                                            placeholder="Search..." 
+                                            value={ this.state.searchBar } 
+                                            onChange={ this.animeSearch } 
+                                        />
+                                        <button type='submit'>Search</button>
+                                    </form>
+                                    <div className="results" onClick={this.clearSearch}>
+                                        {searchedAnime}
+                                    </div>
+                            </li>
+                       </ul>
                         <button className="nav-button" 
                             onClick={this.props.logout}>
                             Log Out</button>
