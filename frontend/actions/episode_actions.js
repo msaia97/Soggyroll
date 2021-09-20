@@ -23,7 +23,7 @@ export const receiveAllEpisodes = (episodes) => {
 }
 
 export const fetchAllEpisodes = (episodes) => {
-    debugger
+    // debugger
     return({
         type: FETCH_ALL_EPISODES,
         episodes
@@ -43,7 +43,7 @@ export const getEpisodes = (animeId) => dispatch => {
 }
 
 export const fetchEpisodes = (animeId)  => {
-    debugger
+    // debugger
     return $.ajax({
       method: "GET",
       url: `/api/animes/${animeId}/episodes`,

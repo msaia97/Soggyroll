@@ -1,6 +1,6 @@
-export const fetchNavbar = () => (
-    $.ajax({
-        method: 'GET',
-        url: '/api/navbar'
-    })
-)
+// export const fetchNavbar = () => (
+//     $.ajax({
+//         method: 'GET',
+//         url: '/api/navbar'
+//     })
+// )
