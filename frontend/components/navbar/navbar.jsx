@@ -37,7 +37,7 @@ class Navbar extends React.Component {
         ))
 
         this.setState({
-            filteredAnime: [],
+            filteredAnime: filteredAnime,
             searchBar: e.target.value
         })
     }
@@ -55,9 +55,9 @@ class Navbar extends React.Component {
             console.log(this.state.filteredAnime)
             return (
                 // /?#/animes
-                <Link to={`/?#/animes/${anime.id}`}>
+                <Link to={`/animes/${anime.id}`}>
                     <div>
-                        <span>anime.title</span>
+                        <span>{anime.title}</span>
                     </div>
                 </Link>
             )
