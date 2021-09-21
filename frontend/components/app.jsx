@@ -22,13 +22,13 @@ const App = () => (
         <Switch>
             {/* <ProtectedRoute path="/" component={Navbar} /> */}
             <Route exact path = "/" component ={Homepage}/>
-            <Route path ="/animes/:animeId/:episodeId" component={EpisodeShow}/>
-            <Route path ="/animes/:animeId" component={AnimeShow}/>
-            <ProtectedRoute path="/bookmark/:userId" component={BookmarkList} />
+            <Route exact path ="/animes" component={AnimeLibrary}/>
+            <Route exact path ="/animes/:animeId" component={AnimeShow}/>
+            <Route exact path ="/animes/:animeId/:episodeId" component={EpisodeShow}/>
+            <ProtectedRoute exact path="/bookmark/:userId" component={BookmarkList} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <Route path ="/animes" component={AnimeLibrary}/>
-            <Route path="/404" component={NotFoundPage} />
+            <Route exact path="/404" component={NotFoundPage} />
             <Redirect to="/404" />    
         </Switch>
         

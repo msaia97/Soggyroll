@@ -3,13 +3,19 @@
     display: flex;
     background-color: #fff;
     box-shadow: 0 0 0.5rem lightgrey;
+    flex-direction: row;
+    justify-content:  center;
     // text-decoration: none;
-
+     // justify-content: space-between;
+    height: 70px;
+    color: #3f3f3f;
 }
 
 // the Soggyroll title
 .header-link{
-    margin-right: 50%;
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .header-link:link{
@@ -34,11 +40,25 @@
 }
 
 // navbar elements
+.nav-elements {
+    display: flex;
+    justify-content: center;
+    margin-top: 17px;
+    text-align: center;
+    margin-left: 40px
+}
+
+.nav-elements ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // margin-right: 10px;
+}
 .nav-elements li {
-    display: inline;
+    // display: flex;
     float: right;
-    margin-right: 30px;
-    background-color: #f78c25;
+    margin-right: 50px;
+    // background-color: #f78c25;
     // border-color: #b78142;
     color: rgb(100%,100%,100%);
     border: 0;
@@ -46,53 +66,99 @@
     border-radius: .5625em;
     font-weight: 500;
     line-height: 1.5;
-    width: 75px;
+    // width: 75px;
     text-align: center;
-    text-decoration: none;
+    // text-decoration: none;
     text-transform: uppercase;
 }
 
 // navbar links 
+.nav-anime-link{
+    text-decoration: none;
+    color: #3f3f3f;
+}
+
+.nav-bookmark-link{
+    text-decoration: none;
+    color: #3f3f3f;
+}
+
+.nav-anime-link:visited{
+    text-decoration: none;
+    color: #3f3f3f;
+}
+
+.nav-bookmark-link:visited{
+    text-decoration: none;
+    color: #3f3f3f;
+}
+.nav-anime-link:hover{
+    color: #f78c25;
+}
+
+.nav-bookmark-link:hover{
+    color: #f78c25;
+}
+
 .nav-link:link{
     color: rgb(100%,100%,100%);
-    text-decoration: none;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    // font-weight: bold;
 }
 .nav-link:visited{
     color: rgb(100%,100%,100%);
     text-decoration: none;
+        // font-weight: bold;
+
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .nav-link:hover{
     color: rgb(100%,100%,100%);
     text-decoration: none;
+        // font-weight: bold;
+
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .nav-link:active{
     color: rgb(100%,100%,100%);
     text-decoration: none;
+        // font-weight: bold;
+
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 // nav button
 .nav-button{
     box-sizing: border-box;
-    display: block;
-    margin: 0 auto 1.5em auto;
+    display: flex;
+    // margin: 0 auto 1.5em auto;
     // max-width: none;
     // padding: 1.35em 2em;
-    width: 100%;
-    border: 0;
-    border-bottom: .125em solid;
-    border-radius: .5625em;
-    font-size: 20px;
+    margin-top: 2px;
+    // width: 100%;
+    // border: 0;
+    // border-bottom: .125em solid;
+    // border-radius: .5625em;
+    font-size: 16px;
     font-weight: 500;
-    line-height: 1.25;
+    // line-height: 1.25;
     text-align: center;
-    background-color: #f78c25;
-    border-color: #b78142;
-    color: rgb(100%,100%,100%);
-    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    // background-color: #f78c25;
+    // border-color: #b78142;
+    // color: rgb(100%,100%,100%);
+    // cursor: pointer;
+    // justify-content: space-evenly;
+    margin-right: 50px;
+background: none!important;
+  border: none;
+  padding: 0!important;
+    color: #3f3f3f;
+  cursor: pointer;
+}
+
+.nav-button:hover{
+    color: #f78c25;
 }
 
 .visually-hidden {
@@ -104,6 +170,22 @@
     white-space: nowrap;
     width: 1px;
 }
+// seach
+.search{
+    display: flex;
+    height: 17px;
+    margin-right: 10px;
+}
+
+.search button{
+    margin-top: 2px;
+}
+
+.search-container{
+    display: flex;
+    flex-direction: row;
+    margin-right: 30px;
+}
 
 .results {
     position: absolute;
@@ -111,5 +193,6 @@
     background-color: whitesmoke;
     border-radius: 5px;
     transition: all 300ms ease-in-out;
-     z-index: 1;
+    z-index: 1;
+    text-decoration: none;
 }

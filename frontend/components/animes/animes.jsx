@@ -20,14 +20,20 @@ class Animes extends React.Component {
     }
     
     componentWillMount(){
-        let { anime } = this.props;
-        let bookmarks = this.props.bookmarks
+        let { anime } = this.props || {};
+        let bookmarks = this.props.bookmarks || [];
+        // debugger
+        console.log("ANIME", anime)
+        if(anime == undefined) return;
         bookmarks.forEach(bookmark => {
+            console.log("BOOKMARK", bookmark)
             if(bookmark.episode_id === null){
-                if(bookmark.anime_id === anime.id){
-                    this.setState({
-                        isBookmarked: true
-                    })
+                if(anime !== undefined){
+                    if(bookmark.anime_id === anime.id){
+                        this.setState({
+                            isBookmarked: true
+                        })
+                    }
                 }
             }
         })    
@@ -87,7 +93,8 @@ class Animes extends React.Component {
     }
 
     render(){
-        const { anime } = this.props;
+        const { anime } = this.props || {};
+        if(anime == undefined) return( <div></div>);
         // console.log(this.state);
         let user = Object.values(this.props.user)
         if(user.length !== 0){
