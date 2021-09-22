@@ -31,6 +31,28 @@ const App = () => (
             <Route exact path="/404" component={NotFoundPage} />
             <Redirect to="/404" />    
         </Switch>
+        <footer className="footer">
+            <div className="logo-wrapper">
+                <ul className="logo-container">
+                    <li className="github-logo">
+                        <a href="https://github.com/msaia97/Soggyroll">
+                            <img src="https://soggyroll-seed.s3.us-west-1.amazonaws.com/githubLogo.png" alt="" />
+                        </a>
+                    </li>
+                    <li className="angel-list-logo">
+                        <a href="https://angel.co/u/mason-saia">
+                            <img src="https://soggyroll-seed.s3.us-west-1.amazonaws.com/angelistLogo.png" alt="" />
+                        </a>
+                    </li>
+                    <li className="linkedin-logo">
+                        {/* <a href="https://www.linkedin.com/in/mason-saia-2536aa167/"> */}
+                        <a href="https://soggyroll-seed.s3.us-west-1.amazonaws.com/linkedin2.png">
+                            <img src="https://soggyroll-seed.s3.us-west-1.amazonaws.com/linkedinLogo.png" alt="" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
         
     </div>
 );

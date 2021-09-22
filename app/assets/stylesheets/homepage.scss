@@ -259,4 +259,48 @@
     margin-bottom: 10px;
 
 }
+// footer items
+.footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+
+.logo-wrapper{
+    max-height: 75px;
+    justify-content: center;
+    
+}
+
+.logo-container{
+    display: flex;
+    max-height: 75px;
+    width: 350px;
+    flex-direction: row;
+    // margin-left: 150%;
+    justify-content: center;
+}
+
+.logo-container li{
+    // justify-content: center;
+    justify-content: center;
+//     float: left;
+//   width: 33.33%;
+//   padding: 5px;
+}
+// .linkedin-logo{}
+
+.linkedin-logo img{
+    width: 28%;
+    height: auto;
+}
+.github-logo img{
+    width: 100%;
+    height: auto;
+}
+.angel-list-logo img{
+    width: 100%;
+    height: auto;
+}
 

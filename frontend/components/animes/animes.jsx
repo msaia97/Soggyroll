@@ -76,7 +76,7 @@ class Animes extends React.Component {
         e.preventDefault();
         let anime  = this.props.anime;
         let bookmarks = this.props.bookmarks
-        debugger
+        // debugger
         bookmarks.forEach(bookmark => {
             if(bookmark.episode_id === null){
                 if(bookmark.anime_id === anime.id){
