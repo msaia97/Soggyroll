@@ -25,7 +25,7 @@ class Navbar extends React.Component {
 
     animeSearch(e) {
         if(e.target.value === ''){
-            console.log('empty')
+            // console.log('empty')
             this.setState({
                 filteredAnime: [],
                 searchBar: e.target.value

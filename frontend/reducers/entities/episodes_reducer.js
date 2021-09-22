@@ -14,13 +14,13 @@ const episodeReducer = (state = {}, action) => {
                 [action.episode.id]: action.episode.id
             })
         case RECEIVE_ALL_EPISODES:
-            console.log("Heyoo")
+            // console.log("Heyoo")
             // debugger
             // console.log("EPISODE", action.episodes);
             return nextState[Object.values(action.episodes)[0].id] = action.episodes.episodes
         case FETCH_ALL_EPISODES:
             // debugger
-            console.log("Reducer", action.episodes)
+            // console.log("Reducer", action.episodes)
             return nextState[episodes] = action.episodes
         default:
             return state;

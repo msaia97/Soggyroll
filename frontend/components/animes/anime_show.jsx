@@ -17,7 +17,7 @@ class AnimeShow extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props.bookmarks)
+        // console.log(this.props.bookmarks)
         this.props.getAnime(this.props.match.params.animeId)
             .then(() => this.setState(this.props.anime))
         this.props.getEpisodes(this.props.match.params.animeId)

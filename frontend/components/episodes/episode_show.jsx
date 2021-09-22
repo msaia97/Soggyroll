@@ -64,7 +64,7 @@ class EpisodeShow extends React.Component {
     }
 
     addToBookmark(e){
-        debugger
+        // debugger
         e.preventDefault();
         let userId = Object.values(this.props.user)[0].id;
         let anime = this.props.anime
