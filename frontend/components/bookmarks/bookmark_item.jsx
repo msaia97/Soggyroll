@@ -8,7 +8,7 @@ class BookmarkItem extends React.Component {
     }
     componentDidMount(){
         this.props.getAnimes();
-        let userId = Object.values(this.props.user)[0].id;
+        let userId = Object.values(this.props.user)[0].id || {};
         getBookmarks(userId);
      
         
@@ -41,39 +41,53 @@ class BookmarkItem extends React.Component {
     }
     
     render(){
-        let animes = this.props.animes || null
-        let bmk = this.props.bookmark
+        let animes = this.props.animes || [];
+        let bmk = this.props.bookmark || {};
+        // if(animes === undefined)return(<div></div>)
         // let episodes = this.props.episodes || null
         // console.log(animes)
-        if(bmk.episode_id === null){
+        // if(bmk.episode_id === null){
             return(
                 <div>
                     {animes.map( (anime) => {
-                        if(bmk.anime_id === anime.id){
-                            return(
-                                <div className="bookmark-item">
-                                    <Link className="bookmark-item-link" to={`/animes/${anime.id}`} >
-                                        <div className="bookmark-item-photo-wrapper">
-                                            <img className="bookmark-item-photo" src={anime.cover_photo} alt="" />
-                                        </div>
-                                        <div className="bookmark-item-detail">
-                                            <li className="bookmark-item-title" >{anime.title}</li>
-                                            <li>{anime.description}</li>
-                                            <div>
-                                                <button
-                                                    className="remove-bookmark-button"
-                                                    onClick={e => this.removeBookmark(e)}
-                                                >Remove</button>
+                        // debugger
+                        // console.log("BMK", bmk, "ANIME", anime)
+                        if(anime !== undefined){
+                            if(bmk.anime_id === anime.id){
+                                return(
+                                    <div className="bookmark-item">
+                                        <Link className="bookmark-item-link" to={`/animes/${anime.id}`} >
+                                            <div className="bookmark-item-photo-wrapper">
+                                                <img className="bookmark-item-photo" src={anime.cover_photo} alt="" />
                                             </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            )
-                        }
+                                            <div className="bookmark-item-detail">
+                                                <li className="bookmark-item-title" >{anime.title}</li>
+                                                <li>{anime.description}</li>
+                                                <div>
+                                                    <button
+                                                        className="remove-bookmark-button"
+                                                        onClick={e => this.removeBookmark(e)}
+                                                    >Remove</button>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                )
+                            }else{
+                                return(
+                                    <div></div>
+                                )
+                            }
+
+                        }else{
+                                return(
+                                    <div></div>
+                                )
+                            }
                     })}
                 </div>
             )
-        }
+        // }
         // else{
         //     return(
         //         <div className="bookmark-item">

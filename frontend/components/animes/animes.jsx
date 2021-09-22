@@ -23,10 +23,10 @@ class Animes extends React.Component {
         let { anime } = this.props || {};
         let bookmarks = this.props.bookmarks || [];
         // debugger
-        console.log("ANIME", anime)
+        // console.log("ANIME", anime)
         if(anime == undefined) return;
         bookmarks.forEach(bookmark => {
-            console.log("BOOKMARK", bookmark)
+            // console.log("BOOKMARK", bookmark)
             if(bookmark.episode_id === null){
                 if(anime !== undefined){
                     if(bookmark.anime_id === anime.id){
