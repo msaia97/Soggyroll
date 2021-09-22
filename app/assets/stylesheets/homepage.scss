@@ -234,7 +234,7 @@
 .featured{
     float: right;
     position: relative;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .featured p{
@@ -244,6 +244,12 @@
 .home-featured-img{
     width: 52px;
     height: 77px;
+}
+
+.home-featured-title{
+    text-decoration: none;
+    color: #3f3f3f;
+    margin-left: 9px
 }
 
 .homepage{
@@ -257,7 +263,17 @@
     padding: 10px;
     box-shadow: 0 0 0.5rem rgb(219, 216, 216);
     margin-bottom: 10px;
+    
+}
 
+.featured-item p {  
+    text-decoration: none;
+}
+.featured-link:visited {  
+    text-decoration: none;
+}
+.featured-link {  
+    text-decoration: none;
 }
 // footer items
 .footer{

@@ -6,17 +6,29 @@ import Featured from './featured_container';
 
 
 const Homepage = ({ currentUser, logout }) => {
-  return(
-    <div className="homepage">
-      <div className="home-left">
-        <Carousel />
-        <Article />
+  console.log(currentUser)
+  if(currentUser.id !== undefined){
+    return(
+      <div className="homepage">
+        <div className="home-left">
+          <Carousel />
+          <Article />
+        </div>
+        <div className="home-right">
+          <Featured />
+        </div>
       </div>
-      <div className="home-right">
-        <Featured />
-      </div>
-    </div>
-  )
+    )
+  
+  }else{
+    return(
+      <nav className="login-signup">
+   <Link to="/login">Please Login</Link>
+     &nbsp;or&nbsp;
+       <Link to="/signup">Sign up!</Link>
+   </nav>
+    )
+  }
   // const sessionLinks = () => (
   //   <nav className="login-signup">
   //     <Link to="/login">Please Login</Link>
