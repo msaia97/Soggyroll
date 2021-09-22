@@ -123,7 +123,8 @@ class Navbar extends React.Component {
                                         value={ this.state.searchBar } 
                                         onChange={ this.animeSearch } 
                                     />
-                                    <button className="" type='submit'>Search</button>
+                                    {/* <button className="" type='submit'>Search</button> */}
+                                    {/* <i className="fa fa-search" aria-hidden="true"></i> */}
                                 </form>
                                 <div className="results-container" onClick={this.clearSearch}>
                                     {searchedAnime}

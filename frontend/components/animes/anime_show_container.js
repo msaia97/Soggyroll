@@ -6,7 +6,8 @@ import AnimeShow from './anime_show';
 
 const mSTP = (state, ownProps) => {
     return {
-        anime: state.entities.animes[ownProps.match.params.animeId]
+        anime: state.entities.animes[ownProps.match.params.animeId],
+        bookmarks: Object.values(state.entities.bookmarks);
     };
 }
 

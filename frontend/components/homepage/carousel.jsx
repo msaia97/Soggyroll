@@ -36,6 +36,22 @@ class Carousel extends React.Component {
         };
         this.nextSlide = this.nextSlide.bind(this);
         this.previousSlide = this.previousSlide.bind(this);
+        this.loop = this.loop.bind(this);
+        this.interval = this.interval.bind(this);
+    }
+
+    loop(){
+        let currIndex = this.state.currentImageIndex;
+        if(currIndex < 3 ){
+            this.setState({currentImageIndex: currIndex + 1})
+        }else{
+            this.setState({currentImageIndex: 0})
+        }
+    }
+    
+    interval(){
+        let time = 4500;
+        setInterval(this.loop, time)
     }
 
     previousSlide () {
@@ -54,13 +70,23 @@ class Carousel extends React.Component {
         const { currentImageIndex } = this.state;
         const resetIndex = currentImageIndex === lastIndex;
         const index = resetIndex ? 0 : currentImageIndex + 1;
+        let nextIndex = index + 1;
 
+        
         this.setState ({
             currentImageIndex: index
         });
+  
     }
 
+    componentDidMount(){
+        this.interval();
+    }
+
+
+
     render(){
+
         return(
             <div className="carousel">
                 <ImageSlide url={ imgUrls[this.state.currentImageIndex] } />

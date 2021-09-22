@@ -107,7 +107,7 @@ class EpisodeShow extends React.Component {
                     <EpisodeCarousel episodes={episodes}/>
                 </div>
                     <About episode={episode} anime={anime} />
-                    <div>
+                    {/* <div>
                         <button className={this.state.isBookmarked === true ? "is-bookmarked" : "not-bookmarked"} 
                             type="button" 
                             onClick={
@@ -116,7 +116,7 @@ class EpisodeShow extends React.Component {
                                     (e) => this.deleteBookmark(e)
                             }>{ this.state.isBookmarked === true ? 'Bookmarked' : 'Bookmark' }
                         </button>
-                    </div>
+                    </div> */}
             </div>
         )
     }
