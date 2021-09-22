@@ -52,12 +52,12 @@ class BookmarkItem extends React.Component {
                         if(bmk.anime_id === anime.id){
                             return(
                                 <div className="bookmark-item">
-                                    <Link to={`/animes/${anime.id}`} >
+                                    <Link className="bookmark-item-link" to={`/animes/${anime.id}`} >
                                         <div className="bookmark-item-photo-wrapper">
                                             <img className="bookmark-item-photo" src={anime.cover_photo} alt="" />
                                         </div>
                                         <div className="bookmark-item-detail">
-                                            <li>{anime.title}</li>
+                                            <li className="bookmark-item-title" >{anime.title}</li>
                                             <li>{anime.description}</li>
                                             <div>
                                                 <button

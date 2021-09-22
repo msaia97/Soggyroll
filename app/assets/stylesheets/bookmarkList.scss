@@ -5,6 +5,7 @@
     padding: 20px;
     margin-bottom: 10px;
     box-shadow: 0 0 0.5rem lightgrey;
+    flex-direction: row;
 }
 
 .bookmark-item-photo{
@@ -12,13 +13,58 @@
     height: auto;
     left: 0px;
     right: 0px;
+    float: left;
 }
 
 .bookmark-item-detail{
     padding: 5px;
-    margin-left: 10px;
+    margin-left: 220px;
+    text-decoration: none;
+    // padding: 15px;
+}
+
+.bookmark-item-title{
+    font-weight: bold;
 }
 
 .bookmark-item-detail li {
     margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.bookmark-item-link:visited{
+     text-decoration: none;
+    color: #3f3f3f;
+}
+.bookmark-item-link:active{
+     text-decoration: none;
+    color: #3f3f3f;
+}
+.bookmark-item-link:link{
+     text-decoration: none;
+    color: #3f3f3f;
+}
+
+.remove-bookmark-button{
+    margin: 0 auto 1.5em auto;
+    max-width: none;
+    // padding: 1.35em 2em;
+    margin-top: 2px;
+    // width: 100%;
+    border: 0;
+    border-bottom: .125em solid;
+    border-radius: .5625em;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #f78c25;
+    border-color: #b78142;
+    color: rgb(100%,100%,100%);
+    cursor: pointer;
+}
+
+.remove-bookmark-button:hover{
+    background-color: #3f3f3f;
 }

@@ -105,7 +105,7 @@ class Animes extends React.Component {
                             src={anime.cover_photo}
                             onMouseEnter={e => this.handleMouseEnter(e)}
                             onMouseOut={e => this.handleMouseOut(e)} />   
-                        <b>{anime.title}</b>
+                        <b className="anime-item-title">{anime.title}</b>
                     </Link>
                     <div className="bookmark-button-container">
                         <button className={this.state.isBookmarked === true ? "is-bookmarked" : "not-bookmarked"} 
@@ -128,7 +128,7 @@ class Animes extends React.Component {
                                 src={anime.cover_photo}
                                 onMouseEnter={e => this.handleMouseEnter(e)}
                                 onMouseOut={e => this.handleMouseOut(e)} />   
-                            <b>{anime.title}</b>
+                            <b className="anime-item-title" >{anime.title}</b>
                         </Link>
                         <AnimeHover anime={anime} isHovering={this.state.isHovering} />
                     </div>

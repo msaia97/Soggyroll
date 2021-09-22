@@ -9,6 +9,12 @@
     box-sizing: border-box;
     box-shadow: 0 0 0.5rem lightgrey;
 }
+.anime-item-title{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+}
 
 .show-title-link{
     text-decoration: none;
@@ -69,58 +75,64 @@
     margin-left: 10px;
     display: flex;
     justify-content: center;
-}
+  }
 
-.is-bookmarked {
-  background-color: orange; 
-  background-color: rgb(38, 34, 34); 
-  border: none;
-  color: white;
-  padding: 12px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  border-radius: 12px;
-  transition-duration: 0.4s;
+  .bookmark-button-container  {
+    display: flex;
+    // justify-content: center;
+    // margin-left: 5px;
+  }
+  .bookmark-button-container button {
+    // display: flex;
+    justify-content: center;
+    margin-left: 22.5px;
+  }
+  
+  .is-bookmarked {
+    display: flex;
+  justify-content: center;
+    background-color: rgb(38, 34, 34); 
+    // background-color: orange; 
+    border: none;
+    color: white;
+    padding: 5px 6px;
+    text-align: center;
+    text-decoration: none;
+    // display: inline-block;
+      margin-left: 20px;
+
+    font-size: 14px;
+    border-radius: 12px;
+    transition-duration: 0.4s;
 }
 
 .is-bookmarked:hover {
   background-color: orange; 
-  background-color: rgb(38, 34, 34); 
-  border: none;
   color: white;
-  padding: 12px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  border-radius: 12px;
-  transition-duration: 0.4s;
+  // padding: 12px 20px;
+  // transition-duration: 0.4s;
 }
 
 .not-bookmarked {
+  display: flex;
+      justify-content: center;
   background-color: orange; 
   border: none;
   color: white;
   padding: 5px 6px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  // display: inline-block;
+  margin-left: 26px;
   font-size: 14px;
   border-radius: 12px;
   transition-duration: 0.4s;
+
 }
 
 .not-bookmarked:hover{
   background-color: rgb(38, 34, 34); 
-  border: none;
   color: white;
-  padding: 12px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  border-radius: 12px;
-  transition-duration: 0.4s;
+  // padding: 12px 20px;
+  // transition-duration: 0.4s;
 }

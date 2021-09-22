@@ -55,9 +55,10 @@ class Navbar extends React.Component {
         const searchedAnime = this.state.filteredAnime.map(anime => {
             return (
                 // /?#/animes
-                <Link to={`/animes/${anime.id}`}>
-                    <div>
-                        <span>{anime.title}</span>
+                <Link className="result-link" to={`/animes/${anime.id}`}>
+                    <div className="results-item">
+                        <img className="search-item-photo" src={anime.cover_photo} alt="" />
+                        <span className="">{anime.title}</span>
                     </div>
                 </Link>
             )
@@ -70,16 +71,16 @@ class Navbar extends React.Component {
                     </Link>
                     <div className="nav-elements">
                         <ul className="nav-element">
-                            <li>
+                            {/* <li>
                                 <Link to="/animes" > Shows</Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link to="/signup" className="nav-link"> SIGN UP</Link>
                             </li>
                             <li>
                                 <Link to="/login" className="nav-link">LOG IN</Link>
                             </li>
-                            <li className='search-container'>
+                            {/* <li className='search-container'>
                                 <form>
                                     <input className="search" type="text" 
                                         placeholder="Search..." 
@@ -91,7 +92,7 @@ class Navbar extends React.Component {
                                 <div className="results" onClick={this.clearSearch}>
                                     {searchedAnime}
                                 </div>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
@@ -124,7 +125,7 @@ class Navbar extends React.Component {
                                     />
                                     <button className="" type='submit'>Search</button>
                                 </form>
-                                <div className="results" onClick={this.clearSearch}>
+                                <div className="results-container" onClick={this.clearSearch}>
                                     {searchedAnime}
                                 </div>
                             </li>
