@@ -181,9 +181,9 @@
 
 // css for the articles in the home page 
 .article{
-    position: relative;
+    // position: relative;
     padding: 10px;
-    top: 310px;
+    margin-top: 310px;
     max-width: 570px;
 }
 
@@ -268,18 +268,19 @@
 }
 
 .logo-wrapper{
-    max-height: 75px;
+    // max-height: 75px;
     justify-content: center;
     
 }
 
 .logo-container{
     display: flex;
-    max-height: 75px;
+    // max-height: 75px;
     width: 350px;
     flex-direction: row;
     // margin-left: 150%;
     justify-content: center;
+    position: relative;
 }
 
 .logo-container li{
