@@ -114,8 +114,8 @@ class Navbar extends React.Component {
                        </ul>
                         <button className="nav-button" 
                             onClick={this.props.logout}>
-                            LOG OUT</
-                        button>
+                            LOG OUT
+                        </button>
                             <li className='search-container'>
                                 <form className="search">
                                     <input className="search" type="text" 

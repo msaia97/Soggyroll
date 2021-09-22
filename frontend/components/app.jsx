@@ -21,10 +21,10 @@ const App = () => (
         <br />
         <Switch>
             {/* <ProtectedRoute path="/" component={Navbar} /> */}
-            <Route exact path = "/" component ={Homepage}/>
-            <Route exact path ="/animes" component={AnimeLibrary}/>
-            <Route exact path ="/animes/:animeId" component={AnimeShow}/>
-            <Route exact path ="/animes/:animeId/:episodeId" component={EpisodeShow}/>
+            <ProtectedRoute exact path = "/" component ={Homepage}/>
+            <ProtectedRoute exact path ="/animes" component={AnimeLibrary}/>
+            <ProtectedRoute exact path ="/animes/:animeId" component={AnimeShow}/>
+            <ProtectedRoute exact path ="/animes/:animeId/:episodeId" component={EpisodeShow}/>
             <ProtectedRoute exact path="/bookmark/:userId" component={BookmarkList} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
