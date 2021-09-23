@@ -14,20 +14,6 @@ class BookmarkItem extends React.Component {
         
     }
 
-    componentWillMount(){
-        // let animeId = this.props.bookmark.anime_id;
-        // this.props.getEpisodes(animeId);
-        // console.log("HEYYY", this.props.episodes)
-    }
-
-    componentWillUnmount(){
-        // let userId = Object.values(this.props.user)[0].id;
-        // getBookmarks(userId);
-    }
-
-    // shouldComponentUpdate(){
-      
-    // }
 
     componentDidUpdate(){
         // let animeId = this.props.bookmark.anime_id;

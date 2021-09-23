@@ -9,27 +9,11 @@ class BookmarkList extends React.Component {
     }
 
     componentWillMount(){
-        // console.log(user)
         let user = Object.values(this.props.user)[0]
         getBookmarks(user.id)
-        // let bookmarks = Object.values(this.props.bookmarks);
-        
-            // bookmarks.forEach(bookmark => {
-            //     this.props.fetchEpisodes(bookmark.anime_id)
-            // })
         
     }
     
-    componentDidMount(){
-        // let bookmarks = Object.values(this.props.bookmarks);
-        // // if(bookmarks.length > 0){
-        //     bookmarks.forEach(bookmark => {
-        //         this.props.fetchEpisodes(bookmark.anime_id)
-        //     })
-        // }
-     
-    }
-
     componentWillUnmount(){
         let user = Object.values(this.props.user)[0]
         getBookmarks(user.id)
@@ -38,7 +22,6 @@ class BookmarkList extends React.Component {
     render() {
         let bookmarks = Object.values(this.props.bookmarks);
         let user = this.props.user;
-        // console.log(bookmarks);
         if(bookmarks.length > 0){
            
             return(

@@ -6,7 +6,6 @@ import { getAnimes } from '../../actions/anime_actions';
 import Navbar from './navbar';
 
 const mSTP = ({session, entities: {users, animes}}) => {
-    // console.log(animes)
     return{
         user: users[session.id],
         animes: animes

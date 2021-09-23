@@ -10,7 +10,6 @@ import {
 import Animes from './animes';
 
 const mSTP = (state) => {
-    // console.log(state.entities.bookmarks)
   return {
     animes: Object.values(state.entities.animes),
     user: state.entities.users,
@@ -19,8 +18,7 @@ const mSTP = (state) => {
 }
 
 const mDTP = dispatch => {
-    // console.log(createAnimeBookmark)
-    // debugger
+
     return{
         getAnime: animeId => dispatch(getAnime(animeId)),
         getAnimes: () => dispatch(getAnimes()),

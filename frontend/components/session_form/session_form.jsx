@@ -1,5 +1,4 @@
 import React from 'react';
-// import crGirl from './images/crGirl.png';
 
 class SessionForm extends React.Component{
     constructor(props){
@@ -96,7 +95,6 @@ class SessionForm extends React.Component{
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     <br />
-                    {/* <img src={crGirl} alt="crGirl" /> */}
                     <div className="login-form">
                         <br />
                         {this.enterEmail()}
@@ -133,7 +131,6 @@ class SessionForm extends React.Component{
                 </form>
                 <div className="crGirl-container">
                     <img className="crGirl-home" src="https://soggyroll-seed.s3.us-west-1.amazonaws.com/hime-banner.png" alt="" />
-                    {/* <img className="crGirl-home" src="https://soggyroll-seed.s3.us-west-1.amazonaws.com/crunchyrollGirl.png" alt="" /> */}
                 </div>
             </div>
         );

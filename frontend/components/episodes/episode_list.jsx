@@ -28,7 +28,6 @@ class EpisodeList extends React.Component {
     render(){
         let anime = this.props.anime;
         let episodes = this.props.episodes;
-        // console.log(anime);
         if(episodes.length !== 0){
             return(
                 <div className="episode-list">

@@ -13,10 +13,6 @@ const mSTP = (state) => {
 
 const mDTP = dispatch => {
     return {
-        // getAnimeBookmark: (userId, animeId) => dispatch(getAnimeBookmark(userId, animeId)),
-        // getBookmarks: userId => dispatch(getBookmarks(userId)),
-        // createAnimeBookmark: (userId, animeId) => dispatch(createAnimeBookmark(userId, animeId)),
-        // deleteBookmark: userId => dispatch(deleteBookmark(userId))
         getEpisodes: (animeId) => dispatch(getEpisodes(animeId)),
         fetchEpisodes: (animeId) => dispatch(fetchEpisodes(animeId))
     }

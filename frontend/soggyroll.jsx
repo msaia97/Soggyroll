@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import { getEpisode } from './actions/episode_actions';
-// import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;

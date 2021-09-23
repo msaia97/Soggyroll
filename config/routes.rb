@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     resources :animes, only: [:index, :show] do 
       resources :episodes, only: [:show, :index]
     end
-    resources :navbar, only: :index
   end
   root 'static_pages#root'
 end

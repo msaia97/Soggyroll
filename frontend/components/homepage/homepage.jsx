@@ -6,7 +6,6 @@ import Featured from './featured_container';
 
 
 const Homepage = ({ currentUser, logout }) => {
-  console.log(currentUser)
   if(currentUser.id !== undefined){
     return(
       <div className="homepage">

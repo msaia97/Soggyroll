@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getEpisode } from '../../actions/episode_actions';
+import { getEpisode, getEpisodes } from "../../actions/episode_actions";
 import { getAnime} from '../../actions/anime_actions';
 import EpisodeShow from './episode_show';
 
@@ -20,6 +20,7 @@ const mDTP = dispatch => {
       getEpisode: (episodeId) => dispatch(getEpisode(episodeId)),
       getAnime: (animeId) => dispatch(getAnime(animeId)),
       getAnimes: () => dispatch(getAnimes()),
+      getEpisodes: (animeId) => dispatch(getEpisodes(animeId)),
     };
 }
 
