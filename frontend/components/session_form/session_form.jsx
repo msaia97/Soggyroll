@@ -131,6 +131,10 @@ class SessionForm extends React.Component{
                         {this.renderErrors()}
                     </div>
                 </form>
+                <div className="crGirl-container">
+                    <img className="crGirl-home" src="https://soggyroll-seed.s3.us-west-1.amazonaws.com/hime-banner.png" alt="" />
+                    {/* <img className="crGirl-home" src="https://soggyroll-seed.s3.us-west-1.amazonaws.com/crunchyrollGirl.png" alt="" /> */}
+                </div>
             </div>
         );
     }

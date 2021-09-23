@@ -25,7 +25,7 @@ class Featured extends React.Component {
             final.push(animes[i]);
         }
         // if(final.length === 0)return (<div></ div>)
-        console.log(final)
+        // console.log(final)
 
        return(
            <div className="featured">
