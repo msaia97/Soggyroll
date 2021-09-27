@@ -5,5 +5,5 @@ This is an app that is a clone of Crunchyroll, the anime streaming site. With th
 This project uses a Ruby on Rails backend, a React and Redux frontend, used to manage state and present a receptive frontend apprearence.
 
 # Features
-[Imgur](https://imgur.com/hjfJLB1)
- <img src="https://imgur.com/a/b9HFeyw.png" />
+<!-- [Imgur](https://imgur.com/hjfJLB1) -->
+ <img src="https://i.imgur.com/hjfJLB1.png" />
