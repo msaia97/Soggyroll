@@ -29,15 +29,9 @@ class BookmarkItem extends React.Component {
     render(){
         let animes = this.props.animes || [];
         let bmk = this.props.bookmark || {};
-        // if(animes === undefined)return(<div></div>)
-        // let episodes = this.props.episodes || null
-        // console.log(animes)
-        // if(bmk.episode_id === null){
             return(
                 <div>
                     {animes.map( (anime) => {
-                        // debugger
-                        // console.log("BMK", bmk, "ANIME", anime)
                         if(anime !== undefined){
                             if(bmk.anime_id === anime.id){
                                 return(
