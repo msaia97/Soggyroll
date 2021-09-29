@@ -8,30 +8,46 @@ This project uses a Ruby on Rails backend, a React and Redux frontend, used to m
 # Features
 ## Homepage:
  <img src="https://i.imgur.com/hjfJLB1.png" />
-  * Responsive image carousel that rotates ecvery 4.5 seconds
-  * Links to featured animes 
+ <ul>
+ <li> Responsive image carousel that rotates ecvery 4.5 seconds</li>
+ <li>Links to featured animes</li>
+</ul>
+
  
  ## Anime Show Page:
  <img src="https://i.imgur.com/ctC7nf9.png" />
-  * Can bookmark animes here to save for later
-  * On hover the animes description will pop up
+  <ul>
+ <li>  Can bookmark animes here to save for later</li>
+ <li>On hover the animes description will pop up</li>
+</ul>
+
  
  ## Episode Show Page:
  <img src="https://i.imgur.com/bGHwkSf.png" />
-  * Can watch parts of the episode
-  * Can switch between episodes of the same series
+   <ul>
+ <li>  Can watch parts of the episode</li>
+ <li>Can switch between episodes of the same series</li>
+</ul>
+
  
  ## Searchbar
   <img src=" https://i.imgur.com/HG2lLki.png" />
-   * You can search through the available animes selection
+    <ul>
+ <li>  You can search through the available animes selection</li>
+</ul>
 
 ## Bookmarks page
   <img src="https://i.imgur.com/BKbJmXw.png" />
-    * Here you can see your bookmarked animes as well as remove them from the list
+    <ul>
+ <li>  Here you can see your bookmarked animes as well as remove them from the list</li>
+</ul>
 
   <img src="https://i.imgur.com/29a5RAD.png" />
- * The bookmarks was one of the biggest hurdles that I ran into while completing this project. The actions were not meshing well with the containers for the components so we had to find a workaround instead of using containers
+    <ul>
+ <li>  The bookmarks was one of the biggest hurdles that I ran into while completing this project. The actions were not meshing well with the containers for the components so we had to find a workaround instead of using containers</li>
+</ul>
 
 # Future implementations
- * I would like to implement comments as well as ratings in the future to get more user interaction
-
+  <ul>
+  <li> I would like to implement comments as well as ratings in the future to get more user interaction</li>
+</ul>
