@@ -8,6 +8,12 @@ This project uses a Ruby on Rails backend, a React and Redux frontend, used to m
 # Features
 ## Homepage:
  <img src="https://i.imgur.com/hjfJLB1.png" />
+ <ul>
+ <li> Responsive image carousel that rotates ecvery 4.5 seconds</li>
+ <li>Links to featured animes</li>
+ <li>Third item</li>
+ <li>Fourth item</li>
+</ul>
   + Responsive image carousel that rotates ecvery 4.5 seconds
   - Links to featured animes 
  
