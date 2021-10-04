@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-// import { getAnimeBookmark, getBookmarks, createAnimeBookmark, deleteBookmark } from '../../actions/bookmark_actions';
 import { getEpisode, getEpisodes, fetchEpisodes } from "../../actions/episode_actions";
 import BookmarkList from './bookmark_list';
 

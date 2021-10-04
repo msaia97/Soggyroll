@@ -1,7 +1,6 @@
 class Api::BookmarksController < ApplicationController
     def index
         @user = current_user
-    #    debugger
         if @user
             @bookmarks = @user.bookmarks
             render :index
@@ -12,8 +11,7 @@ class Api::BookmarksController < ApplicationController
     end
 
     def create
-        # debugger
-        @user = current_user
+=        @user = current_user
         @bookmark = Bookmark.new(bookmark_params)
         @bookmark.anime_id || nil
         @bookmark.episode_id || nil
@@ -24,21 +22,15 @@ class Api::BookmarksController < ApplicationController
         end
     end
 
-    def destroy #
-     #  @user = current_user
-      # debugger
-      # if @user
-       # @bookmark = Bookmark.where((user_id: params[:user_id]) && (bookmark_id: params[:bookmark_id]))
+    def destroy 
         @bookmark = current_user.bookmarks.where(id: params[:id])
         @bookmark = @bookmark.first
         if @bookmark
-            # debugger
             @bookmark.destroy!
             render :show
         else
             render json: ["Cant find the bookmark"], status: 404
         end
-      # end
     end
 
     private

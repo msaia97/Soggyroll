@@ -16,13 +16,11 @@ class BookmarkItem extends React.Component {
 
 
     componentDidUpdate(){
-        // let animeId = this.props.bookmark.anime_id;
-        // this.props.getEpisodes(animeId);
+    
     }
 
     removeBookmark(e){
         e.preventDefault();
-        // console.log(this.props)
         deleteBookmark(this.props.bookmark)
     }
     
@@ -67,34 +65,6 @@ class BookmarkItem extends React.Component {
                     })}
                 </div>
             )
-        // }
-        // else{
-        //     return(
-        //         <div className="bookmark-item">
-        //             {episodes.map( (episode) => {
-        //                 if(bmk.episode_id === episode.id){
-        //                     return(
-        //                         <div className="bookmark-item" >
-        //                             <div className="bookmark-item-photo-wrapper">
-        //                                 <img className="bookmark-item-photo" src={episode.photo} alt="" />
-        //                             </div>
-        //                             <div className="bookmark-item-detail">
-        //                                 <li>{episode.title}</li>
-        //                                 <li>{episode.description}</li>
-        //                                 <div>
-        //                                     <button
-        //                                         className="remove-bookmark-button"
-        //                                         onClick={e => this.removeBookmark(e)}
-        //                                         >Remove</button>
-        //                                 </div>
-        //                             </div>
-        //                         </div>
-        //                     )
-        //                 }
-        //             })}
-        //         </div>
-        //     )
-        // }
     }
 }
 
