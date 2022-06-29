@@ -5,7 +5,7 @@ const About = (props) => {
     return(
         <div className="about-wrapper">
             <p>About This Video:</p>
-            <Link to={`/animes/${props.anime.id}`}>
+            <Link className="episode-link" to={`/animes/${props.anime.id}`}>
                 <p className="about-title">{props.anime.title}</p>  
             </Link>
             <p className="about-num"> Episode {props.episode.episode_num}</p>
@@ -22,7 +22,7 @@ const EpisodeCarousel = (props) => {
             <ul className="episode-carousel">
                 {episodes.map(episode => {
                         return(
-                                <Link to={`/animes/${episode.video_id}/${episode.id}`}>
+                                <Link className="episode-link" to={`/animes/${episode.video_id}/${episode.id}`}>
                                     <li className="episode-template">
                                         <img className="episode-photo" src={episode.photo} alt="" />
                                         <p className="episode-num">Episode {episode.episode_num}</p>
